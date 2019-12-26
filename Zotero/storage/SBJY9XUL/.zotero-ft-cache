@@ -1,0 +1,1064 @@
+Article Assessment of the fire toxicity of building insulation materials
+Stec, Anna A and Hull, T Richard Available at http://clok.uclan.ac.uk/1536/
+Stec, Anna A ORCID: 0000­0002­6861­0468 and Hull, T Richard ORCID: 0000­0002­7970­4208 (2011) Assessment of the fire toxicity of building insulation materials. Energy and Buildings, 43 (2­3). pp. 498­506. ISSN 03787788
+It is advisable to refer to the publisher’s version if you intend to cite from the work.
+http://dx.doi.org/10.1016/j.enbuild.2010.10.015
+For more information about UCLan’s research in this area go to http://www.uclan.ac.uk/researchgroups/ and search for <name of research Group>. For information about Research generally at UCLan please go to http://www.uclan.ac.uk/research/ All outputs in CLoK are protected by Intellectual Property Rights law, including Copyright law. Copyright, IPR and Moral Rights for the works on this site are retained by the individual authors and/or other copyright owners. Terms and conditions for use of this material are defined in the http://clok.uclan.ac.uk/policies/
+CLoK Central Lancashire online Knowledge www.clok.uclan.ac.uk
+
+Energy and Buildings, 43 (2-3), pp. 498-506 (2011) doi:10.1016/j.enbuild.2010.10.015
+Assessment of the fire toxicity of building insulation materials
+Anna A Stec and T Richard Hull
+Centre for Fire and Hazard Science University of Central Lancashire Preston, PR1 2HE, UK aastec@uclan.ac.uk
+Abstract
+A significant element in the cost of a new building is devoted to fire safety. Energy efficiency drives the replacement of traditional building materials with lightweight insulation materials, which, if flammable can contribute to the fire load. Most fire deaths arise from inhalation of toxic gases. The fire toxicity of six insulation materials (glass wool, stone wool, expanded polystyrene foam, phenolic foam, polyurethane foam and polyisocyanurate foam) was investigated under a range of fire conditions. Two of the materials, stone wool and glass wool failed to ignite and gave consistently low yields of all of the toxic products. The toxicities of the effluents, showing the contribution of individual toxic components, are compared using the fractional effective dose (FED) model and LC50, (the mass required per unit volume to generate a lethal atmosphere under specified conditions). For polyisocyanurate and polyurethane foam this shows a significant contribution from hydrogen cyanide resulting in doubling of the overall toxicity, as the fire condition changes from well-ventilated to under-ventilated. These materials showed an order of increasing fire toxicity, from stone wool (least toxic), glass wool, polystyrene, phenolic, polyurethane to polyisocyanurate foam (most toxic).
+Introduction
+The primary function of most buildings is to provide shelter from wind and rain, and to protect their occupants from uncomfortable temperatures. Traditional building materials, such as brick, stone and timber have higher thermal capacities and higher thermal conductivity, and were suited to systems providing poor or slow control of the indoor temperature. Modern, lightweight building materials are cheaper to produce, transport and erect, and offer improved thermal insulation, allowing more efficient temperature control. In the US, 50-70% of domestic energy usage is for temperature control1. However, in comparison to traditional materials many insulation materials present a greater fire hazard, being less effective fire barriers, more combustible and having higher fire toxicity. The increased use of lightweight insulation materials will help to meet targets for carbon emissions, but this should not be at the expense of fire safety.
+1
+
+By design, when heated, the surface of insulation materials gets hot very quickly. If the material is combustible, this will result in ignition and rapid flame spread. The flammability of a material (or its ease of ignition and flame spread) is inversely proportional to the product of its thermal conductivity (k), density () and heat capacity (C), collectively known as the thermal inertia (kC). For insulating materials this always has a low value.
+
+Common Insulation Materials
+There are wide variety of materials and methodologies for insulation of buildings to suit different circumstances. For large temperature gradients, reflective panels reduce the radiative heat transfer. For smaller temperature gradients most heat is transferred by conduction and/or convection, and the most effective (but not the most cost efficient) insulation is a vacuum. Gases have low thermal conductivity, but do allow convective heat transfer. Most common insulation materials comprise gases trapped in a matrix to inhibit convection. In this study six such materials in the form of rigid insulation panels were compared. These fall into two categories, inorganic fibres and organic foam products. The thermal insulation properties of these materials have been compared elsewhere2, and are summarised in Table 1.
+
+Both glass wool and stone wool are classified as non-combustible or limited combustibility depending on the binder content. While both loose small (~5%) quantities of pyrolysable binders, most of the mass will not burn and there is insufficient fuel for a flame to propagate through the bulk of the material, so their contribution to the fuel load is negligible. The foamed materials are organic polymer based, and depending on the fire conditions a significant part of their mass is lost as fuel, and may contribute to the overall size of the fire.
+
+Table 1 Generic table describing types and ranges within types
+
+Insulation
+
+Density range
+kg m-3
+
+Thermal Conductivity range
+W m-1K-1
+
+Reaction to Fire Euroclass range
+
+Glass wool (GW)
+
+10 - 100 0.030 - 0.045
+
+A1 – A2
+
+Stone wool (SW)
+
+22 - 180 0.033 - 0.045
+
+A1 – A2
+
+Extruded polystyrene (XPS)
+
+20 - 80
+
+0.025 - 0.035
+
+E–F
+
+Expanded polystyrene (EPS)
+
+10 - 50
+
+0.029 - 0.041
+
+E–F
+
+Phenolic (PhF) Polyurethane (PUR)
+
+30 - 40 30 - 80
+
+0.029 - 0.041 0.029 - 0.041
+
+B–C D–E
+
+Polyisocyanurate (PIR)
+
+30 - 80
+
+0.023 - 0.041
+
+C–D
+
+2
+
+Fire Hazard Assessment
+Fire safety requirements for building products are divided into fire resistance (the ability to maintain structural integrity in a fire) and reaction to fire (flammability and fire toxicity). Fire hazard assessment requires consideration of the most probable fire scenarios, and prediction of the rate of fire growth, the amount of fuel present, its impact on the occupants and their ability to escape safely. Figure 1 shows a schematic relationship between the factors required to assess the fire hazard. In order to ensure safe evacuation, ISO 135713 subdivides the hazards to people escaping from a fire into the effects of heat, asphyxiant gases, irritant gases, and visual obscuration by smoke. It treats each of the four components separately, defining untenability when any of the four reach a level which would prevent a potential victim effecting their own escape.
+
+Fire Safety
+
+Hazard (severity of fire)
+
+Risk (ignition)
+
+Structural Integrity Fire growth rate Fire Toxicity Smoke
+
+Material ignitability
+
+Ignition sources
+
+Toxicity
+
+Toxic product yield
+
+Mass loss rate
+
+Asphyxiants Irritants
+
+Material Ventilation Temperature
+
+Time to reach Tenability Limit
+Figure 1 Schematic of factors required for fire hazard assessment relating to fire toxicity
+
+3
+
+Fire Toxicity
+Most fire deaths, and most fire injuries result from inhalation of toxic fire effluents4.
+Fire gas toxicity is increasingly being recognised as a major factor in the assessment of fire hazard. Replacement of prescriptive standards by performance based fire codes requires assessment by fire safety engineers, which includes prediction of the toxic product distribution within the building from a fire3. Prediction of toxic fire hazard depends on two parameters
+– Time-concentration profiles for major products. These depend on the fire growth curve and the yields of toxic products.
+– Toxicity of the products, based on estimates of doses likely to impair escape efficiency, cause incapacitation, or death.
+Toxic product yields depend on the material composition5, and the fire conditions. The burning of an organic material, such as a polymer, is a complex process, in which volatile breakdown products react, to a greater or lesser extent, with oxygen, producing a cocktail of products. These range from the relatively harmless carbon dioxide (CO2) and water, to products of incomplete combustion, including carbon monoxide (CO), hydrogen cyanide (HCN), organoirritants. In addition, depending on the other elements present, halogen acids, oxides of nitrogen, and sulphur, may be formed.
+The most significant differences in fire conditions arise between flaming and non-flaming combustion. For flaming combustion the fuel/air ratio has the greatest effect the yields. As a fire in a building develops, the temperature increases and oxygen concentration decreases. Research predicting the carbon monoxide evolution from flames of simple hydrocarbons, reviewed by Pitts6, has shown the importance of the equivalence ratio, , for predicting the CO yield from the oxygen depletion in flaming conditions.
+
+  actual fuel to air ratio stoichiometric fuel to air ratio
+
+Typical CO yield g/g
+
+ ~ 0.7 fuel lean flames
+
+0.01
+
+ = 1.0 stoichiometric flames 0.05
+
+ ~ 1.5 fuel rich flames
+
+0.20
+
+In a fully developed fire, with low ventilation,  can be as large as 5. For many hydrocarbon polymers, CO yield increases rapidly with increase in almost independent of polymer7. In addition, a close correlation between CO formation and HCN formation has been established in full-scale fire studies8, as the formation of both species appear to favourable under the same poorly ventilated fire conditions.
+4
+
+The stages of fire growth have been summarised in order to relate their contribution to the toxic hazard8.
+The transition, from non-flaming, to well-ventilated flaming, and finally to under-ventilated flaming, have been classified by ISO10 (Table 2) in terms of heat flux, temperature, oxygen concentration (to the fire, and in the fire effluent), and CO2 to CO ratio, equivalence ratio and combustion efficiency (the % conversion of fuel to fully oxygenated products, such as CO2 and water). While some real life fires may be represented by a single fire stage, most will pass through several different stages.
+Although on some occasions smouldering (oxidative pyrolysis) can be important e.g. in polyurethane foams, the rate of reaction, and hence the amount of toxic species generated, will be small. Similarly well-ventilated fires are generally small, so extinguishment or escape is still feasible, and any fire effluent movement will be below the ceiling, but above head height. However, as they grow, all fires become ventilation controlled, and fires in enclosures such as buildings can change rapidly from well-ventilated to under-ventilated. Under-ventilated fires are larger, and therefore produce larger quantities of effluent, endangering occupants over a much greater part of any building. While well-ventilated fire scenarios are routinely used for assessment of flammability, because the object is to stop the fire before it grows out of control, where fire toxicity is assessed to prevent loss of life or injury the important fire stages are under-ventilated (Stage 3a: a low ventilation room fire, and 3b: post-flashover). In another study, the Smoke Chamber (ISO 5659) currently being proposed as a toxicity standard in ISO TC92 SC1 (ISO DIS 21489) was not even capable of replicating under-ventilated burning of polyethylene9.
+5
+
+Table 2 ISO classification of fire stages, based on ISO 1970610.
+
+Fire Stage
+
+Heat /kW m-2
+
+Max Temp /°C
+
+Fuel
+
+Smoke
+
+Oxygen %
+
+In
+
+Out
+
+Equivalence
+ratio
+
+
+VCO VCO2
+
+Combustion Efficiency
+%
+
+Non-flaming
+
+1a. Self sustained smouldering
+
+n.a.
+
+450 - 800 25 - 85
+
+20
+
+0 - 20
+
+-
+
+0.1 - 1
+
+50-90
+
+1b. Oxidative,
+
+-
+
+300 - 600
+
+external
+
+radiation
+
+20
+
+20
+
+-
+
+1c. Anaerobic
+
+-
+
+100 - 500
+
+external
+
+radiation
+
+0
+
+0
+
+-
+
+Well ventilated flaming
+
+2. Well ventilated flaming
+
+0 to 60 350 - 650 50 - 500 ~20
+
+0 - 20
+
+<1
+
+<0.05
+
+>95
+
+Under ventilated Flaming
+
+3a. Low vent. 0 to 30 300 - 600 50-500 15 - 20 5 - 10 > 1 0.2 - 0.4 70 - 80 room fire
+
+3b. Post flashover
+
+50 to 150 350 - 650 >600
+
+<15
+
+<5
+
+> 1 0.1 - 0.4 70 - 90
+
+The use of CO/CO2 ratios can only be used to characterise fire stages for materials which do not contain chlorine or bromine since these elements significantly increase the CO yield in well ventilated fires.
+
+6
+
+Measurement of Toxic Product Yields
+Ventilation Controlled
+Early/well-ventilated flaming
+Smouldering/non-flaming
+Figure 2 Idealised fire growth curve
+A simplified growth curve showing the transition through the stages of a fire in an enclosure is shown in Figure 2. The graph shows the slow induction period, leading to ignition, and followed by rapid growth, until limited by the access of oxygen, reaching a quasi-steady state. When the fuel is used up, the fire decays. Many bench-scale fire models can only replicate the early stages of fire development using small samples under open ventilation. In large-scale tests the greatest toxic product yields usually occur under oxygen-depleted conditions, when the fire is ventilation controlled. Small scale toxicity assessment only replicates large scale fires when burning can be forced under oxygen depleted conditions.
+Fire Gas Toxicity
+Fire gases contain a mixture of fully oxidised products, such as carbon dioxide (CO2), partially oxidised products, such as carbon monoxide (CO), hydrogen cyanide (HCN) or aldehydes, fuel or fuel degradation products, such as aliphatic or aromatic hydrocarbons, and other stable gas molecules, such as nitrogen and hydrogen halides. CO is one of the most toxicologically significant components in fire gases, preventing oxygen transport by the formation of carboxyhaemoglobin. HCN is also important because it prevents uptake of oxygen by the cells. The presence of CO2 in blood, which stimulates hyperventilation, increases the respiration rate and hence the hazard from the toxic components of the fire gas. Oxygen depletion deprives the body of oxygen (hypoxia) with fatal consequences at concentrations below 14%. The combined effect of these toxicants may be predicted using Purser's FED model (Equation 1). This expresses the ratio of the concentration of each toxicant to its lethal concentration, and then multiplies the sum of these ratios by the hyperventilation factor. It uses VCO2 as multiplication factor for CO2 driven hyperventilation,
+7
+
+to account for the increased respiration rate resulting from inhalation of CO2 on the harmful effect of the other toxic species, therefore increasing the FED contribution from all the toxic species. It also incorporates an acidosis factor A, to account for the toxicity of CO2 in its own right. A number of other toxic and irritant gas species also contribute to the hazard from fire gases to a lesser extent. The yields of most of these species will depend on the material and the ventilation conditions. The influence of ventilation condition on the yields of some important toxic fire gases are shown in Table 3 together with estimates of the concentrations for incapacitation (IC50) for irritant gases3 and for lethality for all gases obtained from rat exposure data11 (for 50% of the population over a 30 minute exposure, “30 min LC50”).
+
+      FED
+
+
+
+  
+
+CO LC 5 0 ,CO
+
+
+
+HCN LC 5 0 ,HCN
+
+
+
+HCl LC 5 0 ,HCl
+
+
+
+.... 
+
+
+
+VCO2
+
+ A  21O2 
+21 5.4
+
+VCO2
+
+1
+
+
+
+exp 0.14CO2  1
+2
+
+(1)
+
+A is an acidosis factor equal to[CO2 ] 0.05.
+
+Table 3 The main irritant and toxic components in fire gases and their toxic potencies3,11 (IC50; LC50).
+
+Yield independent of fire condition
+
+Yield increases with ventilation
+
+Yield decreases with ventilation
+
+HF (500; 2900 ppm)
+
+CO2 (not specifically toxic, but replaces O2 and increases respiration rate).
+
+CO (5700ppm)
+
+HCl (1000; 3800 ppm)
+
+NO2 (170; 250ppm)
+
+HCN (165 ppm)
+
+HBr (1000; 3800 ppm)
+
+SO2 (150;1400ppm)
+
+Acrolein (30;150 ppm)
+Formaldehyde (250; 750 ppm)
+
+Aromatics, aldehydes, ketones etc.
+
+8
+
+Toxic Fire Hazard of Insulation Materials
+Relatively few publications consider the fire hazards of insulation materials. A recent review of the performance characteristics and practical applications of common building insulation materials12 refers to their fire resistance, but makes no mention of the contribution of insulation materials to the fire hazard through increased flammability and toxic smoke. Another, focused on state of the art and future developments, considers reaction to fire and fire toxicity2, in conjunction with the Euroclass classification system, which has separate categories (A1, A2) for noncombustible materials (glass wool and stone wool) and for foams (B to F). The only recently published study of the fire toxicity of insulation materials15 unfortunately uses the overly simplistic and widely discredited13,14 UK Navy test, NES 713 which uses a closed chamber (~ 1m3), with the sample mounted on a wire gauze above a 100mm burner flame, and (Draeger type) reagent tubes to analyse 14 toxic products. Exposing a small sample to an open flame does not represent the fire scenarios commonly encountered in buildings. Their assertion that the “the UK Building Research Establishment (BRE) also uses the test for building materials and products”15 is misleading, (BRE's activities extend beyond building research to providing a fire testing service, and some of their customers need to demonstrate compliance with the UK Navy specification). Actual weight losses are presented, but the mass of sample used is not specified (the sample dimensions are given as 20mm x 20mm and "the test specimen is 0.05 – 0.5g and is chosen to provide optimum analytical precision". The results do not adequately distinguish between flammable materials such as polyethylene and polyurethane foams, and non-combustible materials such as glass wool and stone wool, which would be expected to show clear differences, given their predominantly non-combustible composition. A more detailed review the fire behaviour of rigid and flexible polyurethane foams16 identifies 25 published studies on their combustion toxicity, and observes that the toxic products from rigid and flexible PU foams do not differ greatly. Several of these studies reported the greater toxicological significance of hydrogen cyanide over carbon monoxide.
+Isocyanates
+Although not specifically included in the normal lists of fire effluents for quantification of fire toxicity, it is been suggested that isocyanates (molecules with functional group –NCO, used in polyurethanes and some binders) may pose a hitherto unquantified hazard in fire effluents. A cone calorimeter study17 included five insulation materials, GW, SW, EPS foam, PUR foam and PIR foam, as part of a larger project to investigate the presence of isocyanates in fire effluents. Each sample was exposed to an intermediate heat flux of 35 kW m-2. The paper included reports of other studies which showed that for some nitrogen containing materials, isocyanate production was favoured in the early well–ventilated stages of flaming, while hydrogen cyanide was favoured in the more toxicologically significant under-ventilated stages (when a greater volume of fire effluent is produced so the effect is more widespread. As an initial screening, the study was the prelude to further (as yet unpublished) work, although some aspects of the experimental and reporting methodology may have led to misinterpretation of the results.
+9
+
+For non-combustible samples, glass wool and stone wool the materials were subject to a full 15 minutes pyrolysis and during which isocyanate collection continued, polystyrene foam was only subjected to 10 minutes pyrolysis during which it did not ignite, while the PUR and PIR foams burnt for 5.5 and 9 minutes respectively18. The isocyanates were only collected during these times. Thus the sample collection time was greatest for the least flammable samples.
+
+From the reported data, isocyanate yields have been calculated as shown in
+
+. In the original paper, the mass loss data for PUR or PIR is not given – for the calculation we have used data from experiments reported here. Despite the 37.5% mass loss from PS, no data are presented on the composition of the volatile products, and no explanation is provided, but it seems likely that the large amount of soot may have blocked the sampling lines. The yields are calculated on a mass charge basis (favoured by engineers as it indicates the total amount of product that may be formed per unit mass present in a building) and as originally reported, on a mass loss basis (materials such as glass wool which we found to be 88.5 % non–volatile (glass fibre) and 11.5% organic binder, this is the yield from the organic binder alone, as though there was no glass fibre present).
+
+Table 4 Isocyanate yield and calculation data
+
+Mass of Concentration sample
+
+g/m3
+
+/g
+
+Mass Mass of
+
+Mass charge Mass loss
+
+loss Isocyanate yield
+
+yield
+
+/g
+
+/mg
+
+mg/g
+
+mg/g
+
+GW
+
+8100
+
+20
+
+2.3
+
+175
+
+8.7
+
+82.1
+
+MW
+
+990
+
+14
+
+0.5
+
+21
+
+1.5
+
+68.9
+
+PS
+
+0
+
+8
+
+3.0
+
+0
+
+0.0
+
+0
+
+PUR
+
+4500
+
+17
+
+13.0
+
+36
+
+2.1
+
+2.7
+
+PIR
+
+3350
+
+14
+
+11.5
+
+43
+
+3.1
+
+7
+
+The use of the mass loss yield in reference 17 results in a very large overestimation of the isocyanate yields from the inorganic fibre insulation materials. In effect, it compares the yield from 1kg of PUR foam with that from 9kg of glass wool insulation.
+10
+
+2.0
+
+Hydrogen Cyanide
+
+Nitric Oxide
+
+1.6
+
+Hydrogen Chloride
+
+Ammonia Carbon Monoxide Isocyanates
+
+Toxic Hazard Factor
+
+1.2
+
+0.8
+
+0.4
+
+0.0
+
+GW
+
+SW
+
+PUR
+
+PIR
+
+Figure 3 Toxic hazard factors based on NIOSH IDLH values and data presented in reference 17 for well-ventilated stages of flaming
+
+The paper goes on to compare the toxicological significance of isocyantes with other toxicants using a toxic hazard factor (similar to the FED calculation, but using immediately dangerous to life and health (IDLH) data. Figure 3 shows a comparison of toxic hazard factors estimated in the isocyanate study17 for the four materials also reported in the present study, under well–ventilated conditions in the cone calorimeter. This indicates that direct inhalation of the effluents with the arbitrary dilution in the cone calorimeter duct would be harmful from pyrolysing glass wool and burning polyurethane. Burning PIR foam has a toxic hazard factor just below the threshold for immediate danger, also implying a toxic hazard, while the stone wool has the lowest overall toxic hazard. For the stone wool sample, the HCN, NH3 and CO concentrations are so low that the limit of detection is actually shown in Figure 3.
+
+11
+
+EXPERIMENTAL
+Materials
+Six samples of rigid insulation materials were tested, described as shown in Table 5.Table 5Table 5 Insulation materials used in this study
+
+Material
+
+Form
+
+Abbr.
+
+Density kg m-3
+
+Glass wool
+
+Slab consisting of GW
+
+85
+
+Fibre + binder
+
+Stone wool
+
+Slab consisting of SW
+
+175
+
+Fibre + binder
+
+Expanded polystyrene
+
+Foam
+
+EPS
+
+18
+
+Phenolic
+
+Foam
+
+PhF
+
+35
+
+Polyurethane Foam
+
+PUR
+
+34
+
+Polyisocyanurate Foam
+
+PIR
+
+32
+
+Thermal Conductivity
+W m-1K-1
+
+Organic content %
+
+0.038
+
+10
+
+0.039
+
+5.5
+
+0.036
+
+~100
+
+0.021 0.023 0.023
+
+~100 ~100 ~100
+
+For practical reasons the sheets of samples were cut into circular sections, using a cylindrical tool (PS, PhF, PUR, and PIR) or square linear sections using a toothed saw (GW and SW).
+
+Bench-Scale Determination of Toxic Product Yields in Fire Effluents
+To investigate the effect of material chemistry and fire conditions on the toxic product yields and the predicted combustion toxicity, the steady state tube furnace, ISO TS 1970019 (Purser furnace) was used. This is one of the only techniques capable of recreating a steady state for all fire conditions including under-ventilated combustion. The apparatus may be set up to burn material either without flaming or, for flammable samples at a particular equivalence ratio, from well-ventilated through to forcing a steady state under the most toxic oxygendepleted conditions. It does so by feeding the sample and air into a tube furnace at fixed rates, so that the flame front is held stationary relative to the furnace. This enables it to provide reliable data on the product yields as a function of equivalence ratio. Unlike a
+12
+
+“flammability test” where a material’s chemistry dictates the rate of burning, in the steady state tube furnace all flammable materials are burned at a fixed rate.
+
+Toxic gas and Oxygen probe
+
+Secondary air supply (40-48 litres min-1)
+
+Primary air supply (2-10 litres min-1)
+
+Mixing
+chamber Furnace
+Smoke sensor
+Exhaust gases (50 litres min-1)
+
+Movement of sample into
+furnace
+
+Figure 4 The steady state tube furnace apparatus (Purser furnace)
+
+The apparatus is shown in Figure 4. Samples were fed into the furnace in a quartz boat travelling at 35 or 47 min to give a mass feed rate of approximately 1 g min-1. By varying the primary air flow rate, fire conditions were created at different equivalence ratios. Following the guidance in the standard the furnace temperature was increased in an attempt to obtain steady flaming. The combustion products were passed from the tube furnace into the mixing chamber, where they were diluted to a constant volume of 50 litres min-1. Samples of the effluent were filtered, and analysed in real time, or passed directly into bubblers trapping individual toxic components for subsequent analysis. Oxygen depletion and yields of carbon dioxide, carbon monoxide and smoke were determined for each fire condition, as previously reported20,21. Gas samples were collected by drawing a metered volume of fire gas effluent through bubblers, and determined using high performance ion chromatography (HPIC) and spectrophotometric techniques according to ISO 1970122. Data was collected over 5 minutes steady state burning to obtain an average yield. During this time samples were also collected in bubbler solutions (for HPIC analysis of Cl, Br, NO2 and spectrophotometric analysis of HCN).
+
+13
+
+Results and Discussion
+Oxidative Pyrolysis (Smouldering) None of the materials ignited in the oxidative pyrolysis condition at 350°C. In the case of EPS under smouldering conditions a significant quantity of mass was lost, but the yields are lower than would correspond to the observed mass loss, this may have been the result of partial blockage of sampling lines.
+
+The major toxic products present in the fire effluents for each of the materials have been expressed as the mass charge yield. The yields of toxic products for the smouldering conditions for all samples are shown in Table 6.
+
+Table 6 The yields of toxic products for the smouldering conditions
+
+Material
+
+Smouldering Yields mg/g
+
+CO2
+
+CO
+
+HCN
+
+NO2
+
+HCl
+
+HBr
+
+GW
+
+7.594
+
+1.753
+
+0.392
+
+0.885
+
+0.471
+
+ND
+
+SW
+
+5.687
+
+0.573
+
+0.067
+
+0.429
+
+0.635
+
+ND
+
+PhF
+
+35.743
+
+11.063
+
+0.232
+
+0.685
+
+ND
+
+ND
+
+EPS
+
+ND
+
+ND
+
+0.003
+
+ND
+
+1.078
+
+ND
+
+PUR
+
+19.324
+
+1.672
+
+0.056
+
+0.673
+
+2.368
+
+ND
+
+PIR
+
+25.390
+
+2.171
+
+0.083
+
+0.328
+
+2.277
+
+ND
+
+ND – below the limit of detection
+
+Flaming Fire Conditions
+For the two fibrous materials in the flaming condition, stone wool and glass wool, ignition was not observed even above 800°C. For the four foams, PUR, PIR, PhF and EPS, ignition and steady flaming was achieved for the two flaming fire conditions and for intermediate ventilation conditions.
+
+14
+
+The yields of toxic products for the two non-flaming materials GW and SW are shown in Table 7. It is not correct to relate this data to an equivalence ratio since flaming did not occur, but the materials were tested under the most severe conditions of well-ventilated flaming using temperatures of 825°C or 850°C rather than 650°C, as directed in ISO TS 19700 to try to obtain flaming combustion.
+
+Table 7 The yields of toxic products for the smouldering conditions
+
+Gases:
+
+Forced Flaming Conditions (no ignition)
+
+mg/g
+
+Glass wool
+
+Stone wool
+
+825°C
+
+850°C
+
+CO2
+
+192.873
+
+52.885
+
+CO
+
+0.378
+
+0.647
+
+HCN
+
+0.971
+
+0.426
+
+NO2
+
+0.193
+
+0.663
+
+HCl
+
+0.469
+
+0.875
+
+HBr
+
+ND
+
+ND
+
+For the foam materials, the influence of ventilation condition on the toxic product yields was investigated. These show clear trends as the fire stage moves from early well-ventilated flaming (equivalence ratio  ~ 0.7) to under-ventilated flaming (equivalence ratio  ~ 1.5).
+
+15
+
+CO2 Yield g/g
+
+3.5
+
+PhF
+
+3.0
+
+EPS
+
+PUR 2.5
+PIR
+
+2.0
+
+1.5
+
+1.0
+
+0.5
+
+0.0
+
+0.3
+
+0.6
+
+0.9
+
+1.2
+
+1.5
+
+1.8
+
+2.1
+
+Well - Ventilated
+
+Under - Ventilated
+
+Figure 5 Yield of carbon dioxide during flaming conditions
+Figure 5 shows the progressive decrease in carbon dioxide yield (which would be proportional to the heat release rate) for decreasing ventilation. At an equivalence ratio of around 0.75 all the CO2 yields are at a maximum, falling progressively as the oxygen availability decreases. The high content of carbon in EPS give rise to the higher yield of carbon dioxide.
+
+16
+
+0.30
+
+PhF
+
+0.25
+
+EPS
+
+PUR
+
+0.20
+
+PIR
+
+CO Yield g/g
+
+0.15
+
+0.10
+
+0.05
+
+0.00 0.3
+
+0.6
+
+0.9
+
+Well - Ventilated
+
+1.2
+
+1.5
+
+1.8
+
+2.1
+
+Under - Ventilated
+
+Figure 6 Yield of carbon monoxide during flaming conditions
+
+Figure 6 shows the increase in carbon monoxide yield as the ventilation changes from wellventilated to under-ventilated. In comparison to polymers without flame retardants the CO yields in well-ventilated conditions are high – usually they might be expected to be below 0.02 g/g. This suggest the presence of gas phase free radical quenchers, such as halogens or volatile phosphorus compounds, preventing the conversion of CO to CO2 by reducing the availability of the OH· radical23.
+
+17
+
+0.020 0.015 0.010
+
+PhF EPS PUR PIR
+
+HCN Yield g/g
+
+0.005
+
+0.000 0.3
+
+0.6
+
+0.9
+
+1.2
+
+Well - Ventilated
+
+1.5
+
+1.8
+
+2.1
+
+Under - Ventilated
+
+Figure 7 Yield of hydrogen cyanide during flaming conditions
+
+Figure 7 shows the variation of the HCN yield. For the two nitrogen containing polymers, PUR and PIR, the HCN yield is significant, both of well-ventilated flaming, and for underventilated flaming. For the other foams (EPS and PhF) the HCN yields are close to the limits of detection. For polyamide (another nitrogen containing polymer) in the absence of a fire retardant, the HCN yield in well-ventilated conditions is ~0.001 g/g24 and rises to ~0.06 g/g in under-ventilated conditions.
+
+18
+
+NO2 Yield g/g
+
+0.0030 0.0025 0.0020
+
+PhF PUR PIR
+
+0.0015
+
+0.0010
+
+0.0005
+
+0.0000 0.3
+
+0.6
+
+0.9
+
+Well - Ventilated
+
+1.2
+
+1.5
+
+1.8
+
+2.1
+
+Under - Ventilated
+
+Figure 8 Yield of nitrogen dioxide during flaming conditions
+Figure 8 shows the variation of NO2 yield with fire conditions for the three materials where it was above the limit of detection. This shows less consistent trends although the phenolic foam seems to show a progressive increase as the fire condition becomes under-ventilated. For PIR and PUR, there is a slight decreasing trend with under-ventilation, which corresponds to the increased yields of HCN, and reduced availability of oxygen.
+Figure 9 and Figure 10 show similar decreasing yields of hydrogen chloride (HCl) and hydrogen bromide (HBr) with decrease of oxygen. This is surprising, since the carbon– halogen bond usually cleaves early in the decomposition to produce HCl or HBr. It is possible that the greater quantities of soot, onto which both acid gases absorb, reduced the quantity available for detection. It is also possible that other unidentified ions were present in the bubbler solution, having retention times overlapping those for which calibration data have been recorded. There was overlap between the nitrate and bromide peaks in the HPIC chromatogram, which has been reported as bromide in the material likely to contain a brominated fire retardant, and as nitrate in PUR, PIR and PhF. There is some uncertainty in the NO2 and HBr data.
+
+19
+
+0.015 0.010
+
+PhF EPS PUR PIR
+
+HCl Yield g/g
+
+0.005
+
+0.000
+
+0.3
+
+0.6
+
+0.9
+
+1.2
+
+1.5
+
+1.8
+
+2.1
+
+Well - Ventilated
+
+Under - Ventilated
+
+Figure 9 Yield of hydrogen chloride during flaming conditions
+
+0.006 0.004
+
+EPS
+
+HBr Yield g/g
+
+0.002
+
+0.000 0.3
+
+0.6
+
+0.9
+
+Well - Ventilated
+
+1.2
+
+1.5
+
+1.8
+
+2.1
+
+Under - Ventilated
+
+Figure 10 Yield of hydrogen bromide during flaming conditions (where HBr presence was suspected)
+20
+
+Fractional Effective Dose (FED)
+The methodology in ISO 13344 has been used to estimate the toxicity (based on rat lethality data) to see the relative importance of the individual toxicants. The higher the FED, the greater the toxicity of the effluent. FED is expressed as the sum of contributions to toxicity from individual species: CO, hydrogen cyanide, nitrogen dioxide, hydrogen chloride, and hydrogen bromide. The data have been normalised to an arbitrary 1 gram of fuel decomposed in 200 litres of fire effluent, as used in BS 6853. This means that the values would be expected to be proportionately lower than those presented in Figure 3. This shows significant differences for most of the fire gas components with change in material burnt, and with fire conditions. The data have been presented on a mass charge basis, based on the amount of fuel present in a fire not just the amount of organic material. The data shows that for PUR and PIR hydrogen cyanide is the major toxicant for all flaming fire conditions, and those materials have much greater fire toxicity than EPS or PhF. The glass wool and stone wool products show very low fire toxicity. Isocyanates were not included in the toxic hazard assessment.
+The FED values were calculated using Purser’s model as presented in Equation 1.
+0.8 HCl HBr NO2 HCN CO
+0.6
+0.4
+0.2
+0.0
+
+FED
+
+T=350°C nf T=825°C nf T=350°C nf T=850°C nf
+nf 0.64 1.29 1.84
+nf 0.80 1.16 1.75
+nf 0.69 1.24 2.00
+nf 0.75 1.34 1.97
+
+GW SW
+
+PHF
+
+EPS
+
+PUR
+
+PIR
+
+Figure 11 Fractional Effective Dose for different products (as a function of equivalence ratio for flaming conditions)
+21
+
+Fire toxicity can also be expressed as an LC50, the loading per m3 predicted to be lethal to 50% of the population. The smaller the LC50, the greater the fire toxicity. These values are shown in Table 8.
+
+Table 8 LC50 for different products
+
+Material
+GW SW PHF EPS PUR PIR
+
+Fire Conditions
+Smouldering T=825°C No flaming Smouldering T=850°C No flaming Smouldering Well-Ventilated Under-ventilated Under-ventilated Smouldering Well-Ventilated Under-ventilated Under-ventilated Smouldering Well-Ventilated Under-ventilated Under-ventilated Smouldering Well-Ventilated Under-ventilated Under-ventilated
+
+Equivalence ratio 
+—
+— —
+— — 0.64 1.29 1.84 — 0.80 1.16 1.75 — 0.69 1.24 2.00 — 0.75 1.34 1.97
+
+LC50 g/m3
+163.6
+129.5 388.1
+172.1 186.3
+43.3 22.3 21.0 5648.5 28.4 27.9 27.6 337.2 15.7 10.3 11.4 498.4 16.5 10.7
+8.3
+
+For example this shows that 8g of PIR or 11g of PUR foam burning in under-ventilated conditions would make 1m3 of air toxic, or 1kg of such foam burning in under-ventilated conditions would provide lethal concentration of toxicants in a 100m3 room.
+
+22
+
+Conclusions
+Fire toxicity is an essential component of any fire risk assessment. As the toxic products of some materials vary as a function of ventilation condition, it is necessary to perform assessments of fire toxicity under the more dangerous, but most likely under-ventilated burning conditions. The ISO TS 19700 steady state tube furnace is a suitable tool for undertaking such assessments. Earlier studies of the fire toxicity of insulation materials15,17 were only undertaken under well-ventilated conditions, and inconsistencies in the methodology made it difficult to extrapolate the measured toxicity to real fire conditions. However, both studies showed an increase in fire toxicity from glass wool and stone wool to polyurethane foam. The current work shows lower carbon monoxide yields for all materials under wellventilated conditions, compared to under-ventilated conditions, although the presence of halogens (presumably present as flame retardants) increases the CO yield in well-ventilated conditions. For the two nitrogen-containing materials, PUR and PIR, the yields of hydrogen cyanide also increases with decrease in ventilation. When these yields are expressed in terms of the fire toxicity this shows a dramatic decrease in toxicity for the most common and most toxic under-ventilated condition PIR > PUR > PHF > EPS. For the well-ventilated condition the order is similar PIR > PUR > EPS > PHF. Since neither GW nor SW undergo flaming combustion, while they can be tested under conditions which would represent well-ventilated or under-ventilated flaming, the data cannot properly be described as either. However, it is evident from the data presented here and that of other studies that the contribution to the fire toxicity for either glass wool or stone wool is negligible compared to that from any of the foam products. These results also indicate that fire toxicity of expanded polystyrene foam is lower that of PUR, PIR or even phenolic foam. However, the EPS determination should be repeated for the non flaming condition to confirm the low yields, and identify the volatiles corresponding to the mass loss.
+23
+
+References
+1 The US Department of Energy. Insulation fact sheet with addendum on moisture control, DOE/CE-0180, USA 2002.
+2 A.M. Papadopoulos State of the art in thermal insulation materials and aims for future developments, Energy Buildings, 37: 77-86, 2005.
+3 ISO 13571: 2007 Life-threatening components of fire - Guidelines for the estimation of time available for escape using fire data, 2007
+4 Fire Statistics United Kingdom 2007; Department for Communities and Local Government: London, August 2009, and preceding volumes.
+5 T.R. Hull, R.E. Quinn, I.G. Areri, and D A Purser, Combustion toxicity of fire retarded EVA, Polymer Degradation and Stability 77, 235-242, 2002.
+6 W.M. Pitts, Global Equivalence Ratio Concept and the Prediction of Carbon Monoxide Formation in Enclosure Fires, Progress in Energy and Combustion Science, 21:197-237, 1995.
+7 T.R. Hull, J.M. Carman, and D.A. Purser, Prediction of CO evolution from small-scale polymer fires, Polymer International 49, 1259, 2000.
+8 D.A., Purser, Toxic Product Yields and Hazard Assessment for Fully Enclosed Design Fires, Polymer International, 49:1232-1255, 2000.
+9 T.R. Hull, A.A. Stec, Fire Effluent Toxicity: Bench-Scale Generation of Toxic Products, Proceedings of the 6th International Seminar on Fire and Explosion Hazards, Leeds, UK, April 2010
+10 ISO 19706:2007Guidelines for assessing the fire threat to people, 2007.
+11 ISO 13344:2004, Estimation of the lethal toxic potency of fire effluents, 2004.
+12 M.S. Al-Homoud, Performance characteristics and practical applications of common building thermal insulation materials, Build and Environment, 40:353-366, 2005.
+13 T.R. Hull, K.T.Paul Bench-scale assessment of combustion toxicity—A critical analysis of current protocols, Fire Safety Journal, Issue 5, 42:340-365, 2007.
+14 ISO/TR 16312-2:2007 Guidance for assessing the validity of physical fire models for obtaining fire effluent toxicity data for fire hazard and risk assessment Part 2: Evaluation of individual physical fire models
+15 H. Liang, M. Ho, Toxicity characteristics of commercially manufactured insulation materials for building applications in Taiwan, Construction and Building Materials 21:1254 - 1261, 2007.
+16 H. Singh, A.K. Jain, Ignition, Combustion, Toxicity, and fire retardancy of polyurethane foams: A comprehensive review, Journal of Applied Polymer Science, 111:1115- 1143, 2009.
+17 P. Blomqvist, T. Hertzberg, M. Dalene, G. Skarping, Isocyanates, aminoisocyanates, and amines from fires – a screening of common materials found in buildings, Fire and Materials, 27:275-294, 2003.
+24
+
+18 T. Hertzberg, P. Blomqvist, M. Dalene, G. Skarping, Particles and Isocyanates from Fires, SP Report 2003:05, SP Swedish National Testing and Research Institute: Boras, 2003
+19 ISO/TS 19700:2007 Controlled equivalence ratio method for the determination of hazardous components of fire effluents, 2007.
+20. K. Lebek, T.R. Hull, D. Price, Fire and Polymers: Materials and Concepts for Hazard Prevention, ACS Symposium Series No.922, p344, Oxford University Press, 2005.
+21 A.A. Stec, K. Lebek, and T.R. Hull, Characterisation of the Steady State Tube Furnace (ISO TS 19700) for fire toxicity Assessment, Polymer Degradation and Stability, Vol. 93, p. 2058-2065, 2008.
+22 ISO 19701:2005 Methods for sampling and analysis of fire effluents, 2005. 23 Schnipper,A., Smith-Hansen, L. and Thomsen, E.S., Reduced combustion efficiency of
+chlorinated compounds, resulting in higher yields of carbon monoxide, Fire and Materials, 19:61-64, 1995. 24 A.A. Stec, T.R. Hull, J.A. Purser, D.A. Purser, Comparison of Toxic Product Yields from Bench-Scale to ISO Room, Fire Safety Journal, 44:62-70, 2009.
+25
+

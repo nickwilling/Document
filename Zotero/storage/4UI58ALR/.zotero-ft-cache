@@ -1,0 +1,765 @@
+The correlation between carbon monoxide and hydrogen cyanide in fire effluents of flame retarded polymers
+SHIRLEY A. MOLYNEUX, ANNA A. STEC and T. RICHARD HULL Centre for Fire and Hazard Science University of Central Lancashire Preston, Lancashire, PR1 2HE, UK
+ABSTRACT
+This study considers the demonstrated correlation between carbon monoxide and hydrogen cyanide in the special case of fire retarded materials. It shows that the combination of aluminium phosphinate and melamine polyphosphate causes a much smaller increase in the carbon monoxide (CO) and hydrogen cyanide (HCN) yields than the combination of brominated polystyrene and antimony oxide, although both fire retardants inhibit combustion reactions in the gas phase. The formation and destruction mechanisms of CO and HCN are considered. It is shown that both toxicants form early in the flame, and that the OH radical is critical for the destruction of both CO and HCN. Crucially, in the context of the flame inhibition mechanism, this suggests that the phosphorus system reduces the H and O radical concentrations without a corresponding decrease in the OH radical concentration, thus it is an effective gas phase flame retardant which only causes a small increase in the toxic product yields. Conversely, the bromine system reduces the H, O and OH concentrations, and thus increases the fire toxicity, by inhibiting decomposition of CO and HCN. Moreover, while the phosphorus flame retardant is effective as an ignition suppressant at low temperatures, this effect ―switches off‖ at higher flame temperatures, minimising the potential increase in fire toxicity, once the fire develops.
+KEYWORDS: Polyamide, brominated, phosphinated, flame, retardant, toxic, carbon monoxide, hydrogen cyanide
+FIRE HAZARDS
+At the heart of developing fire safe materials lies the twin challenges of suppressing ignition, and if that fails, modifying its burning behaviour. The second challenge requires consideration of reducing heat release rate, reducing flame spread, and reducing smoke and toxic gas production. Unfortunately, some of the additives used to reduce ignitability, flame spread and heat release rate increase the amount of smoke and toxic gases. This is particularly true for flame retardants (fire retardants which operate in the gas phase) which interfere with the flaming reactions and lead to high yields of products of incomplete combustion, including carbon monoxide (CO) and hydrogen cyanide (HCN). There is no systematic methodology for prioritising some of these requirements against others. Moreover, recently there has been considerable environmental concern over the fate of hydrogenated flame retardants which migrate out of the polymer into the domestic and natural environments [1, 2]. In addition, hydrogenated fire retardants are often synergistically enhanced by the addition of antimony oxide. This is highly toxic and increasingly expensive (currently around € 10/kg). Worryingly, this has led to calls in some quarters for outright bans on all fire retardant additives. The development of flame retardants for polyamide 6.6 (PA 6.6) has been reported in detail elsewhere. A range of suitable fire retardants have been investigated for PA 6.6 [3]. Brominated polyphenylene oxide was proposed as a non-migrating flame retardant [4]. More recently, tin has been proposed as an alternative synergist to antimony oxide in PA 6.6 [5]. The effects on fire toxicity are novel, and are described in the current work.
+
+Unwanted fires continue to cause large numbers of deaths and injuries across the globe. The principal hazards include obscuration by smoke, incapacitation by irritants, asphyxiation by CO and HCN, and the incapacitating effects of heat [6]. Although these are more common in some developing countries, reliable statistical information is only available from a few developed countries. UK fire statistics [7] show that the main cause of death, and the main cause of injury, in fires arises from the inhalation of toxic effluents. It is less clear whether victims are first trapped by the incapacitating effect of irritant gases and particulates, the disorienting effects of smoke, or the asphyxiating effects of CO and HCN. To assess the contribution of a material, or a composite article (such as a chair), to the fire toxicity, it is necessary to know both the rate of
+
+FIRE SAFETY SCIENCE-PROCEEDINGS OF THE ELEVENTH INTERNATIONAL SYMPOSIUM pp. 389-403
+
+389
+
+COPYRIGHT © 2014 INTERNATIONAL ASSOCIATION FOR FIRE SAFETY SCIENCE/ DOI: 10.3801/IAFSS.FSS.11-389
+
+fire growth and the yields of the different toxicants. The composition of these effluents depends on the chemical formulation of the burning material, oxygen supply, temperature and heating rate [8].
+
+Asphyxiant gases cause a decrease in oxygen supplied to body tissue, resulting in central nervous system depression, with loss of consciousness and ultimately death. The severity of the effects increases with dose. CO and HCN have been widely studied and are well understood [6]. Asphyxiation can also occur as a result of lowered oxygen concentration, and is enhanced by elevated carbon dioxide concentrations. Oxygen depletion, also a hazard of fire gases, is only lethal once the oxygen concentration has fallen below tenable levels (~13%; levels ~6% are rapidly life-threatening). Thus it is generally assumed that toxicants such as CO or HCN, will be present in lethal quantities, further from the fire, before oxygen depletion could be considered harmful.
+
+The toxic effect of carbon monoxide is characterised by a lowered oxygen-delivery capacity of the blood, even when a partial pressure of oxygen and the blood flow rate are normal. Carbon monoxide binds to the haemoglobin in red blood cells resulting in the formation of carboxyhaemoglobin (COHb), with stability 200 times greater than that of oxyhaemoglobin, impeding the transport of oxygen from the lungs to the cells in the body. This causes deterioration in mental and muscular performance. CO also combines with myoglobin in the muscle cells, impairing diffusion of oxygen to cardiac and skeletal muscles [9]. Carbon monoxide has a cumulative effect, from which the body takes time to recover. About 50% of blood carbon monoxide is eliminated in the first few hours after exposure, while complete elimination takes from several hours to a few days. The effects of CO depend upon the dose inhaled in terms of %COHb. Effects are minimal up to approximately 20%COHb, with incapacitation (loss of consciousness) occurring at 3040%COHb and death above ~50%COHb. The minimum inhaled concentration capable of causing loss of consciousness is approximately 200 ppm after around 6 hours exposure (at 30% COHb). Exposure to concentrations of 1 000-10 000 ppm CO is common in fires, and may cause incapacitation within a few minutes [10].
+
+Hydrogen cyanide is approximately 25 times more toxic than carbon monoxide through the formation of the cyanide ion formed by hydrolysis in the blood. Unlike carbon monoxide which remains primarily in the blood (as COHb), the cyanide ion is distributed throughout the extra-cellular fluid of tissues and organs [11]. The mechanism of toxicity is by combination with the ferric ion in mitochondrial cytochrome oxidase, preventing electron transport in the cytochrome system and inhibiting the use of oxygen by the cells. Exposure to concentrations of 100-1000 ppm in fires, results in stimulation of respiration within a minute or so, which increases the rate of HCN uptake, until a tissue level is reached which results in incapacitation, consisting of loss of consciousness and decreased respiration. As HCN uptake continues there is a general increase in intoxication until respiratory arrest and death occur from asphyxiation. An important difference between HCN and CO intoxication in fires is that for HCN, short exposures to high concentrations cause rapid incapacitation and prevent escape, often several minutes before an incapacitating dose of CO is inhaled, which then contributes to death from asphyxiation[10, 11]. An analysis of the blood of many fire victims over several years showed a trend of declining COHb and a rise in cyanide concentrations [12], probably because of increased use of nitrogen-containing synthetic polymers. The uptake, distribution, metabolism and excretion of cyanide is much more complex than for CO, and quantifying CN- in fire victims is more expensive and not routinely undertaken. Therefore the contribution of HCN to fire deaths is difficult to assess, and analysis for CN- in the fire victim‘s blood is generally limited to cases where lethal concentrations of CO are absent.
+Quantification of Toxic Fire Hazards
+The use of performance based design methods to satisfy fire codes requires a fire hazard assessment, which includes prediction of the toxic product distribution within the building from a fire [13]. Within the European Union, and other jurisdictions where routine animal testing is unacceptable, this must rely on robust quantification of yields of toxic products, and historical animal exposure data.
+
+The general approach for estimating the toxicity of gas mixtures contained in fire effluents is to assume
+
+additive behaviour of individual toxicants, and to express the concentration of each as its fraction of the
+
+lethal concentration for 50% of the population for a 30 minute exposure (LC50). Summing these contributions generates a fractional effective dose (FED). An FED equal to one indicates that the sum of
+
+FIRE SAFETY SCIENCE-PROCEEDINGS OF THE ELEVENTH INTERNATIONAL SYMPOSIUM pp. 389-403
+
+390
+
+COPYRIGHT © 2014 INTERNATIONAL ASSOCIATION FOR FIRE SAFETY SCIENCE/ DOI: 10.3801/IAFSS.FSS.11-389
+
+concentrations of individual species will be lethal to 50% of the population over a 30 minute exposure.
+
+These types of approaches have used existing rat lethality data, as described in ISO 13344 [14] or more
+
+recently, based on estimates of human incapacitation, as described in ISO 13571 [6] (for which FED = 1
+
+represents incapacitation of 50% of the exposed population), since the point at which the fire victims can
+
+no longer affect their own escape is the point where their chance of survival diminishes. The Purser model,
+
+presented in Equation 1, estimates the FED as the sum of fractions of the lethal concentration of each gas,
+
+multiplied by a factor for CO2-driven by hyperventilation (equation 2), therefore increasing the FED contribution from all the toxic species since hyperventilation will increase the yield of each toxicant, and
+
+incorporates an acidosis factor A to account for toxicity of CO2 in its own right.
+
+        FED
+
+
+
+  
+
+CO LC 5 0 ,CO
+
+
+
+HCN LC 5 0 ,HCN
+
+
+
+AGI LC 5 0 ,AGI
+
+
+
+OI LC 5 0 ,OI
+
+... 
+
+
+
+VCO2
+
+ A  21O2 
+21 5.4
+
+(1)
+
+VCO2
+
+1
+
+
+
+exp 0.14CO2  1
+2
+
+(2)
+
+[AGI] is the concentration of acid gas irritants
+
+[OI] is the concentration of organic irritants
+
+A is an acidosis factor equal to[CO2 ] 0.05.
+
+This equation only relates to lethality, or cause of death. However, many people fail to escape from fires because of the incapacitating effect of smoke (obscuring visibility) and its irritant components which cause pain, preventing breathing or reason for death. ISO 13571[6] considers the four major hazards from fire which may prevent escape (toxic gases, irritant gases, heat and smoke obscuration). It includes a calculation for prediction of incapacitation of humans exposed to fire effluents.
+
+In order to relate the fire effluent toxicity to a maximum permissible loading, the FED can be related to the
+
+mass of material in a unit volume which would cause 50% lethality for a given fire condition. The fire
+
+toxicity of a material can also be expressed as an LC50, which in this case is the specimen mass M of a burning polymeric material which would yield an FED equal to one within a volume of 1 m3. The relation
+
+to the FED from the N-Gas model is given in equation 3.
+
+LC50
+
+
+
+M FEDV
+
+(3)
+
+V is the total volume of diluted fire effluent in m3 at STP. The accuracy of LC50 values determined in this
+
+manner is quoted as ±30 % if the concentrations of all the contributing toxicants are measured and included
+
+[15]. Comparing the fire toxicity of different materials, the lower the LC50 (the smaller the amount of materials necessary to reach the toxic potency) the more toxic is the fire effluent of the material. LC50 values should be referenced to the fire condition under which they were measured.
+
+Fires can be divided into a number of stages: from smouldering combustion and early well-ventilated flaming, through to fully developed under-ventilated flaming (Table 1) [13]. A useful concept in characterising and predicting the gas phase flaming combustion conditions, and the yields of products such as carbon monoxide (CO), carbon dioxide (CO2), hydrogen cyanide (HCN) and hydrocarbons, is the equivalence ratio (), presented in equation 4[13].
+
+Table 1 Stages of a fire (adapted from ISO classification)[13]
+
+Fire Stage
+
+Max Temp /°C
+
+Equivalence ratio
+
+Fuel
+
+Smoke
+
+
+
+Non-flaming
+
+1a. Self-sustained oxidative pyrolysis 450-800 25 - 85
+
+-
+
+(e.g. smouldering)
+
+Well ventilated flaming
+
+2. Well ventilated flaming
+
+350-650 50 - 500
+
+0.5 – 0.7
+
+Under ventilated Flaming
+
+3a. Low ventilation room fire
+
+300-600 50-500
+
+1.5 – 2
+
+3b. Post flashover
+
+350-650 >600
+
+1.5 – 2
+
+FIRE SAFETY SCIENCE-PROCEEDINGS OF THE ELEVENTH INTERNATIONAL SYMPOSIUM pp. 389-403 COPYRIGHT © 2014 INTERNATIONAL ASSOCIATION FOR FIRE SAFETY SCIENCE/ DOI: 10.3801/IAFSS.FSS.11-389
+
+CO/CO2 Ratio
+0.1-1
+< 0.05
+0.2-0.4 0.1-0.4
+391
+
+  actual fuel to air ratio stoichiometric fuel to air ratio
+
+ =1  << 1  >1
+
+(4)
+
+When measuring toxic product yields, it is important to ensure that the combustion conditions are relevant to the full-scale fire scenarios. It is therefore essential to the assessment of toxic hazard from fire that each fire stage can be adequately replicated, and preferably the individual fire stages treated separately.
+
+Empirical correlation of CO and HCN yields
+
+Galea et al [16] have outlined the need for yield data for CO and HCN for engineering calculations of available safe escape time (ASET) for evacuation models, and as inputs to field fire models which use a local equivalence ratio, and local temperature for the calculation of toxic gases within the fire enclosures [17] . Through a wide range of experimental data from tube furnace experiments, reduced and full-scale fire tests, Purser has shown that the yields of HCN show similar relationships with equivalence ratios to those of CO [18]. Purser has also found that correlations exist between the normalized yields of HCN and CO for many different fuels. Galea argues that with these correlations, the concentrations of either HCN or CO can be approximately determined from the other in toxicity assessment, using yield data from the other species, measured in fire experiments or predicted in computer simulations.
+
+Based on two functions, a linear and an exponential relationship between the yields of CO and HCN for different materials, Galea et al [16] established two empirical relationships which varied as a function of the fractional elemental composition (C, H, N, O, Cl and Br, and S). These empirical relationships can be applied locally based on the fuel mass loss rate and the ventilation condition, to provide an estimate of the HCN concentrations from the CO concentrations (or vice versa); alternatively they can be applied within each controlled volume of a CFD model, although the authors advise caution, anticipating larger errors in the HCN concentrations. In other studies [19], fire retardants which inhibit the free radical reactions typical of flaming combustion, ―flame retardants‖, have been shown to increase the yield of carbon monoxide and other products of incomplete combustion.
+
+Unfortunately the range of available materials and formulations is significantly greater than those for which CO and HCN yields are available. In particular, no systematic collection of data describes the effect of fire retardant additives, although paper [18] demonstrated a relationship between halogen content and HCN yields for different polymers under well ventilation combustion conditions ( = 0.5). In addition, the papers [16, 18] demonstrated the validity of the steady state tube furnace data in terms of consistency of toxic product yields in going from bench-scale to large-scale fires. A further publication [20] applies this correlation to some reported fire tests. In one, ―unusually high HCN yields‖ were reported, in another ―no HCN was detected from burning PU foam‖. Galea et al show that these unusual results are predicted by the empirical calculation, and observe that in well ventilated conditions, poor correlation is observed between HCN and CO, but they defend this because the threat from toxic gases mainly occurs in fuel-rich fires. However, low yields of both CO and HCN have been observed under well-ventilated conditions in both the tube furnace and compartment fires for non-FR materials, and high yields of both for FR-polymers [18].
+
+Hydrogen cyanide formation and destruction in fires
+
+The increased yield of CO reported in the current work follows directly from the inhibition of the free
+
+radical reactions by trapping active radicals particularly the ∙OH radical which has been described in detail
+
+elsewhere [21]. The increased yield of HCN by halogens, requires a clearer understanding of HCN
+
+formation and destruction in flames. HCN is a flammable gas with a lower explosive (ignitability) limit of
+
+5.6% in air. Combustion of nitrogenous materials releases nitrogen as HCN and ammonia (NH3), producing nitrous oxide (N2O) and nitric oxide (NO). NO is of low toxicity, but high concentrations of NO react at room temperature to form the nitrogen dioxide (NO2), of much higher toxicity. This room temperature equilibria means that the ratio of NO/NO2 in fire effluents has proved difficult to establish with any degree of certainty [22]. As the ratio of oxygen to nitrogen in the fuel increases, so the HCN/NH3 and N2O/NO ratios decrease. Higher equivalence ratios and heating rates, and temperatures above 727° C are
+
+FIRE SAFETY SCIENCE-PROCEEDINGS OF THE ELEVENTH INTERNATIONAL SYMPOSIUM pp. 389-403
+
+392
+
+COPYRIGHT © 2014 INTERNATIONAL ASSOCIATION FOR FIRE SAFETY SCIENCE/ DOI: 10.3801/IAFSS.FSS.11-389
+
+favourable to HCN formation [23]. Flaming combustion involves a complex set of reactions between very small numbers of highly reactive free radicals. For ignition to occur, the number of radicals must increase to exceed a small, but critical concentration. Currently accepted mechanisms, described in detail elsewhere [23], indicate that HCN oxidises via a complex set of reactions, yielding NO, N2O, N2, CO, CO2 and water. A scheme involving 41 species and 250 reversible reactions has been proposed [23] and validated through numerous experimental studies. Sensitivity analysis was used to identify the most important steps of mechanism.
+
+Once sufficient radicals have been formed, their concentration needs to be maintained for the rapid
+
+(flaming) oxidation reaction to proceed. These include the hydrogen-oxygen chain branching steps,
+
+reactions 5, and 6, and the termination step 7 (since HO2∙ is unreactive in fire conditions).
+
+H· + O2  ·OH + ·O·
+
+(5)
+
+·O· + H2  ·OH + H·
+
+(6)
+
+H∙ + O2 + M HO2∙ + M
+
+(7)
+
+HCN reacts with the ∙OH radicals to form cyanide radicals (∙CN)
+
+HCN + ∙OH ∙CN + H2O
+
+(8)
+
+which are then oxidised to the isocyanate radical (∙NCO) by OH∙ and O2
+
+∙CN + ∙OH  ∙NCO + H∙
+
+(9)
+
+∙CN + O2  ∙NCO + ∙O∙
+
+(10)
+
+The isocyanate radical then combines with ∙O∙ to form nitric oxide (NO) and CO (11), or with nitric oxide
+
+to form N2O, N2, CO and CO2 (12 and 13). Nitric oxide is a stable free radical which exists as a gas at room
+
+temperature.
+
+∙NCO + ∙O∙ ∙NO + CO
+
+(11)
+
+Or with nitric oxide to form N2O, N2, CO and CO2
+
+∙NCO + ∙NO N2O + CO
+
+(12)
+
+∙NCO + ∙NO N2 + CO2
+
+(13)
+
+At atmospheric pressure between 800-1100° C, the main attack on HCN comes from OH∙ radicals via
+
+reactions 8, 14 and 15.
+
+HCN + ∙OH HOCN + H∙
+
+(14)
+
+HCN + ∙OH HNCO + H∙
+
+(15)
+
+Reactions 8, 14 and 15 are important under all conditions, whereas reactions 16 and 17 involving ∙O∙ and
+
+H∙ (forming ∙CN and hydrogen isocyanide) are only significant under fuel rich conditions [23].
+
+HCN + ∙O∙
+
+∙CN + H2O
+
+(16)
+
+HCN + M or H∙ HNC + M or H∙
+
+(17)
+
+This mechanism underlines the critical role played by the ∙OH radical in the oxidation of HCN, particularly
+
+in well-ventilated conditions.
+
+The current work describes the effects of two gas phase flame retardant systems on the CO and HCN yields of a burning polyamide in well ventilated conditions where, because of the presence of flame quenchers, the toxicity is significant. Moreover, it goes on to explain why these two flame retardant systems have contrasting effects, based on published information describing the fire retardancy mechanisms.
+
+EXPERIMENTAL
+
+Sample preparation
+
+Three materials were investigated. They were based on polyamide 6.6. All materials were reinforced with 30 wt% glass fibre. This glass fibre composite will be referred to as PA/GF. The glass fibre composites were flame retarded using industry standard formulations containing either a blend of aluminium phosphinate and melamine polyphosphate (collectively abbreviated to P-N FR) or brominated polystyrene and antimony oxide (abbreviated to Sb-Br FR). All the flame retardant samples were formulated to meet UL-94 V-0 at 0.8 mm. In practice, this required a total flame retardant loading of 20 wt% for the PA/GF/P-
+
+FIRE SAFETY SCIENCE-PROCEEDINGS OF THE ELEVENTH INTERNATIONAL SYMPOSIUM pp. 389-403
+
+393
+
+COPYRIGHT © 2014 INTERNATIONAL ASSOCIATION FOR FIRE SAFETY SCIENCE/ DOI: 10.3801/IAFSS.FSS.11-389
+
+N FR materials, and 26 wt% for the PA/GF/Sb-Br materials. Each formulation also contained 0.3 wt% wax, for processing purposes. The materials were prepared on a 27 mm twin-screw extruder using: PA 6.6,
+Ultramid A27 (BASF); glass fibre, ESC-301CL (length 4.5 mm, diameter 10 m) (CIPC); a proprietary blend of aluminium phosphinate and melamine polyphosphate, Exolit OP 1311 (Clariant); brominated polystyrene, Saytex HP 3010G (Albemarle); Antimony Trioxide (as masterbatch in PA 6) 2617 (Campine); processing aid, Licowax E (Clariant). Compounds were prepared using a Leistritz ZSE 27 HP 44D twin screw extruder with a screw speed of 200 rpm (20 kg h-1). Extruded materials were water cooled and pelletized with a rotary cutter mill. The granulates were dried prior to being tested in the SSTF. The elemental composition of the non-glass material was deduced from the formulation, and shown in Table 2 (it was assumed that OP 1311 contained equal masses of each component).
+
+Table 2 Elemental composition deduced from formulation
+
+%C %H
+
+PA6.6/GF
+
+44.6 6.8
+
+PA 6.6/GF/P-N FR 35.8 5.8
+
+PA 6.6/GF/Sb-Br FR 34.9 4.7
+
+%O %N %Al %P %Br %Sb
+
+9.9 8.7
+
+14.0 9.1 0.9 4.5
+
+7.2 5.6
+
+13.6 4.0
+
+Steady state tube furnace
+
+A number of different methods exist to assess fire toxicity, but many fail to relate the toxicity or toxic
+product yields to particular fire scenarios, or to be able to replicate more toxic under-ventilated conditions
+[8]. The steady state tube furnace (SSTF), ISO/DIS 19700 [24], is a bench scale tube furnace through
+which a sample is driven at a fixed rate. It is supplied with a fixed flow of primary air and the equivalence
+ratio, , can be controlled, in order to replicate different ventilation conditions. The heat fluxes in the SSTF have been reported [25]: at a furnace temperature of 650 °C the heat flux was 40 kW m-2; at a furnace temperature of 825 °C the heat flux was 77 kW m-2. The steady state tube furnace apparatus has been
+described elsewhere [25, 26], and is shown in Figure 1.
+
+Figure 1 Diagram of the steady state tube furnace (ISO/DIS 19700)
+
+The apparatus consists of a stationary tube furnace in which a quartz tube is fixed. Granules of the test specimen were placed in an 800 mm silica boat. During each experiment, the boat is driven into the furnace at a constant and controlled flow rate around 1 g min-1, typically over a period of about 20 minutes. A fixed flow of primary air passes through the tube furnace where it can react with the pyrolysing polymer and the resultant effluent passes into a mixing and measuring chamber where is diluted with a fixed and controlled secondary air supply. The secondary air increases the volume of analyte, and tends to keep the effluents from different ventilation conditions within the same analytical range. Samples of the effluent were filtered, and analysed in real time, or passed directly into bubblers trapping individual toxic components for subsequent analysis. A flow of effluent form the mixing and measurement chamber was passed over quartz wool at 900 °C in a secondary furnace to determine the hydrocarbon content, based on the difference between the CO2 concentration from the secondary furnace and the chamber. Oxygen (Servomex Paramagnetic analysers), carbon dioxide, (Edinburgh Instruments NDIR) and carbon monoxide (Citytech
+
+FIRE SAFETY SCIENCE-PROCEEDINGS OF THE ELEVENTH INTERNATIONAL SYMPOSIUM pp. 389-403
+
+394
+
+COPYRIGHT © 2014 INTERNATIONAL ASSOCIATION FOR FIRE SAFETY SCIENCE/ DOI: 10.3801/IAFSS.FSS.11-389
+
+electrochemical cell) were determined continuously, as reported [25]. Gas samples were collected by drawing a metered volume of fire gas effluent through bubblers, and determined using high performance ion chromatography (HPIC) and a spectrophotometric technique was used for HCN, according to ISO 19701 [27]. Data was collected over 5 minutes‘ steady state burning to obtain an average yield. During this time samples were also collected in bubbler solutions (for HPIC analysis of Cl, Br, NO2 and spectrophotometric analysis of HCN). On-line instruments and HPIC and spectrophotometric analysis were calibrated daily using known standards. The requirement in each test run is to obtain a steady state of at least 5 minutes during which the concentrations of effluent gases and particulates can be measured. For materials which do not burn completely, such as those containing non-combustible fillers, forming a char or leaving a residue, and those of unknown composition, the equivalence ratio can only be determined by calculating the oxygen depletion after the experiment. In this work, the primary air flow was varied with a fixed fuel feed rate in order to vary the equivalence ratio.
+
+RESULTS
+The experiments were performed on granulated materials for a well-ventilated fire scenario at furnace temperatures of 650 and 850 °C, representing the minimum pyrolysis temperature in the experiment. In well-ventilated tests with polypropylene, the gas phase temperature was found to rise as much as 100 °C above the furnace set temperature [Fel! Bokmärket är inte definierat.]. Carbon monoxide and carbon dioxide yields were measured together with hydrogen cyanide, nitrogen oxides and hydrogen bromide. The yields are all expressed on a mass-charge basis, and thus the materials reported here containing glass fibre could be expected to have at least 30 % lower yields than those reported for the pure polymer. The equivalence ratio was determined retrospectively from the oxygen consumption and is independent of the glass fibre content. The actual equivalence ratio was 0.55 ± 0.1 for each test. Each data point is the average of at least two experimental runs, the difference between the average value and the individual value being shown as an error. This is a significantly higher proportion of the value close to the limits of detection of the analysis. The yields of toxic products and mass loss from glass-reinforced polyamide 6.6 based materials at a furnace temperature of 650 °C are shown in Table 3, and at a furnace temperature of 825 °C in Table 4. The soot yields were deduced from the carbon balance, as the ―unaccounted for‖ carbon. This arose because there was so much soot that it was not possible to maintain a steady flow through the filter.
+
+Table 3 Yields of toxic gases from PA based materials in g/g of material tested at 650 °C
+
+CO2 CO HCN NOx HBr Hydrocarbons Soot Mass Loss %
+
+PA/GF 1.32 ±0.08
+0.005 ±0.002 0.0003 ±0.0001 0.0003 ±0.0001
+0 0.04 ±0.01 0.031 ±0.003 70.5 ±0.6
+
+PA/GF/P-N FR 0.66 ±0.02
+0.105 ±0.009 0.0020 ±0.0003 0.0033 ±0.0001
+0 0.05 ±0.02 0.101 ±0.008 63.3 ±0.1
+
+PA/GF/Sb-BrFR 0.63 ±0.03
+0.163 ±0.004 0.00987 ±0.0003 0.00338 ±0.0001
+0.0047 ±0.0002 0.03 ±0.005 0.191 ±0.014 68.7 ±0.2
+
+Table 4 Yields of toxic gases from PA based materials in g/g of material tested at 825 °C
+
+CO2 CO HCN NOx HBr Hydrocarbons Soot
+
+PA/GF 1.25 ±0.03
+0.005 ±0.002 0.00013 ±0.0001 0.00063 ±0.0001
+0 0.02 ±0.01 0.044 ±0.002
+
+PA/GF/P-N FR 0.98 ±0.01
+0.0023 ±0.006 0.00045 ±0.00006 0.00033 ±0.00002
+0 0.012 ±0.002 0.103 ±0.007
+
+PA/GF/Sb-BrFR 0.832 ±0.08
+0.173 ±0.008 0.0110 ±0.002 0.00123 ±0.0001 0.00407 ±0.0008 0.006 ±0.003 0.153 ±0.003
+
+FIRE SAFETY SCIENCE-PROCEEDINGS OF THE ELEVENTH INTERNATIONAL SYMPOSIUM pp. 389-403
+
+395
+
+COPYRIGHT © 2014 INTERNATIONAL ASSOCIATION FOR FIRE SAFETY SCIENCE/ DOI: 10.3801/IAFSS.FSS.11-389
+
+Mass Loss %
+
+70.6 ±0.1
+
+65.4 ±1.0
+
+68.6 ±0.2
+
+The theoretical yield of CO2 for complete combustion of PA 6.6 containing 30% glass fibre is 1.57 g/g. The measured yields show high combustion efficiency. For PA/GF/P-N FR, the lower combustion efficiency observed at 650 °C is less evident at 825 °C. For PA/GF/Sb-Br FR, a very low combustion efficiency is observed at 650 °C, which shows only a small increase at 825 °C, suggesting the antimonybromine combination is a more efficient gas phase inhibitor for PA than the P-N FR.
+PA/GF alone shows low CO yields, confirming the high combustion efficiency at both 650 and 825 °C observed for the CO2 yields. For PA/GF/P-N FR, in contrast, elevated CO yields are observed at 650 °C, which are not observed for the same material burnt at 825 °C, suggesting gas phase inhibition occurs at 650 °C, but is ―switched off‖ after it would become ineffective at 825 °C. Most noticeable is the dramatic increase in CO yield at both 650 and 825 °C for the PA/GF/Sb-Br FR material. This shows gas phase inhibition of the conversion of CO to CO2, which is not sensitive to temperature over the range considered.  The HCN yields for PA/GF and PA/GF/P-N FR show a similar trend to those for CO, in that the PA/GF yields are very low, and the PA/GF/P-N FR yields decrease from 650 to 825 °C. The HCN yields from the PA/GF/Sb-Br FR material are very high, especially for burning in well-ventilated conditions. Moreover, as observed for the CO yield for the PA/GF/Sb-Br FR, there appears to be a slight increase in the HCN yield (and hence the inhibitory effects of brominated polystyrene and antimony oxide) at 825 °C. The NO2 yields are close to the limits of detection and quantification. The highest NO2 yields are found for PA/GF/P-N FR and PA/GF/Sb-Br FR materials burnt in the furnace at 650 °C. The yield of hydrogen bromide (HBr) from the material containing brominated polystyrene is far below the theoretical HBr yield of 0.14 g/g. The maximum recovery of bromine as HBr is less than 5% of the total. This may arise from the readiness of acid gases to attach themselves to exposed metal surfaces, water droplets and soot particles, and may represent an underestimate of the quantities of HBr that may be encountered in the effluent from a real fire, or bromine may have been evolved in organic form, or as Br2, which would not be caught in the bubblers. High yields of CO, in particular, suggest a higher concentration of HBr than those detected, since HBr must have been present to inhibit the conversion of CO to CO2, and HCN to NO etc., by reducing the ·OH concentration.
+
+DISCUSSION This work has shown that in commercial aliphatic polyamide formulations, brominated flame retardants with an antimony oxide synergist, which interfere with gas-phase free radical reactions, produce high yields of both carbon monoxide and hydrogen cyanide. Although the aluminium phosphinate/melamine polyphosphate combination, which is believed to act in both gas and condensed phases, also increases the yields of these two main asphyxiants, the increase is significantly less. These yields may be expressed in terms of estimates of effluent toxicity.
+Estimation of contribution to toxicity of individual fire effluents
+
+Figure 2 Contributions to effluent toxicity from PA/GF based materials
+
+FIRE SAFETY SCIENCE-PROCEEDINGS OF THE ELEVENTH INTERNATIONAL SYMPOSIUM pp. 389-403
+
+396
+
+COPYRIGHT © 2014 INTERNATIONAL ASSOCIATION FOR FIRE SAFETY SCIENCE/ DOI: 10.3801/IAFSS.FSS.11-389
+
+Fel! Hittar inte referenskälla. shows how the individual yields may be translated into estimates of toxicity expressed as fractional effective dose (FED), (assuming a loading of 1 kg of material in 200 m3, corresponding to the requirements of the UK railway standard, BS 6853 [28]). At this loading, most of the materials show FEDs well below the critical value of 1 (representing lethality to 50 % of the population during a 30 minute exposure). The exception is the material containing Sb-Br FR at both furnace temperatures. In each case, where the FEDs exceed one, the major contribution to the toxicity comes from hydrogen cyanide, with smaller contribution from carbon monoxide at about 1/5th of the HCN level. There is also a minor contribution from NO2 from all materials, in all fire conditions. It is notable that the fire toxicity of the PA/GF/Sb-Br FR material is a factor of 10 larger than that of PA/GF and a factor of 4 larger than the P-N FR material at 650° C; at 825° C the Sb-Br FR material is over a factor of 10 more toxic than the P-N FR material. The Sb-Br FR materials all show high fire toxicity, under the normally least toxic, well-ventilated fire condition. The lower fire toxicity of the P-N FR materials at higher temperatures suggests a reduction in fire hazard. It is well known that under more severe conditions than a small flame ignition test, flame retarded materials will burn, and frequently produce more toxic effluents as a result of quenching of the gas phase flame reactions. It appears that the P-N FR system switches off this flame quenching process as the fire becomes more severe, reducing the toxicity of the effluent. The chemistry of this process is discussed in more detail below.
+
+These estimates of toxicity can be expressed in terms of fire-safe limits on combustible loadings in enclosures. The LC50 concept may also be applied to materials burning under specified conditions. In this case, the LC50 is related to the FED by equation 3. Thus for the base polymer with glass fibre reinforcement, and for the four comparably flame retarded samples, an LC50 may be calculated (Table 5).
+Table 5 LC50 for each material in well-ventilated fire conditions (the mass required to generate a lethal effluent in g m-3)
+
+Furnace Temperature /°C
+650
+825
+
+LC50 for the material/condition specified/ g m-3
+
+PA/GF
+
+PA/GF/P-N FR PA/GF/Sb-Br FR
+
+80
+
+16
+
+4.3
+
+84
+
+66
+
+4.1
+
+The LC50 is inversely proportional to the toxicity (higher values indicate lower toxicity). If the mass of material equal to the LC50 is burnt in well-ventilated conditions, this would be fatal to 50% of the occupying population. Therefore, if 1 kg of glass reinforced polyamide 6.6, flame retarded to UL94 V-0
+with brominated polystyrene and antimony oxide, was to burn completely in conditions corresponding to a small, well-ventilated fire (650° C) it would generate a volume of lethal effluent of 233 m3 (for 30 min
+exposure), whereas if it were flame retarded with P-N FR it would only generate a volume of lethal effluent of 63 m3 under the same conditions. Fire safety engineers would generally apply a safety margin, for
+example that the FED could not exceed 0.3, to ensure that the fire effluent would not be lethal to any
+healthy, adult occupants. If incapacitation were to be used as the safe limit, the volume considered to
+contain the dangerous effluent concentration would be much larger.
+
+Most fire deaths, and most fire injuries result from inhalation of toxic fire effluents. This work shows that when comparing two formulations of comparable flammability, the one with the flame retardant containing bromine and antimony causes a significant increase in the fire toxicity, compared to the material flame retarded by the aluminium phosphinate/melamine polyphosphate blend. Thus while both fire retardant combinations reduce the risk of fire, if a fire does occur, the use of Sb-Br FR increases the hazard by increasing the fire toxicity much more than the P-N FR. The results indicate that the halogenated retardant could present an increased toxic hazard during the crucial early minutes of a fire when occupants might otherwise escape. Not only do they produce the acid gas smoke irritant HBr to slow escape, but they also produce more HCN to cause rapid incapacitation.
+
+FIRE SAFETY SCIENCE-PROCEEDINGS OF THE ELEVENTH INTERNATIONAL SYMPOSIUM pp. 389-403
+
+397
+
+COPYRIGHT © 2014 INTERNATIONAL ASSOCIATION FOR FIRE SAFETY SCIENCE/ DOI: 10.3801/IAFSS.FSS.11-389
+
+Mechanisms responsible for increased fire toxicity by gas phase flame retardants
+
+This section considers the mechanism for production and destruction of carbon monoxide and hydrogen cyanide; the effect of brominated and phosphinate flame retardants on these processes; why the P-N FR flame retardant had a lesser effect on the toxicity; and its sensitivity to furnace temperature.
+Brominated flame retardancy mechanism
+
+Brominated flame retardants act by releasing hydrogen bromide (HBr) during thermal decomposition,
+
+which interferes with the gas phase combustion processes. During polymer decomposition, the flame
+
+retardant (such as brominated polystyrene) breaks down.
+
+ArBr  Ar· + Br·
+
+(18)
+
+The bromine radical abstracts H∙ from a fuel molecule to form HBr:
+
+Br· + RH  R· + HBr
+
+(19)
+
+which in turn interferes with the radical chain mechanism:
+
+HBr + H·  H2 + Br·
+
+(20)
+
+HBr + ·OH  H2O + Br·
+
+(21)
+
+Thus the high-energy OH· and H· radicals formed by chain branching are removed by the HBr. The
+
+removal of H· is key to elimination of the main chain branching steps (reactions 5 and 6) (when 1 radical
+
+becomes 3 radicals). Collision with a third body, M, results in termination processes, and crucially,
+
+recycling of HBr.
+
+Br· + Br· + M  Br2 + M
+
+(22)
+
+H· + Br· + M  HBr + M
+
+(23)
+
+H· + Br2  HBr + Br·
+
+(24)
+
+Thus HBr is a catalyst for the recombination of H· atoms. The removal of OH·, by replacement with the
+
+less reactive Br∙, blocks the main heat release step of hydrocarbon combustion, the conversion of CO to
+
+CO2 (25) [29].
+
+CO + ·OH  CO2 + H·
+
+(25)
+
+Loss of H and OH will increase the yield of carbon monoxide and other products of incomplete
+
+combustion. The H and OH radicals are also essential for many other flame reactions.
+
+Kinetic reaction schemes predict that HBr must be recycled around 7 times in order to account for the observed flame inhibition [30]. Thus the hydrogen halide is regenerated by further reaction with another fuel hydrocarbon (19). In the presence of antimony oxide (Sb2O3), the efficiency of halogenated flame retardants is significantly improved. Several mechanisms have been proposed to explain this, including catalysing breakdown of the bromine compound to release the active species into the gas phase, or the formation of volatile SbBr3 and antimony oxybromides which are more effective quenchers than HBr [31].
+Mechanism of alkyl phosphinate flame retardants
+
+The combination of aluminium phosphinate and melamine polyphosphate has only been commercially available in the last few years. Several detailed studies of the fire retardant effects have been published, although the gas phase mechanism is less well characterised than for brominated flame retardants.
+
+Braun, et al [32], reported that in PA 6.6, combinations of aluminium phosphinate and melamine polyphosphate decompose, releasing diethyl phosphinic acid (the reactant in equation 26) into the gas phase. They used similar loadings to the materials in the current study (30% glass fibre but only 18% total fire retardant loading), and reported residues of 6-8% in addition to glass fibre, when AlPi, MPP or a mixture were present. Moreover, they confirmed the release of diethylphosphinic acid by thermogravimetric analysis, coupled to Fourier transform infrared (TGA-FTIR) for PA/GF/P-N FR materials. The increased residue yields incorporated aluminium phosphate and the chemical composition of the residue [24] demonstrate a condensed phase mechanism, whereas the release of diethyl phosphinic acid is strongly suggestive of a gas phase mechanism. Thus, both condensed and gas phase action is evident.
+
+FIRE SAFETY SCIENCE-PROCEEDINGS OF THE ELEVENTH INTERNATIONAL SYMPOSIUM pp. 389-403
+
+398
+
+COPYRIGHT © 2014 INTERNATIONAL ASSOCIATION FOR FIRE SAFETY SCIENCE/ DOI: 10.3801/IAFSS.FSS.11-389
+
+Aluminium phosphinate without melamine polyphosphate was shown to reduce the heat release rate of PA 6.6 by inhibition of flaming combustion, while increasing the CO production rate. This gas phase inhibition effect was also evident, but less distinct, for PA/GF/P-N FR. Gas phase inhibition was more pronounced at lower applied heat fluxes in the cone calorimeter [32].
+A related and well-studied gas phase flame retardant, dimethylmethylphosphonate (DMMP) has been reported to decompose via CH3PO2 to generate HOPO2, HOPO and PO2· radicals, which are all known to be very effective free radical trapping agents [33]. The following reactions account for the gas phase activity of aluminium phosphinate, and for the reported observation of ethane and ethene in the decomposition of PA/GF/P-N FR [32]. The cis- structure of the HOPO intermediate (27 and 28) has been predicted to be the lowest energy isomer, based on molecular orbital calculations [34].
+(26)
+(27)
+
+(28)
+
+(29)
+
+The inhibition of flames by phosphorus compounds has been investigated and modelled by Babushok et al
+
+[33].
+
+·OH + HOPO
+
+
+
+H2O + PO2·
+
+(30)
+
+H· + HOPO
+
+
+
+H2 + PO2·
+
+(31)
+
+·O· + HOPO
+
+
+
+·OH + PO2·
+
+(32)
+
+·OH + PO2· + M
+
+
+
+HOPO2 + M
+
+(33)
+
+PO2· + H· + M
+
+
+
+HOPO + M
+
+(34)
+
+Numerical calculations and sensitivity analysis show that the burning velocity is most sensitive to the rate
+
+constants of the two recombination reactions of the PO2· radical (reactions 33 and 34).
+
+Correlation between radical reactions and temperature dependence of gas-phase inhibition
+
+Inhibition of flaming combustion by scavenging H·, ·OH and ·O· radicals is temperature dependent. Higher temperatures will generally lead to an increase in all free radical concentrations, from entropy considerations.
+
+A preliminary study [35] in the SSTF using a similar PA 6/GF/Sb-Br FR formulation to that reported here showed a modest reduction of CO yield at a furnace temperature of 825 °C, but a large reduction at 950 °C, under well-ventilated conditions. A related SSTF study on the CO yield from PVC (where CO formation is
+believed to be inhibited by Cl· radicals) also showed a significant reduction in CO yield at 950 °C, again,
+under well-ventilated conditions.
+
+FIRE SAFETY SCIENCE-PROCEEDINGS OF THE ELEVENTH INTERNATIONAL SYMPOSIUM pp. 389-403
+
+399
+
+COPYRIGHT © 2014 INTERNATIONAL ASSOCIATION FOR FIRE SAFETY SCIENCE/ DOI: 10.3801/IAFSS.FSS.11-389
+
+Both the current work in the steady state tube furnace, and the cone calorimetric investigation [32] showed a reduction in gas phase inhibition by phosphorus at higher applied heat fluxes. Assuming that the higher heat fluxes correspond to higher flame temperatures in the gas phase, this agrees with reported work on the
+temperature dependency for phosphorus-based flame inhibition [36]. The effect of DMMP on the relative
+∙OH concentration profiles was measured using quenching-corrected Laser-Induced Fluorescence (LIF) [37]. As the stoichiometric adiabatic flame temperature increased there was a strong decrease in the magnitude of the reduction in ∙OH concentration. Kinetic calculations show that inhibition is due to the phosphorus-containing radical ∙PO2, and HOPO and HOPO2, formed after the decomposition of the parent compound; reactions involving phosphorus remove H∙ and ∙O∙ atoms from the radical pool, thus weakening the flame. These reactions produce ∙OH directly, and the ∙OH concentrations are only indirectly reduced through reduction of ∙O∙ and H∙ concentrations.
+Effects of P-N FR and Sb-Br FR on toxic products yields of PA 6 and PA 6.6
+The critical role played by the OH∙ radical in reducing the toxicity of fire effluents has been demonstrated. In addition to its unique role in oxidising CO to CO2 (reaction 25), it is also essential to the effective destruction of HCN (reactions 8, 14 and 15). This has been demonstrated experimentally in the steadystate tube furnace in well-ventilated fires involving aliphatic polyamide formulations in the current work. The higher yields of both HCN and CO seen in well-ventilated flames of polyamides protected with brominated flame retardants and an antimony oxide synergist, presumably result from the removal of the OH∙ radical from the flame zone. Moreover, the lower yields from PA formulations fire retarded by aluminium phosphinate/melamine polyphosphate combinations especially at higher temperatures, are a direct consequence of the different flame retardant mechanism of phosphorus, which only indirectly reduces the ∙OH concentration, and achieves its flame quenching effects from reducing the H∙ and ∙O∙ concentrations. Thus, this new generation of gas phase flame retardants, based on aluminium phosphinate/melamine polyphosphate, not only reduce the ignitability and flame spread, they do so without a significant increase in the fire toxicity.
+Reports of a pioneering study [38, 39] on HCN generation from combustion of polyamide 6.6 in the steady state tube furnace provide additional insight into the processes of HCN formation and destruction. In these experiments, infrared polarisation spectroscopy was used to measure the concentration of HCN inside the furnace tube, both close to the flame, and in the cool zone towards the exit of the furnace tube. Different fire conditions were investigated. In each case, the highest HCN concentrations were observed above the flame zone, and these diminished significantly for low temperature, well-ventilated flaming, and also for under-ventilated flaming at high temperature, but not for small under-ventilated flaming (Stage 3a in Table 1).
+
+CONCLUSIONS
+Deaths and injuries from inhalation of toxic fire effluents, as a proportion of total fire victims, has continuously increased since the 1960s, for example, as reported in the UK fire statistics [7]. The reasons for this are not clear cut, but result from the changes that have occurred over the last 50 years, particularly the replacement of cellulosic materials, such as wood and cotton, with more flammable synthetic polymers, and possibly the use of halogenated flame retardants to reduce the ignitability. It has already been established and reported that carbon monoxide yields are increased by gas phase flame retardants, and by under-ventilation. Moreover, it has been shown that hydrogen cyanide yields also increase with underventilation.
+
+The work clearly shows that HCN is the major contributor to the toxicity for the fire retarded PA materials reported here, even in well-ventilated conditions, although the contribution from CO from the Sb-Br FR materials is also significant.
+
+This work demonstrates, for the first time, how hydrogen cyanide yields from aliphatic polyamides increase tenfold in the presence of a brominated flame retardant and antimony oxide, but only modestly, around twofold, in the presence of P-N FR. It also shows a positive correlation between furnace temperature and
+
+FIRE SAFETY SCIENCE-PROCEEDINGS OF THE ELEVENTH INTERNATIONAL SYMPOSIUM pp. 389-403
+
+400
+
+COPYRIGHT © 2014 INTERNATIONAL ASSOCIATION FOR FIRE SAFETY SCIENCE/ DOI: 10.3801/IAFSS.FSS.11-389
+
+toxicity for the Sb-Br FR system, but a strongly negative correlation for P-N FR with furnace temperature, for polyamides.
+
+Combining studies of flame retardant mechanisms with gas phase kinetics of HCN formation and destruction has provided a crucial insight into the cause of this behaviour, through the differences in the gas phase inhibition mechanisms of the Sb-Br FR and P-N FR systems. In particular, the preferential trapping of the H∙ and ∙O∙ radicals by P-N FR, leaving the ∙OH radicals to oxidise the HCN and CO explains the significant reduction in fire effluent toxicity. The temperature effect of the phosphorus flame retardant systems provides crucial supporting evidence.
+
+This study comes at a time when there is considerable pressure to eliminate all brominated flame retardants from consumer-products and replace them with safer alternatives. It presents experimental data, together with a detailed explanation which shows a significant advantage of replacing brominated flame retardants with aluminium phosphinates. Brominated flame retardants have been shown to increase the yields of the two biggest killers in fires (CO and HCN), where their phosphinate replacements actually show a reduction in the fire toxicity as the fire grows and the temperature increases.
+ACKNOWLEDGEMENTS
+This work was followed from the European project STREP FP-6 PredFire-Nano ‗Predicting Fire Behaviour of Nanocomposites from Intrinsic Properties‘ under the contract STREP 013998, with technical and financial support from Clariant Produkte (Deutschland) GmbH, a member of the PREDFIRE consortium.
+REFERENCES
+
+1
+
+Shaw, S.D., Blum, A., Weber, R., Kannan, K., Rich, D., Lucas, D., Koshland, C.P., Dobraca, D.,
+
+Hanson, S., Birnbaum, L.S., (2010). Halogenated flame retardants: Do the fire safety benefits
+
+justify the risks? Rev. Environ. Health 25: 261-305,
+
+http://dx.doi.org/10.1515/REVEH.2010.25.4.261
+
+2
+
+di Gangi, J., Blum, A., Bergman, A., de Wit, C.A., Lucas, D., Mortimer, D., Schecter, A.,
+
+Scheringer, M., Shaw, S.D., Webster, T.F., (2010). San Antonio statement on brominated and
+
+chlorinated flame retardants. Environ. Health Perspect. 118; A516-A518,
+
+http://dx.doi.org/10.1289/ehp.1003089
+
+3
+
+Subbulakshmi, M.S., Kasturiya, N., Hansraj, Bajaj, P., Agarwal, A.K., (2000). Production of
+
+flame-retardant nylon 6 and 6.6. Journal of Macromolecular Science - Polymer Reviews 40: 85-
+
+104, http://dx.doi.org/10.1081/MC-100100580
+
+4
+
+Burleigh, P.H., Nametz, R.C., Moore, P.O., Jay, T.A., (1980). New flame retardant for engineering
+
+thermoplastics. The Journal of Fire Retardant Chemistry 7: 47-57.
+
+5
+
+Horrocks, A.R., Smart, G., Kandola, B., Holdsworth, A., Price, D., (2012). Zinc stannate
+
+interactions with flame retardants in polyamides; Part 1: Synergies with organobromine-containing
+
+flame retardants in polyamides 6 (PA6) and 6.6 (PA6.6). Polym. Degrad. Stab. 97: 2503-2510,
+
+http://dx.doi.org/10.1016/j.polymdegradstab.2012.07.002
+
+6
+
+ISO 13571:2012 Life-threatening components of fire – Guidelines for the estimation of time
+
+available for escape using fire data.
+
+7
+
+Fire Statistics Great Britain 2011 to 2012 - Data on incidents attended by fire and rescue services
+
+across Great Britain, Department for Communities and Local Government, UK.
+
+8
+
+Stec AA, Hull TR, Lebek K, Purser JA, Purser DA. The effect of temperature and ventilation
+
+condition on the toxic product yields from burning polymers. Fire Mater 2008;32:49-60,
+
+http://dx.doi.org/10.1002/fam.955
+
+9
+
+Purser D.A., Chapter 2-6. SFPE Handbook of Fire Protection Engineering, Ed. P.J. DiNenno.
+
+Fourth Edition 2008 pp. 2-96 to 2-193, National Fire Protection Association, Quincy MA, USA.
+
+10 Purser DA, Asphyxiant Components of Fire Effluents, Chapter 4 in Fire Toxicity Edited by Stec A
+
+and Hull R, Woodhead Publishing, Cambridge, UK, 2010.
+
+FIRE SAFETY SCIENCE-PROCEEDINGS OF THE ELEVENTH INTERNATIONAL SYMPOSIUM pp. 389-403
+
+401
+
+COPYRIGHT © 2014 INTERNATIONAL ASSOCIATION FOR FIRE SAFETY SCIENCE/ DOI: 10.3801/IAFSS.FSS.11-389
+
+11 Alarie, Y., Toxicity of Fire Smoke, Critical Reviews in Toxicology, 32: 259, 2002, http://dx.doi.org/10.1080/20024091064246
+12 Anderson, R.A. Watson, A.A., and Harland, W.A., (1981 and 1982) Med. Sci. Law, 21: 60, and 22: 67–72, doi:10.1177/002580248202200106.
+13 ISO 19706:2007 Guidelines for assessing the fire threat to people
+14 ISO 13344:2004 - Estimation of the lethal toxic potency of fire effluents
+15 BS 7899-1:1997 Assessment of hazard to life and health from fire-Part 1.
+16 Wang, Z., Jia, F., and Galea, E.R., (2011) A generalised relationship between the normalised yields of carbon monoxide and hydrogen cyanide, Fire and Materials 35: 577-591, http://dx.doi.org/10.1002/fam.1076
+17 Wang Z, Jia F, Galea E.R. (2007) Predicting toxic gas concentrations resulting from enclosure fires using local equivalence ratio concept linked to fire field models. Fire and Materials; 31: 27– 51, http://dx.doi.org/10.1002/fam.924
+18 Purser D, Purser J. HCN yields and fate of fuel nitrogen for materials under different combustions in the ISO 19700 tube furnace and large-scale fires. Fire Safety Science—Proceedings of the Ninth International Symposium, Karlsruhe, Germany, 2008.
+19 Purser D. Toxicity of fire retardants in relation to life safety and environmental hazards, in Fire retardant materials, Edited by A R Horrocks and D Price, Woodhead publishing, Cambridge, UK 2001.
+20 Wang Z, Jia F, Galea E.R. (2012) Assessing levels of hydrogen cyanide in fire experiments using a generalised correlation Journal of Fire Protection Engineering, 22: 227-240, http://dx.doi.org/10.1177/1042391512450108
+21 Hull, T.R., Stec, A.A., Paul, K.T., Hydrogen Chloride in Fires, Fire Safety Science -Proceedings of the 9th International Symposium International Association for Fire Safety Science, 2008 , pp. 665-676, http://dx.doi.org/10.3801/IAFSS.FSS.9-665
+22 Paul, K.T., Hull, T. R., Lebek, K., Stec, A.A., (2008) Fire smoke toxicity: the effect of nitrogen oxides. Fire Safety Journal 43, 243-251, http://dx.doi.org/10.1016/j.firesaf.2007.10.003
+23 Dagaut, P., Glarborg, P., Alzueta, M. U., (2008) The oxidation of hydrogen cyanide and related chemistry, Progress in Energy and Combustion Science 34: 1–46, http://dx.doi.org/10.1016/j.pecs.2007.02.004
+24 ISO/DIS 19700:2013 Controlled equivalence ratio method for the determination of hazardous components of fire effluents – the steady state tube furnace
+25 Stec AA, Hull TR, Lebek K.(2008) Characterisation of the steady state tube furnace (ISO TS 19700) for fire toxicity assessment. Polym Degrad Stab, 93:2058-65, http://dx.doi.org/10.1016/j.polymdegradstab.2008.02.020
+26 Hull TR, Carman JM, Purser DA. (2000) Prediction of CO evolution from small-scale polymer fires. Polym Int 49:1259-65, http://dx.doi.org/10.1002/1097-0126(200010)49:10<1259::AIDPI573>3.0.CO;2-D
+27 ISO 19701:2005 Methods for sampling and analysis of fire effluents, 2005.
+28 BS 6853:1999 Code of practice for fire precautions in the design and construction of passenger carrying trains.
+29 Schnipper, A., Smith-Hansen, L., Thomsen, S. E., (1995) Reduced Combustion Efficiency of Chlorinated Compounds, Resulting In Higher Yields of Carbon Monoxide, Fire and Materials, 19: 61-64, http://dx.doi.org/10.1002/fam.810190203
+
+FIRE SAFETY SCIENCE-PROCEEDINGS OF THE ELEVENTH INTERNATIONAL SYMPOSIUM pp. 389-403
+
+402
+
+COPYRIGHT © 2014 INTERNATIONAL ASSOCIATION FOR FIRE SAFETY SCIENCE/ DOI: 10.3801/IAFSS.FSS.11-389
+
+30 Babushok, V. Tsang, W., Linteris, G. T., and Reinelt, D. (1998) Chemical Limits to Flame Inhibition, Combustion and Flame, 115:551–560, http://dx.doi.org/10.1016/S00102180(98)00019-4
+31 Linteris GT, Rumminger MD, Babushok VI. (2008) Catalytic inhibition of laminar flames by transition metal compounds. Progress in Energy and Combustion Science, 34:288-329, http://dx.doi.org/10.1016/j.pecs.2007.08.002
+32 Braun U, Schartel B, Fichera MA, Jäger C. (2007) Flame retardancy mechanisms of aluminium phosphinate in combination with melamine polyphosphate and zinc borate in glass-fibre reinforced polyamide 6,6. Polym Degrad Stab., 92:1528-45, http://dx.doi.org/10.1016/j.polymdegradstab.2007.05.007
+33 Babushok, V., and Tsang, W., Influence of Phosphorus-Containing Fire Suppressants on Flame Propagation, Proc. Third Int. Conf. on Fire Res. and Eng., Chicago, IL, p. 257–267 (1999).
+34 Brinkmann, N. R., and Carmichael, I., (2004). B3LYP Investigation of HPO2, trans-HOPO, cisHOPO, and Their Radical Anions, J. Phys. Chem. A, 108: 9390-9399, http://dx.doi.org/10.1021/jp0402176
+35 Kaczorek, K, Stec, A.A., Hull, T.R. (2011) Carbon monoxide generation in fires: Effect of temperature on halogenated and aromatic fuels. Fire Safety Science, 10:253-263, 10.3801/IAFSS.FSS.10-253.
+36 Hastie, J. W. and Bonnell, D. W., Molecular Chemistry of Inhibited Combustion Systems, National Bureau of Standards, Final NBSIR 80-2169 ; PB81-170375, (1980).
+37 MacDonald MA, Gouldin FC, Fisher EM. (2001) Temperature dependence of phosphorus-based flame inhibition, Combustion and Flame, 124: 668-683, http://dx.doi.org/10.1016/S00102180(00)00236-4 .
+38 Sun, Z.W., Försth, M., Li, Z.S., Li, B., Aldén, M. (2011) Mid-infrared polarization spectroscopy: A tool for in situ measurements of toxic gases in smoke-laden environments, Fire and Mater,; 35: 527-537, http://dx.doi.org/10.1002/fam.1071
+39 Sun Z., Försth M., Li Z., Li B. and Alden, M., 2011. In situ Measurements of HCN in a Tube Furnace with Infrared Polarization Spectroscopy. Fire Safety Science 10: 279-291, 10.3801/IAFSS.FSS.10-279
+
+FIRE SAFETY SCIENCE-PROCEEDINGS OF THE ELEVENTH INTERNATIONAL SYMPOSIUM pp. 389-403
+
+403
+
+COPYRIGHT © 2014 INTERNATIONAL ASSOCIATION FOR FIRE SAFETY SCIENCE/ DOI: 10.3801/IAFSS.FSS.11-389
+

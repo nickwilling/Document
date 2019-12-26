@@ -1,0 +1,746 @@
+<html><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>
+        欢迎使用 KNS 数据库平台__文献管理中心
+    </title>
+     <link rel="stylesheet" type="text/css" href="simple.css">
+    <link href="global.css" rel="stylesheet" type="text/css">
+    <link href="save.css" rel="stylesheet" type="text/css">
+    <script src="jquery-1_002.js" type="text/javascript"></script>
+     <script type="text/javascript" src="gb.js"></script>
+    <script src="ZeroClipboard.js" type="text/javascript"></script>
+    <script language="javascript">
+        function SetQueryStringByName(query, name, sValue) {
+            if (query) {
+                var result = query.match(new RegExp("([\?\&]+)" + name + "=[^\&]*", "i"));
+                var sRe = query;
+                if (result != null) {
+                    sRe = query.replace(result[0], result[1] + name + "=" + encodeURI(sValue));
+                }
+                else {
+                    sRe = query + "&" + name + "=" + sValue;
+                }
+                return sRe;
+            }
+            return "";
+        }
+        function submitFun(t) {
+            var a = window.location.search;
+            a = a || "?";
+            a = SetQueryStringByName(a, 'displayMode', t);
+            a = a.replace(/^[\?|\&]*/g, "");
+            document.forms[0].action = "?" + a;
+            document.forms[0].target = "_self";
+            document.forms[0].submit();
+        }
+        function submitOrderFun(p, o) {
+            var a = window.location.search;
+            a = a || "?";
+            a = SetQueryStringByName(a, 'orderparam', p);
+            a = SetQueryStringByName(a, 'ordertype', o);
+            a = a.replace(/^[\?|\&]*/g, "");
+            document.forms[0].action = "?" + a;
+            document.forms[0].target = "_self";
+            document.forms[0].submit();
+        }
+        function showTitle() {
+            var t = $("li.current input").val();
+            if (t != "")
+                t = t.toUpperCase();
+            var detailModeHdHtml = "GB/T 7714-2015 格式引文";
+            if (t == "GBTREFER") {
+                detailModeHdHtml = "GB/T 7714-2015 格式引文";
+            }
+            else if (t == "REFER") {
+                detailModeHdHtml = "CAJ-CD格式引文";
+            }
+            else if (t == "NEW") {
+                detailModeHdHtml = "查新（引文格式）<a title='符合技术查新文档要求的文件格式。可用记事本查看。' class='tip'></a>";
+            }
+            else if (t == "NEWDEFINE") {
+                detailModeHdHtml = "查新（自定义引文格式）<a title='符合技术查新文档要求的文件格式。可用记事本查看。'  class='tip'></a>";
+            }
+            else if (t == "ELEARNING") {
+                detailModeHdHtml = "CNKI E-Study<a title='CNKI桌面版个人数字图书馆（eln）可识别的文件格式。ELN是中国知网开发的一款免费绿色工具软件，集书架管理、文献管理、订阅频道管理、网站收藏管理以及检索功能于一体。'  class='tip'></a> <a class='download' href='http://www.cnki.net/software/study.htm' target='_blank'>下载软件</a>";
+            }
+            else if (t == "PDL") {
+                detailModeHdHtml = "CNKI桌面版个人数字图书馆<a title='CNKI桌面版个人数字图书馆（PDL）可识别的文件格式。PDL是中国知网开发的一款免费绿色工具软件，集书架管理、文献管理、订阅频道管理、网站收藏管理以及检索功能于一体。' class='tip'></a><a class='download' href='http://www.cnki.net/software/xzydq.htm' target='_blank'>下载软件</a>";
+            }
+            else if (t == "REFWORKS") {
+                detailModeHdHtml = "Refworks<a title='Refworks （“个人图书馆”管理软件）可识别的文件格式。也可用记事本查看本格式文件。' class='tip'></a>";
+            }
+            else if (t == "ENDNOTE") {
+                detailModeHdHtml = "EndNote<a title='EndNote（“参考文献管理软件”）可识别的文件格式。也可用记事本查看本格式文件。'  class='tip'></a>";
+            }
+            else if (t == "NOTEEXPRESS") {
+                detailModeHdHtml = "NoteExpress<a title='Note Express（“文献检索与管理系统”）可识别的文件格式。也可用记事本查看本格式文件。' class='tip'></a>";
+            }
+            else if (t == "NODEFIRST") {
+                detailModeHdHtml = "NoteFirst</a><a title='可在系统提供的字段中选择需要保存的文献内容特征，并保存为xml格式的.txt文件。可导入NoteFirst软件查看。' class='tip'></a>";
+
+            }
+            else if (t == "SELFDEFINE") {
+                detailModeHdHtml = "自定义（支持需输出更多文献信息的查新等用途）</a><a title='可在系统提供的字段中选择需要保存的文献内容特征，并保存为.txt文件。可用记事本查看。' class='tip'></a>";
+            }
+            //排序
+            var orderHtml = "<div id='orderDiv'><span class='Btn5'><a class='cur' href=\"javascript:submitOrderFun('0','asc');\">发表时间<img src=\"../images/gb/icon-d.gif\" alt=\"&darr;\"/></a></span><span class='Btn5'><a  href=\"javascript:submitOrderFun('1','asc');\">被引频次</a></span></div>";
+            $(".detailMode").prepend("<div id='detailModeHd' class='detailModeHd'>" + detailModeHdHtml + "</div>");
+            $(".outedit").prepend(orderHtml);
+        }
+        function showMyCnkiLink() {
+            var linkHtml = '<a href=\'../RedirectPage.aspx?action=&url=&domain=%2fKMycnki%2fMycnki%2findex%2f?turnId%3dexport\' target=\'_mycnki\' class=\'sideLink\'>我的导出记录</a>';
+            $("#detailModeHd").before(linkHtml);
+        }
+
+    </script>
+    
+<link href="TopLogin.css" rel="stylesheet"></head>
+<body class="rootw">
+    <script type="text/javascript" src="WideScreen.js"></script>
+    <form method="post" id="valueForm" name="valueForm">
+    <div id="HeaderDiv">
+        
+<input id="hid_kLogin_headerUrl" name="hid_kLogin_headerUrl" value="/KLogin/Request/GetKHeader.ashx%3Fcallback%3D%3F" type="hidden">
+<script type="text/javascript" src="jQuery-1.js"></script>
+<script type="text/javascript" src="get.txt"></script><script src="jquery-1.js"></script><script src="jquery_002.js"></script><script src="jquery_003.js"></script><script src="json2-min.js"></script><script src="topLogin.js"></script><script src="jquery.js"></script> <div class="ecp_top-nav"> <div class="ecp_tn-header"> <div class="ecp_tn-nav">  <div class="ecp_tn-title">    <a id="Ecp_header_Mobile" class="ecp_tn-tab" target="_blank" href="http://m.cnki.net/mcnkidown/index.html"><i>手机版</i></a>   <a id="Ecp_header_english" class="ecp_tn-tab" target="_blank" href="http://oversea.cnki.net/"><i>English</i></a>   <!--<a id='Ecp_header_Map' class='ecp_tn-tab' target='_blank' href='http://192.168.107.16/kns/subPage/map.aspx'><i>网站地图</i></a>-->   <a class="ecp_tn-tab" href="https://www.cnki.net/subpages/webMap.html"><i>网站地图</i></a><a id="Ecp_header_Help" class="ecp_tn-tab" target="_blank" href="http://service.cnki.net/helpcenter/"><i>帮助中心</i></a>  </div> </div> <div class="tn-person-r">  <div id="Ecp_top_login_div2" class="ecp_tn-title ecp_tn-title-login">   <!--登录-->   <div id="Ecp_top_login" style="display: none;">    <a class="ecp_tn-tab" href="javascript:void(0);">     <i>登录<span class="ecp_tn-arrow"></span></i>    </a>   </div>   <!--弹框-->   <div id="Ecp_top_login_layer" class="tn-topmenulist tn-topmenulist-b Ecp_top_login_layer-my" style="display: none;">    <div class="outlogin_layerbox_bylx outlogin_layerbox_bylx_anrrow top_login_layer2-my" node-type="box">     <div>      <a id="Ecp_top_login_closeLayer" class="layerbox_close" href="javascript:void(0);">×</a>     </div>     <div class="layerbox_left">      <div class="ecp_titletips"></div>      <p id="Ecp_errorMsg" class="login_error_tips" style="display:none;"></p>      <ul class="loginformlist">       <li class="ndrelativewrap">        <input id="Ecp_TextBoxUserName" class="styles" name="Ecp_TextBoxUserName" placeholder="请输入用户名/邮箱/手机号" tabindex="1" maxlength="64" type="text">        <a class="register_lnk" href="http://my.cnki.net/Register/CommonRegister.aspx" target="_blank">注册新用户</a>       </li>       <li>        <input id="Ecp_TextBoxPwd" class="styles" name="Ecp_TextBoxPwd" placeholder="请输入密码" tabindex="2" maxlength="20" autocomplete="off" autocapitalize="off" onkeydown="return Ecp_EnterSubmit(event,this,Ecp_Button1,true);" type="password">        <a class="forget_Pwd" href="http://my.cnki.net/mycnki/mycnkiFandPassword.htm" target="_blank">找回密码</a>       </li>       <!--验证码-->       <li id="Ecp_CheckCodeLayer" class="loginform_yzm" style="display:none;">        <input id="Ecp_CheckCode" placeholder="验证码" class="styles" tabindex="3" maxlength="6" autocomplete="off" autocapitalize="off" onkeydown="return Ecp_EnterSubmit(event, this, Ecp_Button1);" type="text">        <img id="Ecp_CheckCodeImg" src="" class="ecp_yzm" alt="看不清？换一张"><a id="Ecp_CheckLink" href="javascript:;" class="reload-code" title="看不清？换一张">看不清换一张</a>       </li>       <li class="ecp_btn_wrap">        <a id="Ecp_Button1" class="ecp_login_btn" href="javascript:void(0);" tabindex="4">登录</a>        <a id="Ecp_Button2" class="ecp_login_btn" href="javascript:void(0);" tabindex="5">IP登录</a>        <label class="rmb_login" title="用户下次访问直接登录系统，为了账户安全，建议您在个人电脑使用此功能">         <input class="auto_checkbox" id="rememberMe" name="rememberMe" autocomplete="off" type="checkbox">         <span>自动登录</span>        </label>       </li>       <li class="sub_wrap_r">        <div class="sub_wrap_r-my">使用合作网站账户登录CNKI：</div>        <a id="Ecp_HyperLinkQQ" href="http://my.cnki.net/ThirdLogin/ThirdLogin.aspx?to=qq&amp;RedirectUrl=%2f%2fkns.cnki.net%2fkns%2f">         <img src="login_qq.gif" alt="使用腾讯QQ账户登录" width="60" height="24">        </a>        <a id="Ecp_HyperLinkWeixin" href="http://my.cnki.net/ThirdLogin/ThirdLogin.aspx?to=weixin&amp;RedirectUrl=%2f%2fkns.cnki.net%2fkns%2f">         <img src="login_weixin.gif" alt="使用微信账户登录" width="60" height="24">        </a>        <a id="Ecp_HyperLink163" href="http://my.cnki.net/ThirdLogin/ThirdLogin.aspx?to=163&amp;RedirectUrl=%2f%2fkns.cnki.net%2fkns%2f">         <img src="login_163.gif" alt="使用网易网账户登录" width="60" height="24">        </a>        <a id="Ecp_HyperLinkSina" href="http://my.cnki.net/ThirdLogin/ThirdLogin.aspx?to=sina&amp;RedirectUrl=%2f%2fkns.cnki.net%2fkns%2f">         <img src="login_sina.gif" alt="使用新浪网账户登录" width="60" height="24">        </a>        </li>      </ul>      </div>    </div>   </div>   <!--退出-->   <div id="Ecp_top_logout" class="ecp_tn-title" style="">    <span class="tn-greeting">欢迎</span>    <a id="Ecp_top_logout_showLayer" class="ecp_tn-tab ecp_tn-tab-user" href="javascript:void(0);">     <i><em title="" id="Ecp_loginShowName">华东师范大学</em><span class="ecp_tn-arrow"></span></i>    </a>    <div id="Ecp_top_logout_layer" class="tn-topmenulist tn-topmenulist-a tn-topmenulist-a-user" style="display:none;">     <ul class="tn-text-list">      <li><a id="Ecp_MycnkiLink" href="http://my.cnki.net/" title="我的CNKI" target="_blank">我的CNKI</a></li>      <li><a id="Ecp_top_logoutClick" href="javascript:void(0);" title="退出">退出</a></li>     </ul>    </div>   </div>  </div>  <!--其他-->  <div class="ecp_tn-title" id="Ecp_header_Register" style="display: none;">   <a class="ecp_tn-tab" target="_blank" href="http://my.cnki.net/Register/CommonRegister.aspx"><i>注册</i></a>  </div> <div class="ecp_tn-title">     <a class="ecp_tn-tab" target="_blank" href="http://my.cnki.net/"><i>我的CNKI<em class="icon-new"></em></i></a>   </div>  <span class="mycnki topItem" id="spanmycnki"><a id="link_mycnki" href="javascript:void(0);" onclick="setmycnkiclass()">个人书房<i class="ecp_tn-arrow"></i></a><div id="pop_mycnki" class="topItemPop mycnkipop" style="display:none;"><a class="close" href="javascript:void(0)" onclick="$(this).parent().hide()">x</a><div class="klogin_fr"><ul class="mlist"><li><a href="javascript:void(0)" onclick="openKpc()">进入 <b>个人书房</b> &gt;&gt;</a></li><li><a href="javascript:void(0)" onclick="openKpc('fav_paper')">我的收藏</a></li><li><a href="javascript:void(0)" onclick="openKpc('history_search')">我的历史</a></li><li><a href="javascript:void(0)" onclick="openKpc('history_search')">检索历史</a></li><li><a href="javascript:void(0)" onclick="openKpc('history_download')">下载历史</a></li><li><a href="javascript:void(0)" onclick="openKpc('history_brown')">浏览历史</a></li><li><a href="javascript:void(0)" onclick="openKpc('custom')">我的订阅</a></li><li><a href="javascript:void(0)" onclick="openKpc('citationTracking')">引文跟踪</a></li><li><a href="javascript:void(0)" onclick="openKpc('myAchievement')">我的成果</a></li></ul></div><div class="klogin_fl"><ul class="mlist"><li class="prompt"><span>您好，登录个人账号可以查看更多信息</span></li></ul></div></div></span><div class="ecp_tn-title" id="Ecp_header_ChargeCenter">   <a class="ecp_tn-tab" target="_blank" href="http://my.cnki.net/CNKIRecharging/"><i>充值中心</i></a>  </div>  <div class="ecp_tn-title" id="Ecp_header_BuyCard">   <a class="ecp_tn-tab" target="_blank" href="http://vipcard.cnki.net/ec/skwd/skwd.htm"><i>购买知网卡</i></a>  </div> </div> </div> <input id="Ecp_LoginUserName" type="hidden"> <input id="Ecp_LoginUid" type="hidden"> <p style="display:none" id="Ecp_ReturnMsg"></p> <div class="Logo"><a href="https://www.cnki.net/"><img src="logo.gif" alt="中国知网"><img class="logohome" src="home.gif"></a></div></div> <!--海外--> <div id="Ecp_top_login_oversea" class="login-modal" style="display:none;"> <div class="login-l pull-left" style="width:483px;">  <div class="ecpover-mask"></div>  <div class="ecpover-modal">   <div class="ecpover-modal-hd">提示<a onclick="Ecp_LoginResult();" class="close"></a></div>   <div id="ecpover_select" class="ecpover-modal-bd">    <p>您的IP已超出中国大陆的许可使用范围！<br>您今年还可启用<i id="ecp_over_i">j</i>次应急服务，每次<i>7</i>天。<br><i>您确定要启用吗？</i></p>    <div class="btns"><a onclick="Ecp_LoginResult();" class="btn btn-cancel">取消</a><a id="ecpover_open" class="btn">启用</a></div>    <div class="ecpover-tip">中国大陆地区以外的用户，请访问<a href="http://oversea.cnki.net/" target="_blank"><i> oversea.cnki.net</i> &gt;</a></div>   </div>   <div id="ecpover_close" class="ecpover-modal-bd" style="display:none;">    <p id="ecpover_p_close">您的IP已超出中国大陆的许可使用范围！<br>您今年的应急服务次数已耗尽！<i>暂无法登录。</i></p>    <div class="btns"><a onclick="Ecp_LoginResult();" class="btn">关闭</a></div>    <div class="ecpover-tip">中国大陆地区以外的用户，请访问<a href="http://oversea.cnki.net/" target="_blank"><i> oversea.cnki.net</i> &gt;</a></div>   </div>  </div> </div> </div> <!--海外--> <script>var Ecp_topLoginUrl = '//login.cnki.net/TopLogin/'; var Ecp_PageStyle = 'header'; var Ecp_Style='1';var Ecp_CookieDomain = '.cnki.net'; var Ecp_isAuotIpLogin = '1'</script>
+
+
+    </div>
+    <div class="line-box1">
+        <h1>文献管理中心-文献输出</h1>        
+    </div>
+    <div id="main" style="margin-top:10px;">
+        <meta http-equiv="PRAGMA" content="NO-CACHE"> <table cellspacing="0" cellpadding="0" align="left" width="100%" border="0"><tbody><tr><td><script language="JavaScript">
+			var isIe=(document.all)?true:false; 
+			var x0=0,y0=0,x1=0,y1=0;
+			var offx=6,offy=6;
+			var moveable=false;
+			var hover='#175DC7';
+			var normal='#175DC7';
+		   var index=10000;//z-index;
+			var maxX;
+			var maxY;
+			function startDrag(obj) 
+		{ 
+			if(event.button==1) 
+	{ 
+		obj.setCapture();
+		var win = obj.parentNode;
+		x0 = event.clientX;
+		y0 = event.clientY;
+		x1 = parseInt(obj.parentNode.style.left);
+		y1 = parseInt(obj.parentNode.style.top);
+		normal = obj.style.backgroundColor;
+			obj.style.backgroundColor = hover;
+		obj.parentNode.style.borderColor = hover;
+		obj.nextSibling.style.color = hover;
+		moveable = true;
+	}
+}
+function drag(obj) 
+{
+if(moveable)
+{
+var win = obj.parentNode;
+ var sha = win.nextSibling; 
+ var obj_X=x1 + event.clientX - x0;
+ var obj_Y=y1 + event.clientY - y0;
+ if (obj_X < 0) 
+ obj_X=0;
+ if (obj_Y < 0) 
+ obj_Y=0; 
+ win.style.left = obj_X  > (maxX-parseInt(win.style.width)) ? (maxX-parseInt(win.style.width)-100) : obj_X ;
+win.style.top  = obj_Y > (maxY-parseInt(win.style.height)) ? (maxY-parseInt(win.style.height)-100) : obj_Y ;
+}
+}
+function stopDrag(obj)
+{
+ if(moveable) 
+{ 
+var win = obj.parentNode;
+var sha = win.nextSibling;
+var msg = obj.nextSibling;
+win.style.borderColor     = normal;
+obj.style.backgroundColor = normal;
+msg.style.color           = normal;
+obj.releaseCapture();
+moveable = false;
+}
+} 
+function getFocus(obj)
+{ 
+if(obj.style.zIndex!=index) 
+{ 
+ index = index + 2; 
+ var idx = index;
+obj.style.zIndex=idx;
+obj.nextSibling.style.zIndex=idx-1;
+}
+}
+function min(obj)
+{
+}
+function cls(obj)
+{
+if(document.getElementById('back')!=null) 
+{ 
+document.getElementById('back').parentNode.removeChild(document.getElementById('back'));
+}
+ if(document.getElementById('Div1')!=null) 
+{ 
+document.getElementById('Div1').parentNode.removeChild(document.getElementById('Div1')); 
+ } 
+ } 
+function xWin(id,w,h,l,t,tit,msg,k) 
+ { 
+ var oWin = new Object; 
+ index = index+2;
+ oWin.id      = id;
+ oWin.width   = w;
+ oWin.height  = h;
+ oWin.left    = l;
+ oWin.top     = t;
+ oWin.zIndex  = index;
+ oWin.title   = tit;
+ oWin.message = msg;
+ oWin.kind = k;
+ oWin.obj     = null;
+ oWin.bulid   = bulid;
+ oWin.bulid();
+ }
+ function bulid() 
+ { 
+ var bWidth=parseInt(window.screen.width-18); 
+ var bHeight=parseInt(document.documentElement.scrollHeight) >  parseInt(window.screen.height) ? parseInt(document.documentElement.scrollHeight) : (parseInt(window.screen.height)+200);
+ maxX=bWidth; 
+ maxY=bHeight;
+var styleClose ="<div style='float:right;' onclick='Divclose()'><img style='padding-top:2px;' src='/grid2008/library/images/divoff.gif'/></div>"; var styleStr="top:0px;left:0px;position:absolute;background:#666;width:"+bWidth+"px;height:"+bHeight+"px;"; 
+ styleStr+=(isIe)?"filter:alpha(opacity=40);":"opacity:0.40;";
+ var  str = "<div id='Div1'><div id='back' style=" + styleStr + "></div><div id=xMsg" + this.id + " " 
++ "style='" 
++ "z-index:" + this.zIndex + ";" 
+ + "width:" + this.width + "px;" 
+ + "height:" + this.height + "px;" 
+ + "left:" + this.left + "px;" 
+ + "top:" + this.top + "px;" 
+ + "background-color:" + normal + ";" 
+ + "color:" + normal + ";"   
+ + "font-size:10px;" 
+ + "font-family:Verdana;" 
+ + "position:absolute;" 
+ + "cursor:default;" 
+ + "border:2px solid " + normal + ";"  
+ + "' " 
+ + "onmousedown='getFocus(this)'>" 
+ + "<div " 
+ + "style='" 
+ + "background-color:" + normal + ";" 
+ + "width:" + (this.width-2*2) + ";"  
+ + "height:20;" 
+ + "color:white;" 
+ + "' "  
+ + "onmousedown='startDrag(this)' " 
+ + "onmouseup='stopDrag(this)' " 
+ + "onmousemove='drag(this)' " 
+ + "ondblclick='min(this.childNodes[1])'" 
+ + ">" 
+ + "<div style='float:left; width:" + (this.width-20) + "px;padding-left:1px;padding-top:2px'>" + this.title + "</div>" 
+ + styleClose + "</div>" 
+ + "<div  style='" 
+ + "width:" + (this.width-16) + ";" 
+ + "height:" + (this.height-38) + ";" 
+ + "text-align:center;" 
+ + "background-color:white;" 
+ + "line-height:14px;" 
+ + "word-break:break-all;" 
+ + "padding:8px;" 
+ + "clear:both;" 
+ + "'>" 
+ if(this.kind == "1") 
+ { 
+ str = str + this.message; 
+ }
+ else
+ { 
+ str = str + "<iframe align='center' src='" +this.message + "' frameborder='0' height='" + (this.height-38) + "' width='" + (this.width-16) + "'></iframe></div>" 
+ }
+ str = str 	+ "</div>"; 
+ //document.body.insertAdjacentHTML("beforeEnd",str); 
+ var el = document.body;
+ insertHtml("beforeEnd",el,str);
+ } 
+function insertHtml(where, el, html){ 
+ where = where.toLowerCase();
+if(el.insertAdjacentHTML){  
+ switch(where){ 
+case 'beforebegin':
+el.insertAdjacentHTML('BeforeBegin', html); 
+return el.previousSibling; 
+ case 'afterbegin': 
+el.insertAdjacentHTML('AfterBegin', html); 
+ return el.firstChild; 
+case 'beforeend': 
+ el.insertAdjacentHTML('BeforeEnd', html); 
+ return el.lastChild; 
+case 'afterend': 
+el.insertAdjacentHTML('AfterEnd', html);   
+return el.nextSibling; 
+ }
+throw 'Illegal insertion point -> "' + where + '"';    
+} 
+var range = el.ownerDocument.createRange(); 
+var frag; 
+ switch(where){ 
+case 'beforebegin': 
+range.setStartBefore(el); 
+frag = range.createContextualFragment(html);
+ el.parentNode.insertBefore(frag, el); 
+return el.previousSibling;  
+case 'afterbegin': 
+ if(el.firstChild){ 
+ range.setStartBefore(el.firstChild); 
+frag = range.createContextualFragment(html); 
+ el.insertBefore(frag, el.firstChild);
+ return el.firstChild; } 
+ else { 
+el.innerHTML = html; 
+ return el.firstChild; }
+ case 'beforeend': 
+ if(el.lastChild){ 
+ range.setStartAfter(el.lastChild);    
+ frag = range.createContextualFragment(html); 
+el.appendChild(frag);
+return el.lastChild; 
+} 
+else{ 
+el.innerHTML = html;  
+ return el.lastChild; 
+ } 
+ case 'afterend': 
+range.setStartAfter(el);  
+frag = range.createContextualFragment(html); 
+el.parentNode.insertBefore(frag, el.nextSibling); 
+return el.nextSibling; 
+} 
+throw 'Illegal insertion point -> "' + where + '"';   
+}  
+		function getCookie(Name) {
+var search = Name	+ "=";
+if (document.cookie.length > 0) {
+offset = document.cookie.indexOf(search);
+if (offset !=	-1)	{
+offset +=	search.length;
+end =	document.cookie.indexOf(";", offset);
+if (end == -1)
+end =	document.cookie.length;
+return unescape(document.cookie.substring(offset,	end));
+}
+}
+}
+function Book() { 
+var selected = getCookie('FileNameS');
+if (!selected || selected.length <= 5)
+{
+alert('请选择要定制的项');
+return;
+}
+var t=selected;
+var url='/kns/library/Book_select.aspx?skind=&Type=FILE&Param='+escape(t);
+var  iTop =  (window.screen.height-300)/2;
+var  iLeft = (window.screen.width-350)/2;
+showDiv(url);
+ }
+</script>
+
+<script lanuage="javascript">
+function disp(tf)
+{
+	var dispfield;
+	for (i=0;i<tf.displayMode.length;i++)
+	{
+		if (tf.displayMode[i].checked==true)
+		{
+			dispfield = tf.displayMode[i].value;
+		}
+	}
+	
+	if (dispfield == "self")
+	{
+		for (i=0;i<tf.fieldindex.length;i++)
+		{
+			tf.fieldindex[i].disabled = false;
+		}
+		//tf.clearall.disabled = false
+		if( document.getElementById["clearall"].disabled == true )
+		{ 
+ 			document.getElementById["clearall"].src="gb/anniu_Clear.gif";
+		}
+		document.getElementById["clearall"].disabled =false;
+	}
+	else 
+	{
+		 for (i=0;i<tf.fieldindex.length;i++)
+		{
+			tf.fieldindex[i].disabled = true;
+		}
+		//	tf.clearall.disabled = true
+		if( document.getElementById["clearall"].disabled == false )
+		{ 
+ 			document.getElementById["clearall"].src="gb/anniu_Clear.gif";
+		}
+			document.getElementById["clearall"].disabled =true;
+	}
+}
+function enselectold(tf)
+{
+	if(document.getElementById["clearall"].disabled == true )
+	{
+		for (i=0;i<tf.fieldindex.length;i++)
+		{
+			tf.fieldindex[i].disabled = false;
+		}
+	}
+tf.target='_self'; 
+tf.action =location.href;
+	tf.submit();
+}
+function enselect(tf)
+{
+tf.target='_self'; 
+tf.action =location.href;
+	tf.submit();
+}
+function clearAllFields(tf)
+{
+	e = tf.elements;
+	for (i=0; i<e.length; i++)
+	{
+		if (e[i].type == "checkbox" && e[i].style.cssText.indexOf("opacity")==-1)
+		{
+			e[i].checked=false;
+		}
+	}
+}
+function checkAllFields(tf)
+{
+	e = tf.elements;
+	for (i=0; i<e.length; i++)
+	{
+		if (e[i].type == "checkbox")
+		{
+			e[i].checked=true;
+		}
+	}
+}
+function Printer( )
+ {
+ try{  SelectSaveHidden.style.display="none";
+}catch(e){} var obj =document.getElementById('selfDefine');
+ if( obj != null )
+  obj.style.display="none";
+	window.print();
+ try{ 	SelectSaveHidden.style.display="block";
+}catch(e){} if( obj != null )
+  obj.style.display="block";
+ }
+function PrintContent(tf)
+{
+tf.target='_blank'; 
+tf.action ='/kns/ViewPage/SaveSelectedNoteFormat.aspx?type=txt';
+	tf.submit();
+}
+function ExportExcel(tf)
+{
+tf.target='_blank'; 
+tf.action ='/kns/ViewPage/SaveSelectedNoteFormat.aspx?type=xls';
+	tf.submit();
+}
+function ExportWord(tf)
+{
+tf.target='_blank'; 
+tf.action ='/kns/ViewPage/SaveSelectedNoteFormat.aspx?type=doc';
+	tf.submit();
+}
+function HrefDingZhi(tf)
+{
+if(tf){
+  tf.target='_blank'; 
+  tf.action ='../request/Customize.aspx?Type=FILE&DbPrefix=SCDB';
+	tf.submit();
+}
+else{
+  window.open('../request/Customize.aspx?Type=FILE&DbPrefix=SCDB');}}
+</script>
+<input name="clearall" type="hidden">
+<input name="IsPrev" type="hidden">
+<input name="TablePre" value="" type="hidden"><input name="QueryID" value="" type="hidden"><input name="CookieName" value="FileNameS" type="hidden"></td></tr><tr><td><table class="i_table" style="TABLE-LAYOUT: fixed">
+<tbody><tr>
+<td id="listMode" class="listMode" valign="top">
+<div class="listModeHd">文献导出格式</div><ul class="saveTypeList" id="SaveTypeList"><li><input id="displayMode" name="displayMode" value="GBTRefer" type="hidden"><span><a href="javascript:submitFun('GBTREFER');">GB/T 7714-2015 格式引文</a></span><span class="triangler"></span></li><li><input id="displayMode" name="displayMode" value="Refer" type="hidden"><span><a href="javascript:submitFun('REFER');">CAJ-CD格式引文</a></span><span class="triangler"></span></li><li><input id="displayMode" name="displayMode" value="new" type="hidden"><span><a href="javascript:submitFun('NEW');">查新（引文格式）</a></span><span class="triangler"></span></li><li><input id="displayMode" name="displayMode" value="newdefine" type="hidden"><span><a href="javascript:submitFun('newdefine');">查新（自定义引文格式）</a></span><span class="triangler"></span></li><li><input id="displayMode" name="displayMode" value="elearning" type="hidden"><span><a href="javascript:submitFun('elearning');">CNKI E-Study</a></span><span class="triangler"></span></li><li><input id="displayMode" name="displayMode" value="Refworks" type="hidden"><span><a href="javascript:submitFun('Refworks');">Refworks</a></span><span class="triangler"></span></li><li><input id="displayMode" name="displayMode" value="EndNote" type="hidden"><span><a href="javascript:submitFun('EndNote');">EndNote</a></span><span class="triangler"></span></li><li><input id="displayMode" name="displayMode" value="NoteExpress" type="hidden"><span><a href="javascript:submitFun('NoteExpress');">NoteExpress</a></span><span class="triangler"></span></li><li><input id="displayMode" name="displayMode" value="NodeFirst" type="hidden"><span><a href="javascript:submitFun('NodeFirst');">NoteFirst</a></span><span class="triangler"></span></li><li class="current"><input id="displayMode" name="displayMode" value="selfDefine" checked="checked" type="hidden"><span><a href="javascript:submitFun('selfDefine');">自定义</a></span><span class="triangler"></span><input id="FileOpen" name="FileOpen" value="NO" type="hidden"><input id="FieldMaxLength" name="FieldMaxLength" value="300" type="hidden"><input id="FileDisplayMode" name="FileDisplayMode" value="SELFDEFINE" type="hidden"><input id="FileSaveMode" name="FileSaveMode" value="SELFDEFINE" type="hidden"><input id="CurSaveModeType" name="CurSaveModeType" value="SELFDEFINE" type="hidden"></li></ul></td><td class="detailMode"><div id="detailModeHd" class="detailModeHd">自定义（支持需输出更多文献信息的查新等用途）<a title="可在系统提供的字段中选择需要保存的文献内容特征，并保存为.txt文件。可用记事本查看。" class="tip"></a></div><div class="outedit"><div id="orderDiv"><span class="Btn5"><a class="cur" href="javascript:submitOrderFun('0','asc');">发表时间<img src="icon-d.gif" alt="↓"></a></span><span class="Btn5"><a href="javascript:submitOrderFun('1','asc');">被引频次</a></span></div><div id="editTitle">以下是您将按照当前格式导出的文献，如需重选文献 <a id="editFileList" href="javascript:saveAs();">请点击这里</a></div></div><div id="detailModeHd" class="detailModeHd"></div><div class="btnDiv"><input id="exportTxt" value="导出" title="导出工具对应的txt格式" onclick="PrintContent(this.form);return false;" class="blueBtn" type="button"><input id="CopyToClipboard" name="CopyToClipboard" value="复制到剪贴板" title="文献内容复制到剪贴板" class="save clipboard" type="button"><input onclick="Printer();return false;" value="打印" title="打印文献" class="save print" type="button"><input id="exportExcel" onclick="ExportExcel(this.form);return false;" value="xls" title="导出到excel保存" class="save excel" type="button"><input id="exportWord" onclick="ExportWord(this.form);return false;" value="doc" title="导出到word保存" class="save word" type="button"><input value="生成检索报告" name="customize" onclick="submitReport('../searchreport/searchreport.aspx','reportWindow');" class="save report" type="button"></div><div class="selfDefine" id="selfDefine"><table class="checkTable">
+<tbody><tr><td><input name="SELFDEFINE_selfFiledList" value="SrcDatabase-来源库" checked="checked" onclick="return false" style="opacity: 0.4;" type="checkbox">SrcDatabase-来源库</td><td><input name="SELFDEFINE_selfFiledList" value="Title-题名" checked="checked" onclick="return false" style="opacity: 0.4;" type="checkbox">Title-题名</td><td><input name="SELFDEFINE_selfFiledList" value="Author-作者" checked="checked" onclick="return false" style="opacity: 0.4;" type="checkbox">Author-作者</td><td><input name="SELFDEFINE_selfFiledList" value="Organ-单位" checked="checked" onclick="return false" style="opacity: 0.4;" type="checkbox">Organ-单位</td><td><input name="SELFDEFINE_selfFiledList" value="Source-文献来源" checked="checked" onclick="return false" style="opacity: 0.4;" type="checkbox">Source-文献来源</td></tr><tr><td><input name="SELFDEFINE_selfFiledList" value="Keyword-关键词" type="checkbox">Keyword-关键词</td><td><input name="SELFDEFINE_selfFiledList" value="Summary-摘要" type="checkbox">Summary-摘要</td><td><input name="SELFDEFINE_selfFiledList" value="PubTime-发表时间" type="checkbox">PubTime-发表时间</td><td><input name="SELFDEFINE_selfFiledList" value="FirstDuty-第一责任人" type="checkbox">FirstDuty-第一责任人</td><td><input name="SELFDEFINE_selfFiledList" value="Fund-基金" type="checkbox">Fund-基金</td></tr><tr><td><input name="SELFDEFINE_selfFiledList" value="Year-年" type="checkbox">Year-年</td><td><input name="SELFDEFINE_selfFiledList" value="Volume-卷" type="checkbox">Volume-卷</td><td><input name="SELFDEFINE_selfFiledList" value="Period-期" type="checkbox">Period-期</td><td><input name="SELFDEFINE_selfFiledList" value="PageCount-页码" type="checkbox">PageCount-页码</td><td><input name="SELFDEFINE_selfFiledList" value="CLC-中图分类号" type="checkbox">CLC-中图分类号</td></tr><tr><td class="btnTd last" colspan="5"><input value="全选" onclick="checkAllFields(this.form)" type="button">&nbsp;<input value="清除" onclick="clearAllFields(this.form)" type="button">&nbsp;<input value="预览" onclick="enselect(this.form)" type="button"><br></td></tr>
+</tbody></table>
+</div>
+<div class="clear"></div>
+<table class="mainTable"> 
+ <tbody><tr>
+<td class="CurContentID" style="word-wrap: break-word; word-break:break-all ;font-size:9pt" bgcolor="#ffffff">
+SrcDatabase-来源库:  CJFD2013<br>Title-题名:  实时系统规范语言STeC的Maude重写系统<br>Author-作者:  栾天骄;陈仪香;王江涛;<br>Organ-单位:  华东师范大学软硬件协同设计技术与应用教育部工程研究中心;<br>Source-文献来源:  计算机工程<br></td>
+</tr>
+
+</tbody></table>
+
+
+</td>
+</tr>
+
+</tbody></table>
+
+
+</td></tr>
+
+</tbody></table>
+
+
+
+        
+    </div>
+    <input name="formfilenames" id="formfilenames" value="CJFDHIS2!JSJC201310013!1!0" type="hidden">    
+    <input id="searchinfo" name="searchinfo" "="" value="" type="hidden">
+    <div class="clear">
+    </div>
+    <div id="FooterDiv">
+        
+<div id="KLogin_footer"><style type="text/css">
+	ul, li { list-style:none; }
+
+	/*---footer---*/
+	#klogin_footer { clear:both; padding-top:30px; }
+	#klogin_footer .botNav {width:1000px;height:24px;margin:0 auto;background-color:#2f8bd6;text-align:center;margin-top:8px;}
+	#klogin_footer .botNav a {font-size:12px;color:#fff !important;line-height:24px;margin:0 10px;}
+	#klogin_footer .botNav a:hover {color:#CFE3F6 !important;}
+    #klogin_footer .botNav:after {clear: both;content: " ";display: block;font-size: 0;height: 0;visibility: hidden;}
+	
+	#klogin_footer #bottom {clear:both;background: url(/kns/images/gb/bottom.jpg) repeat-x; padding:10px 0; margin-top:5px;  }
+	#klogin_footer .botbox { width:994px; margin:0px auto; line-height:22px;overflow:hidden;}
+	#klogin_footer .botbox a {color:#666;}
+	#klogin_footer .botbox a:hover {color:#FF6600;}
+	#klogin_footer .leftinside { width:600px; float:left; color:#666; padding-top:20px;}
+	#klogin_footer .leftinside li { float:left;width:200px;}
+	#klogin_footer .leftinside b { display:block; }
+	#klogin_footer .rigfooter { float:right; width:330px; height:150px; padding:58px 0px 0px 20px; background: url(/kns/images/gb/footerbg.gif) no-repeat 0px 0px; }
+
+	#klogin_footer .logo-xl, .logo-tx, .logo-rr, .logo-kx, .logo-wy, .logo-yx { display:inline-block; margin-right:5px; width:16px; height:16px; vertical-align:middle; background:url(/kns/images/gb/i-logothi.png) no-repeat scroll 0 0 transparent; }
+	#klogin_footer .logo-tx { background-position:0 -32px; }
+	#klogin_footer .logo-rr { background-position:0 -64px; }
+	#klogin_footer .logo-kx { background-position:0 -80px; }
+	#klogin_footer .logo-wy { background-position:0 -48px; }
+	#klogin_footer .logo-yx { background-position:0 -96px; }
+
+	/*1200*/
+	.rootw #klogin_footer .botNav,
+	.rootw #klogin_footer .botbox { width:1200px; }
+    .rootw #klogin_footer .botNav a { margin:0 24px; }
+    .rootw #klogin_footer .leftinside { width:760px; padding-left:30px; }
+    .rootw #klogin_footer .leftList li { height:68px; }
+    .rootw #klogin_footer .rigfooter { width:350px;  padding-left:50px;}
+</style>
+
+<div id="klogin_footer">
+	<div class="botNav">
+		<a href="http://cnki.net/gycnki/gycnki.htm" target="_blank">关于我们</a>
+		<a href="http://www.cnki.net/other/gonggao/gongsirongyu.html" target="_blank">CNKI荣誉</a>
+		<a href="http://www.cnki.net/other/gonggao/bqsm.htm" target="_blank">版权公告</a>
+		<a href="http://service.cnki.net/" target="_blank">客服中心</a>
+		<a href="http://help.cnki.net/" target="_blank">在线咨询</a>
+		<!-- <a href="http://kbs.cnki.net/forums/10873/ShowForum.aspx" target="_blank" >用户交流</a> -->
+		<a href="http://help.cnki.net/Live800_1_2.aspx?GroupID=503&amp;PageID=101008&amp;Name=&amp;CookieName=TTKN_OnLine_800" target="_blank">用户建议</a>
+	</div>
+	<div id="bottom">
+		<div class="botbox">
+			<div class="leftinside">
+				<ul>
+					<li style="width:120px;"><b>读者服务</b>
+						<p>
+							<a href="http://vipcard.cnki.net/ec/skwd/skwd.htm" target="_blank">购买知网卡</a><br>
+							<a href="http://my.cnki.net/CNKIRecharging/czzx.html" target="_blank">充值中心</a><br>
+							<a href="https://kns.cnki.net/kns/RedirectPage.aspx?action=&amp;url=&amp;domain=http%3a%2f%2fmy.cnki.net/" target="_blank">我的CNKI</a><br>
+							<a href="http://service.cnki.net/helpcenter/" target="_blank">帮助中心</a>
+						</p>
+					</li>
+					<li style="width:170px;"><b>CNKI常用软件下载</b>
+						<p>
+							<a href="http://cajviewer.cnki.net/" target="_blank">CAJViewer浏览器</a><br>
+							<a href="http://www.cnki.net/software/xzydq.htm#CNKIe-Learning" target="_blank">CNKI数字化学习平台</a><br>
+							<a href="http://mall.cnki.net/Reference/Soft/CNKI%E5%B7%A5%E5%85%B7%E4%B9%A6.rar" target="_blank">工具书桌面检索软件</a>
+						</p>
+					</li>
+					<li style="width:130px;"><b>特色服务</b>
+						<p>
+							<a href="http://wap.cnki.net/touch/web" target="_blank">手机知网</a><br>
+							<a href="http://wuxizazhi.cnki.net/" target="_blank">杂志订阅</a><br>
+							<a href="http://mall.cnki.net/" target="_blank">数字出版物订阅</a><br>
+							<a href="http://ad.cnki.net/index.aspx" target="_blank">广告服务</a>
+						</p>
+					</li>
+					<li style="width:160px;"><b>客服咨询</b>
+						<p>
+							订卡热线：400-819-9993<br>
+							服务热线：400-810-9888<br>
+							在线咨询：<a href="http://help.cnki.net/" target="_blank">help.cnki.net</a><br>
+							邮件咨询：<a href="mailto:help@cnki.net" target="_blank">help@cnki.net</a><br>
+							客服微博：<span style="margin-top:-16px;"><a class="logo-xl" title="客服新浪微博" href="http://e.weibo.com/u/3059308095" target="_blank"></a><a class="logo-tx" title="客服腾讯微博" href="http://t.qq.com/CNKI_kefu" target="_blank"></a></span>
+						</p>
+					</li>
+				</ul>
+			</div>
+			<div id="footerrightdiv" name="footerrightdiv" class="rigfooter">			
+				京ICP证040431号
+                <a href="http://piccache.cnki.net/index/images/gb/271.jpg" target="_blank">网络出版服务许可证 (总)网出证(京)字第271号</a><br> 
+				
+				京公网安备11010802020460号<br>
+				© 1998-2019中国知网(CNKI)<br> 《中国学术期刊(光盘版)》电子杂志社有限公司<br>
+				KDN平台基础技术由KBASE 11.0提供.   
+				<!--可信网站图片LOGO安装开始
+                <span id="kx_verify"></span>  <script type="text/javascript"> (function () { var _kxs = document.createElement('script'); _kxs.id = 'kx_script'; _kxs.async = true; _kxs.setAttribute('cid', 'kx_verify'); _kxs.src = ('https:' == document.location.protocol ? 'https://ss.knet.cn' : 'http://rr.knet.cn') + '/static/js/icon3.js?sn=e13111111010043364isll000000&tp=icon3'; _kxs.setAttribute('size', 1); var _kx = document.getElementById('kx_verify'); _kx.parentNode.insertBefore(_kxs, _kx); })();</script>-->
+                <!--可信网站图片LOGO安装结束-->               
+				<div class="clear"></div>                 
+        <label id="uIP">您当前IP：222.66.117.29</label>                
+			</div>
+		</div>
+	</div>
+</div></div>
+<input id="hid_KLogin_FooterUrl" name="hid_KLogin_FooterUrl" value="/KLogin/Request/GetKFooter.ashx%3Fcallback%3D%3F" type="hidden">
+<script type="text/javascript">
+    (function ($) {
+        var klogin = function () { };
+        //加载头部
+        klogin.getFooter = function () {
+            var url = unescape($("#hid_KLogin_FooterUrl").val());
+            var $box = $("#KLogin_footer");
+            if ($box.length > 0 && $.trim(url) != "") {
+                $.getJSON(url, null, function (json) {
+                    $box.html(unescape(json.html));
+                });
+            };
+        };
+        window.KLoginF = klogin;
+    })(jQuery);
+
+    KLoginF.getFooter();
+
+    FlushLogin();
+    modifyEcpHeader(true);
+</script>
+
+
+
+        </div>
+    <script type="text/javascript" src="clipboard.js"></script>
+    <script type="text/javascript">
+        var clip = null;
+        $(document).ready(function () {
+            //复制到剪切板
+            if (ClipboardJS.isSupported()) {
+                var clipboard = new ClipboardJS('#CopyToClipboard', {
+                    text: function (trigger) {
+                        return my_CopyText();
+                    }
+                });
+                clipboard.on('success', function (e) {
+                    alert("已成功复制到剪贴板！");
+                    e.clearSelection();
+                });
+                clipboard.on('error', function (e) {
+                    alert('没有可复制到剪切板的内容');
+                });
+            } else {
+                ZeroClipboard.setMoviePath('../Script/ZeroClipboard.swf');
+                clip = new ZeroClipboard.Client(); //创建对象
+                clip.setHandCursor(true); //true的时候为手型，false为箭头
+                clip.addEventListener('onmouseup', function () {
+                    var text = my_CopyText();
+                    if (text != "") {
+                        clip.setText(text);
+                    }
+                })
+                clip.addEventListener('onComplete', my_complete);
+                clip.glue('CopyToClipboard');
+                $(window).resize(function () {
+                    clip.reposition();
+                });
+                //IE6
+                $("#CopyToClipboard").click(function () {
+                    var text = my_CopyText();
+                    if (text != "") {
+                        clip.setText(text);
+                    }
+                    my_complete();
+                });
+                 
+                $(".btnDiv input[name='customize']").each(function () {
+                    $(this).hide();
+                });
+                
+            }
+
+        });
+
+        function my_CopyText(client) {
+            var showMode = $("#CurSaveModeType").attr("value");
+            var sText = "";
+
+            if (typeof (showMode) != "undefined") {
+                if (showMode.toUpperCase() == "NODEFIRST") {
+                    $(".CurContentID").each(function (i) {
+                        sText += $(this).text() + "\r\n";
+                    });
+                }
+                else {
+                    $(".CurContentID").each(function (i) {
+                        sText += $(this).html().replace(/<BR>/g, "\r\n").replace(/<br>/g, "\r\n") + "\r\n";
+                    });
+                }
+                if (sText == "") {
+                    alert('没有可复制到剪切板的内容。')
+                }
+                else {
+                    return sText;
+                }
+            }
+            else {
+                alert("暂不支持本浏览器,请您使用IE6以上版本浏览器.");
+                return sText;
+            }
+        }
+        function my_complete(client) {
+            alert("已成功复制到剪贴板！");
+        }
+
+        showTitle();
+        //showMyCnkiLink();
+
+    </script>
+    <script type="text/javascript" src="Recommend.js"></script>
+        <script type="text/javascript" language="javascript">
+            $(document).ready(function () {
+                $("#exportExcel").bind("click", function () {
+                    if (typeof SubmitExportAnaly != "undefined" && Object.prototype.toString.call(SubmitExportAnaly) == "[object Function]") {
+                        SubmitExportAnaly("export", $("#formfilenames").val());
+                    }
+                });
+                $("#exportWord").bind("click", function () {
+                    if (typeof SubmitExportAnaly != "undefined" && Object.prototype.toString.call(SubmitExportAnaly) == "[object Function]") {
+                        SubmitExportAnaly("export", $("#formfilenames").val());
+                    }
+                });
+                $("#exportTxt").bind("click", function () {
+                    if (typeof SubmitExportAnaly != "undefined" && Object.prototype.toString.call(SubmitExportAnaly) == "[object Function]") {
+                        SubmitExportAnaly("export", $("#formfilenames").val());
+                    }
+                });
+            });
+        </script>
+    </form>    
+
+
+</body></html>

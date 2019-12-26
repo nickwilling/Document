@@ -1,0 +1,73 @@
+
+Donate to arXiv
+
+Please join the Simons Foundation and our generous member organizations in supporting arXiv during our giving campaign September 23-27. 100% of your contribution will fund improvements and new initiatives to benefit arXiv's global scientific community.
+DONATE
+
+[secure site, no need to create account]
+Skip to main content
+Cornell University
+We gratefully acknowledge support from
+the Simons Foundation and member institutions.
+arXiv.org > cs > arXiv:1906.05655
+
+Help | Advanced Search
+Search
+Full-text links:
+Download:
+
+    PDF only
+
+( license )
+Current browse context:
+cs.CY
+< prev  |  next >
+new  | recent  | 1906
+Change to browse by:
+cs
+cs.LG
+References & Citations
+
+    NASA ADS
+
+DBLP - CS Bibliography
+listing | bibtex
+Uduak Umoh
+Edward Udo
+Nyoho Emmanuel
+Export citation
+Google Scholar
+Bookmark
+BibSonomy logo Mendeley logo Reddit logo ScienceWISE logo
+Computer Science > Computers and Society
+Title: Support Vector Machine-Based Fire Outbreak Detection System
+Authors: Uduak Umoh , Edward Udo , Nyoho Emmanuel
+(Submitted on 8 Jun 2019)
+
+    Abstract: This study employed Support Vector Machine (SVM) in the classification and prediction of fire outbreak based on a fire outbreak dataset captured from the Fire Outbreak Data Capture Device (FODCD). The fire outbreak data capture device (FODCD) used was developed to capture the environmental parameters values used in this work. The FODCD device comprised a DHT11 temperature sensor, MQ-2 smoke sensor, LM393 Flame sensor, and ESP8266 Wi-Fi module, connected to Arduino nano v3.0.board. 700 data point was captured using the FODCD device, with 60% of the dataset used for training while 20% was used for testing and validation respectively. The SVM model was evaluated using the True Positive Rate (TPR), False Positive Rate (FPR), Accuracy, Error Rate (ER), Precision, and Recall performance metrics. The performance results show that the SVM algorithm can predict cases of fire outbreak with an accuracy of 80% and a minimal error rate of 0.2%. This system was able to predict cases of fire outbreak with a higher degree of accuracy. It is indicated that the use of sensors to capture real-world dataset and machine learning algorithm such as the support vector machine gives a better result to the problem of fire management. 
+
+Subjects: 	Computers and Society (cs.CY) ; Machine Learning (cs.LG)
+Cite as: 	arXiv:1906.05655 [cs.CY]
+  	(or arXiv:1906.05655v1 [cs.CY] for this version)
+Bibliographic data
+[ Enable Bibex ( What is Bibex? )]
+Submission history
+From: Uduak Umoh [ view email ]
+[v1] Sat, 8 Jun 2019 09:25:52 UTC (694 KB)
+Which authors of this paper are endorsers? | Disable MathJax ( What is MathJax? ) Browse v0.2.1 released 2019-04-18    Feedback?
+
+    About arXiv
+    Leadership Team
+
+    Contact Us
+    Follow us on Twitter
+
+    Help
+    Privacy Policy
+
+    Blog
+    Subscribe
+
+arXiv® is a registered trademark of Cornell University.
+
+If you have a disability and are having trouble accessing information on this website or need materials in an alternate format, contact web-accessibility@cornell.edu for assistance.

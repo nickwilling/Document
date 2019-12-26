@@ -1,0 +1,382 @@
+Firebird: Predicting Fire Risk and Prioritizing Fire Inspections in Atlanta
+
+arXiv:1602.09067v1 [cs.CY] 29 Feb 2016
+
+Michael Madaio
+Carnegie Mellon University Pittsburgh, PA, USA
+mmadaio@cs.cmu.edu
+
+Shang-Tse Chen
+Georgia Tech Atlanta, GA, USA
+schen351@gatech.edu
+
+Oliver L. Haimson
+University of California, Irvine Irvine, CA, USA
+ohaimson@uci.edu
+
+Wenwen Zhang
+Georgia Tech Atlanta, GA, USA
+wzhang300@gatech.edu
+
+Xiang Cheng
+Emory University Atlanta, GA, USA
+xcheng7@emory.edu
+
+Matthew Hinds-Aldrich
+Atlanta Fire Rescue Dept. Atlanta, GA, USA
+mhindsaldrich@atlantaga.gov
+
+Duen Horng Chau
+Georgia Tech Atlanta, GA, USA
+polo@gatech.edu
+
+Bistra Dilkina
+Georgia Tech Atlanta, GA, USA
+bdilkina@cc.gatech.edu
+
+ABSTRACT
+The Atlanta Fire Rescue Department (AFRD), like many municipal ﬁre departments, actively works to reduce ﬁre risk by inspecting commercial properties for potential hazards and ﬁre code violations. However, AFRD’s ﬁre inspection practices relied on tradition and intuition, with no existing data-driven process for prioritizing ﬁre inspections or identifying new properties requiring inspection. In collaboration with AFRD, we developed the Firebird framework to help municipal ﬁre departments identify and prioritize commercial property ﬁre inspections, using machine learning, geocoding, and information visualization. Firebird computes ﬁre risk scores for over 5,000 buildings in the city, with true positive rates of up to 71% in predicting ﬁres. It has identiﬁed 6,096 new potential commercial properties to inspect, based on AFRD’s criteria for inspection. Furthermore, through an interactive map, Firebird integrates and visualizes ﬁre incidents, property information and risk scores to help AFRD make informed decisions about ﬁre inspections. Firebird has already begun to make positive impact at both local and national levels. It is improving AFRD’s inspection processes and Atlanta residents’ safety, and was highlighted by National Fire Protection Association (NFPA) as a best practice for using data to inform ﬁre inspections.
+Keywords
+Fire risk, predictive modeling, interactive visualization, government innovation, data science
+Permission to make digital or hard copies of all or part of this work for personal or classroom use is granted without fee provided that copies are not made or distributed for proﬁt or commercial advantage and that copies bear this notice and the full citation on the ﬁrst page. Copyrights for components of this work owned by others than ACM must be honored. Abstracting with credit is permitted. To copy otherwise, or republish, to post on servers or to redistribute to lists, requires prior speciﬁc permission and/or a fee. Request permissions from permissions@acm.org. KDD ’16 San Francisco, California USA
+c 2016 ACM. ISBN 123-4567-24-567/08/06. . . $15.00 DOI: 10.475/123 4
+
+Figure 1: Firebird Framework Overview. By combining 8 datasets, Firebird identiﬁes new commercial properties for ﬁre inspections. Its ﬁre risk predictive models (SVM, random forest) and interactive map help AFRD prioritize ﬁre inspections and personnel allocation.
+1. INTRODUCTION
+In 2014 alone, there were 494,000 structure ﬁres in the United States, causing 2,800 civilian deaths and $9.8 billion in property damage [1]. Municipal ﬁre departments, as the Authority Having Jurisdiction (AHJ), are responsible for enforcing applicable ﬁre codes to reduce the risk of structure ﬁres. The City of Atlanta Fire Rescue Department (AFRD), like many other ﬁre departments, conducts regular commercial property inspections to ensure that they comply with the city’s Code of Ordinances [2] for ﬁre prevention and safety. With an annual average of nearly 650 structure ﬁres and 2,573 annual commercial inspections, the AFRD Community Risk Reduction Section wanted to both identify uninspected properties and ensure that the properties being inspected were those at greatest risk of ﬁre. Through a partnership between the City of Atlanta and the Data Science for Social Good (Atlanta) program, our research team devel-
+
+oped the Firebird framework for identifying and prioritizing property ﬁre inspections, based on ﬁre department criteria and historical ﬁre risk, tackling two important challenges:
+Challenge 1: Property Identiﬁcation. The AFRD Community Risk Reduction Section knew that the 2,573 annually inspected commercial properties were not all of the commercial properties in the city of Atlanta, but they did not have a way to obtain a more complete list of commercial properties that potentially needed inspection. The existing process for AFRD’s property inspections involved a legacy system of paper ﬁle records and inspections conducted on the basis of pre-existing permits, without a robust process for identiﬁcation, selection, and prioritization of new properties to inspect. In addition, the variety of data sources AFRD had compiled to inform their inspections were inconsistent, incomplete, and were often at diﬀerent levels of granularity. Thus, cleaning and merging the datasets to identify which inspectable properties in the city had fallen through the cracks required signiﬁcant eﬀort. By integrating data from a variety of government and commercial sources, we discovered 19,397 potential new commercial properties to inspect, based on the property usage types that the Atlanta Code of Ordinances speciﬁes require inspection.
+Challenge 2: Fire Risk Prediction. Because 19,397 new commercial property inspections is far greater than the current number of annual commercial property inspections, and far more than AFRD’s current staﬀ of ﬁre inspectors can reasonably inspect, we developed a method to prioritize those inspections based on their ﬁre risk. First, we created a joined dataset of building- and parcel-level information variables, for 8,223 commercial properties1. Then, we built predictive models of ﬁre risk using machine learning approaches, including Support Vector Machine (SVM) [7] and Random Forest [3]. These models achieve true positive rates (TPRs) of up to 71.36% (in predicting ﬁres) at a false positive rate (FPR) of 20%. As our most important goal is to save lives, a higher TPR outweighs the increase in FPR. The resulting ﬁre risk scores were then assigned to over 5,000 commercial properties to help ARFD prioritize inspections.
+Contributions & Impact. With Firebird, AFRD can now use data about historical ﬁres to inform their ﬁre inspections and more eﬃciently utilize their inspection personnel capacity. The challenges that Firebird addresses are not unique to AFRD or the City of Atlanta; many municipal agencies across the country work to integrate a variety of data sources to inform decision-making at all levels of governance. Speciﬁcally, many ﬁre safety departments are seeking eﬀective prioritization of property inspections and allocation of inspection resources, given limited inspection personnel and large numbers of inspectable properties. Firebird has already begun to improve AFRD’s inspection processes. Its major contributions include:
+• Discovering new properties. Firebird improves the safety of Atlanta residents and visitors by identifying
+1We will be referring to buildings and properties as two distinct concepts throughout this paper. The AFRD conducts property inspections and issues permits to the owners of those “inspectable spaces,” which are properties. However, it is the physical structure of buildings that catch ﬁre, and thus, when we built predictive models, we did so with information about the buildings themselves. This is signiﬁcant because one property may contain multiple buildings, while another building may contain multiple properties.
+
+19,397 previously unidentiﬁed inspectable commercial properties. • Predictive ﬁre risk model. Firebird correctly predicts more than 70% of commercial ﬁres (at 20% FPR), and applies the resulting ﬁre risk scores to over 5,000 properties to help ARFD prioritize inspections. • Impact to Atlanta: Firebird at work. Through an interactive map, Firebird integrates and visualizes ﬁre incidents, property information and inspections, and risk scores to inform the decision-making processes of AFRD ﬁre inspectors, executive staﬀ, and their Community Risk Reduction Section for inspection prioritization and inspection personnel allocation. • National impact: reusable end-to-end framework for inspection prioritization. Firebird provides an explicated model for other municipalities and agencies to use to identify new properties and prioritize commercial property inspections based on ﬁre risk. This project was highlighted by the National Fire Protection Association (NFPA) at the Smart Enforcement Workshop for ﬁre service professionals across North America as a best practice for using data to inform ﬁre inspections.
+2. RELATED WORK
+Risk prediction models have been widely used in many domains, including health care [15], student performance evaluation [16], and accounting fraud detection [18]. However, urban ﬁre risk prediction has received relatively less attention, despite its obvious importance.
+Forest ﬁre prediction. Much of the prior work on datadriven ﬁre risk prediction has targeted woodland and forest ﬁres, such as in Italy [17], Greece [14], and Portugal [9]. They used diﬀerent methods, such as neural networks [9], fuzzy algebra [14], and decision trees [17] to support the allocation of ﬁreﬁghting, ﬁre prevention, and foliage recuperation resources to the areas of highest ﬁre risk. The features they used, such as soil type and topography, are very diﬀerent from the ones typically used in urban ﬁre prediction like construction material and property usage type.
+Community-level urban ﬁre prediction. Prior work in data-driven urban ﬁre risk prediction tends to work at the region or community level [5, 8], rather than the propertyor building-level, which is the unit that the Atlanta ﬁre inspectors are assigned to inspect. For instance, [5] undertook a randomized controlled trial of community ﬁre risk education eﬀorts, targeting high-risk residential communities. However, their method for identifying the high-risk areas was to create a point-distribution map of residential structure ﬁres and draw ellipses to capture the areas of densest concentration of ﬁre incidents. A more methodologically rigorous approach, as seen in [8]’s work on optimizing smokealarm inspections, joins data from the American Community Survey and American Housing Survey to predict municipal blocks most likely to have homes without functioning smoke alarms, using a Random Forest. Our work similarly uses publicly available datasets to predict properties most likely to be in need of inspection, but diﬀers in that we oﬀer a ﬁre risk prediction score for individual commercial properties, rather than municipal residential blocks.
+Property-level urban ﬁre prediction. There is limited work on predicting ﬁre risk at the property or build-
+
+Google
+
+Places
+
+x,y
+
+Fire
+
+x,y
+
+Incidents
+
+Addr. Fire Permits
+
+Liquor & Business Licenses
+
+Addr.
+Parcel ID
+
+x,y x,y
+
+Addr.
+
+Parcel ID
+Dekalb & Fulton Parcel
+Line Thickness indicates the amount of data that are joined
+
+Census Tract
+
+Atlanta Crime Incidents
+
+x,y
+Parcel ID
+
+Commercial Property (Costar)
+
+Parcel ID
+
+SCI and NPU Parcel Condition
+
+Socioeconomics & Demographics
+
+Figure 2: Joining eight datasets using three spatial information types (geocode, address, parcel ID).
+
+ing level. In British Columbia, [12] developed a risk-based model for determining the frequency of commercial property ﬁre inspections, using static and dynamic building-level characteristics. They scored each property by its level of compliance on prior inspections and by a set of risk metric components such as building classiﬁcation, age, and presence of sprinklers. However, as they acknowledge, the weights and selection of those components were based on their ﬁre code, and not on historical data on features that were highly predictive of ﬁre, such as we utilize in our work.
+The nearest precedent for our research with AFRD is the recent work from the New York Mayor’s Oﬃce of Data Analytics (MODA) with the Fire Department of New York (FDNY) to build a “Risk-Based Inspection System” (RBIS) [6]. They built a data-driven model to identify structures at greatest ﬁre risk, to better prioritize FDNY’s inspection process, using a set of structural and behavioral information about those properties. However, due to a lack of detailed information on their technical approach, it is unclear how it may apply to AFRD’s scenario.
+In both the FDNY RBIS initiative and our work with AFRD, a key challenge emerged: the diﬃculty of joining disparate sets of data about commercial properties, gathered from various city departments without a shared convention for building ID numbers, consistent address formats, or strict internal quality control practices to ensure the datasets are accurate and up-to-date. We diﬀer from [6] and [12] by providing a clear method for identifying new inspectable commercial properties that the ﬁre department is not already aware of. Further, our work goes beyond [6] by presenting here a detailed comparison of the performance of several machine learning algorithms for predicting the ﬁre risk of commercial properties, and by incorporating them into an interactive GIS visualization for use by the AFRD ﬁre inspectors and Community Risk Reduction Section, following [10].
+3. DATA DESCRIPTION
+An essential step before identifying and prioritizing potential properties to inspect is to join the data about commercial properties from multiple sources. This was done to construct as complete a picture as possible for the properties in Atlanta needing inspection, as required by the Atlanta Code
+
+of Ordinances. After the data joining, we identiﬁed 19,397 new potential commercial properties to inspect, through a process of property discovery that utilized AFRD and City of Atlanta ﬁre code criteria. See Table 1 for a summary of the diﬀerent lists of total commercial property inspections and commercial buildings we will be referring to throughout this paper.
+
+Name
+Current annual inspections Long list of potential new inspections2 Short list of potential new inspections Current + short list inspections Current + short list inspections with risk score Properties for building predictive model
+
+Count
+2,573 19,397
+6,096 8,669 5,022 8,223
+
+Table 1: Summary of inspection and building lists
+
+3.1 Data Sources
+Firebird uses data from multiple sources, as tabulated in Table 2. AFRD provided us with a dataset of 2, 543 historical ﬁre incidents from July 2011 to March 2015, among which 34.3% were commercial ﬁres. The dataset includes information about ﬁre incidents, such as time, location, type and cause of ﬁre. AFRD also provided a dataset of ﬁre inspections, containing 32, 488 inspection permit records from 2012 to 2015. The inspection data includes information such as inspected property types, address, and time of inspections. We also obtained structural information about commercial properties from a dataset purchased by AFRD from the CoStar Group, a commercial real estate agency. This dataset includes building-level features such as year built, building material, number of ﬂoors and units, building condition and other information. A total of 8,223 commercial properties are documented by the CoStar Group in the City of Atlanta.
+2We provided AFRD with two lists of potential properties: one longer list that was the most extensive that we could provide, and another shorter list that was more manageable to display on a map, reﬁned using the most frequently inspected property usage types.
+
+Source Atlanta Fire Rescue Department
+City of Atlanta
+Atlanta Police Department Atlanta Regional Commission U.S. Census Bureau CoStar Group, Inc Google Place APIs
+
+Name Fire Incidents Fire Permits Parcel Strategic Community Investigation Business Licenses Crime Liquor Licenses Neighborhood Planning Unit Demographic Socioeconomic CoStar Properties Google Place
+
+Description Fire incidents from 2011 - 2015 All permits ﬁled by AFRD in 2012-2015 Basic information for each parcel in Atlanta Information regarding parcel conditions All the business licenses issued in Atlanta 2014 crime in Atlanta All ﬁled liquor licenses by Police Department Boundary data for each Atlanta neighborhood Household number, population by race and age Household median income Commercial property information Information regarding places from Google Maps
+
+Table 2: Data Sources Summary
+
+While CoStar oﬀers building-level information, parcel data from Atlanta’s Oﬃce of Buildings provides parcel-level information, such as property value, square footage, address, and other information about each parcel (a unit of land surrounding building(s)). The business license dataset obtained from the City of Atlanta’s Oﬃce of Revenue provides information about businesses that own commercial properties. The business licenses dataset has 20,020 records with over 20 features including business type, business name, address, owner, etc. For non-business commercial properties (e.g., schools, churches, daycare centers), we obtained such data from Google Places API and State of Georgia Government.
+To oﬀer more information about properties for building a predictive risk model, we also obtained socioeconomic and demographic data from the U.S. Census Bureau, liquor license and 2014 crime data from the Atlanta Police Department, and Certiﬁcate of Occupancy (CO) data from the Atlanta Oﬃce of Buildings. All of these data sources contributed to discovering new inspections and developing our predictive model for commercial ﬁre risk estimation.
+3.2 Data Joining
+A critical step of this study was to join diﬀerent datasets together so that data from diﬀerent sources about the same building or property could be uniﬁed to create the most complete picture of a given property. For instance, by joining ﬁre incident and commercial property data together, we can obtain a general idea regarding which commercial properties caught ﬁre in the past ﬁve years. Furthermore, by joining commercial property data with data from the commercial real estate reports like the CoStar Group or the SCI Report, we can generate a more comprehensive view regarding speciﬁc characteristics of buildings, such as the structure and parcel condition, and even vacancy information.
+We joined the datasets together based primarily on spatial location information. There are three types of spatial or location information in our datasets: longitude and latitude, address information, and the parcel identiﬁcation number, which is a unique ID number created by Fulton and DeKalb county3 for tax purposes. We then performed a location
+3The City of Atlanta is comprised of two separate counties, Fulton and Dekalb. Although both county governments
+
+join based on the above three types of location information. The variety of spatial information types, and our method for joining them is illustrated in Figure 2. One obstacle we encountered was that spatial information had diﬀerent formatting standards across the datasets. For example, the addresses from the CoStar Group were all in lowercase, with road names abbreviated instead of fully spelled out, while datasets from the multiple departments of the City of Atlanta tend to use a more consistent address format. Therefore, a spatial information cleaning process was conducted before joining the datasets directly. The address location information from diﬀerent datasets was ﬁrst validated using Google Geocoding API. The API can auto-correct some misspellings of address information. After validation, addresses were then reformatted using US Postal Service’s address validation API. The coordinate information was processed in ESRI ArcGIS software to ﬁlter out data points falling outside of the City of Atlanta. The cleaned datasets were then joined together based on the formatted addresses from the USPS API and the coordinate information from ArcGIS.
+4. IDENTIFYING NEW PROPERTIES NEEDING INSPECTION
+To discover new properties, we ﬁrst needed to understand what types of properties currently required ﬁre inspections by AFRD, and we then identiﬁed other similar properties. In the current ﬁre inspection permit dataset, we found more than 100 unique occupancy usage types, such as restaurants, motor vehicle repair facilities, textile storage, schools, children’s day care centers, etc. To identify other similar commercial properties, we joined the list of currently inspected properties with the Atlanta Business License data by matching both the spatial location (identiﬁed through the joining process explained in Section 3.2) and the business name.
+We discovered that, in addition to the 2,573 currently inspected properties, there were approximately 19,397 properties of the same occupancy usage types as the city’s current inspections. For instance, the Fire Code of Ordinances stipulates that motor vehicle repair facilities require inspection,
+provided building information, their parcel ID numbering schemes were not consistent. Thus, building information had to joined using addresses and coordinates.
+
+due to the presence of ﬂammable or combustible materials. However, only 186 of a total of 507 of those facilities in the city were on the list of current annual property inspections, suggesting that many or all of 321 remaining facilities should be inspected. However, because some occupancy types, such as “miscellaneous business service,” may have many properties that are not actually required for inspection, we created a shorter, more reﬁned list of 6,096 new potential property inspections (instead of the 19,397 mentioned above), including only the top 100 most frequently inspected property usage types. We discovered these properties from a variety of data sources, including the Atlanta Department of Revenue’s Business License dataset, the liquor license dataset from the Atlanta Police Department, the Georgia Department of Education’s child care and preschool database, and Google Places API. We used the Google Places API to supplement the other datasets primarily because it provided more up-to-date information about some of our most commonly inspected property types, such as restaurants, bars, nightclubs, schools, churches, gas stations, etc, and because it proved especially useful for discovering properties that required inspection, but were not in the Business License dataset as they did not belong to any “business” category (e.g., churches). Google Places API served as a “bridge” to cross-check properties from diﬀerent datasets, increasing the accuracy of our property discovery process.
+In the process of identifying new properties needing inspection, the most challenging part was to determine how buildings with diﬀerent names (or IDs, or address formats) in various datasets may actually refer to the same building. We had to ensure that the properties on our new inspectable property list were unique and were not already on the list of currently inspected properties, after the aforementioned datasets were joined together. Diﬀerent approaches were attempted to ensure the uniqueness and novelty of the properties on our potential list. The most reliable and eﬃcient method was found to be joining diﬀerent datasets in pairs using geocoding and approximate (“fuzzy”) string matching to approximately match both the business name and the address. We used Google Maps Geocoding API for geocoding and a Python library [13] to match the strings based on the edit distance. From the joined dataset, a ﬁnal property list was extracted that contained information from all the available data sources.
+5. PREDICTIVE MODEL OF FIRE RISK
+However, 19,397 new properties (or even the shorter list of 6,096) is far more than AFRD is able to add to their annual property inspections, and moreover, not all of those properties are likely to need inspection at the same level of priority. We therefore created a predictive model to generate a ﬁre risk score based on the building- and parcel-level characteristics of properties that had ﬁre incidents in the last ﬁve years. This model was built using the scikit-learn machine learning package in Python [20]. The model uses 58 independent variables to predict ﬁre as an outcome variable for each property.
+5.1 Data Cleaning
+After joining various datasets together to obtain buildingand parcel-level information, signiﬁcant data cleaning still needed to occur. The bulk of the data cleaning process involved ﬁnding the extent of the missing data and deciding
+
+how to deal with that missingness. Our missingness procedures were designed to minimize deletion of properties with missing data, because a signiﬁcant number of the properties in our model had NA values (not available) for many variables (such as the structure condition of a building, which is only known if the building was inspected by the CoStar Group before). For each property with missing data for a particular feature, we replaced missing values with 0 when appropriate. We also included a binary feature indicating whether each property had missing data for each feature. We used log transformation for variables with a large numerical range, such as the “for sale” price of properties.
+
+5.2 Feature Selection
+After merging the datasets, we had a total of 252 variables for each property. We manually examined each variable to determine whether it may be relevant to ﬁre prediction, and excluded many obviously non-predictive variables in this initial process (such as the phone number of the property owner, or property ID numbers). We then used forward and backward feature selection processes to determine each variable’s contribution to the model, and removed the variables that did not contribute to a higher predictive accuracy. Our ﬁnal model includes only 58 variables. We then expanded categorical variables into binary features. For example, the zip code variable was expanded into 37 binary features, and for each property only one zip code was coded as 1 (all zip codes were designated as 0 if the property’s zip code data was missing). After the expansion, we had 1127 features in total.
+
+5.3 Evaluation of the Models
+
+We chose to validate our model using a time-partitioned
+
+approach. A ﬁre risk model would ideally be tested in prac-
+
+tice by predicting which properties would have a ﬁre inci-
+
+dent in the following year, and then waiting a year to verify
+
+which properties actually did catch ﬁre. Because we wanted
+
+to eﬀectively evaluate the accuracy of our model without
+
+waiting a year to collect data on new ﬁres, we simulated
+
+this approach by using data from ﬁre incidents in July 2011
+
+to March 2014 as training data to predict ﬁres in the last
+
+year of our data, April 2014 to March 2015.
+
+We used grid search with 10-fold cross validation on the
+
+training dataset to select the best models and parameters.
+
+The models we tried included Logistic Regression [19], Gra-
+
+dient Boosting [11], Support Vector Machine (SVM) [7], and
+
+Random Forest [3]. SVM and Random Forest performed
+
+the best, with comparable performances (see Table 3). For
+
+SVM,
+
+we
+
+used
+
+RBF
+
+kernel
+
+with
+
+C
+
+=
+
+0.5
+
+and
+
+γ
+
+=
+
+10 #features
+
+.
+
+For Random Forest, we used 200 trees with a maximum
+
+depth of 10 for each tree.
+
+We then trained SVM and Random Forest on the whole
+
+training set using the best parameters and generated predic-
+
+tions on the testing set. Note that the training and testing
+
+sets consist of the same set of properties, but the diﬀerent
+
+labels correspond to ﬁres in a diﬀerent period of times. This
+
+is a valid approach because we didn’t use any information
+
+that we would only know after the training period, i.e., ﬁres
+
+in 2015.
+
+The ROC curves for the training and testing performances
+
+are shown in Figure 3. All the results are averaged over
+
+10 trials. The most important metric in this case is the
+
+true positive rate (TPR), i.e., how many ﬁres were correctly
+
+1.0
+
+0.8
+
+True Positive Rate
+
+0.6
+
+0.4
+
+0.2
+
+10-fold CV (AUC: 0.8131)
+
+testing (AUC: 0.8246)
+
+0.00.0 0F.2alse0P.4ositi0v.e6 Rat0e.8 1.0
+
+(a) Random Forest
+1.0
+
+0.8
+
+True Positive Rate
+
+0.6
+
+0.4
+
+0.2
+
+10-fold CV (AUC: 0.8052)
+
+testing (AUC: 0.8079)
+
+0.00.0 0F.2alse0P.4ositi0v.e6 Rat0e.8 1.0
+
+(b) SVM
+
+Figure 3: ROC curves of Random Forest and SVM
+
+predicted as positive in our model. The SVM model was able to predict 71.36% of the ﬁres in 2014-2015, at a false positive rate (FPR) of 20%, which was deemed practically useful for AFRD — potential to save lives (by achieving a higher TPR) signiﬁcantly outweighs the increase in FPR. At the same time, a high FPR facilitates more inspections of risky buildings, which is also beneﬁcial. In practice, AFRD can adjust the TPR/FPR ratio to match their risk aversity and inspection capacity. The Random Forest model achieved a slightly lower TPR of 69.28% at the same FPR, but had a higher area under the ROC curve (AUC). Considering how few ﬁres occur (only about 6% of the properties in our total dataset had ﬁres), these results are much more predictive than guessing by chance.
+False positives (FPs) provide important information to AFRD. As our testing period was the ﬁnal year in our dataset, it is possible that some of those FP properties may actually catch ﬁre in the near future. These properties share many characteristics with those that did catch ﬁre, and should likely be inspected by AFRD.
+5.4 Further Discussion of the Models
+In this section, we discuss some insight we obtained while conducting the experiments. First, there is a mismatch between the meaning of labels in the training and testing datasets. The training labels represent ﬁres that happened
+
+Training window
+2011-2012 2011-2013 2011-2014
+
+Testing AUC of the following year
+
+Random Forest
+
+SVM
+
+0.7624 0.8030 0.8246
+
+0.7614 0.7914 0.8079
+
+Table 3: Testing AUC of each year
+
+in a relatively long period of time, whereas the testing labels represent ﬁres in a single year. One way to address this issue would be to expand each properties into multiple examples, one for each year. Each example is then a properties for a particular year, and the corresponding label indicates whether there was a ﬁre in that year. Using this approach, however, did not improve the performance in our experiments. The reason is that most of our variables are static, such as ﬂoor size and zip code, and only a few variables are time-dependent, such as the age of the building and the time since last inspection. Therefore, expanding the properties only gives us many similar examples. However, this approach would potentially be helpful after collecting other dynamic information in the future, such as violations of health codes, sanitation ordinances, or other information from relevant city agencies.
+Another important issue is whether the performance of predicting ﬁres is consistent in diﬀerent testing time periods. To test this, we tried diﬀerent time windows for training, and for each window, we evaluated its prediction performance for the subsequent year. For each time window, we repeated the process described in Section 5.3, including grid search and cross validation, and ﬁnally used the best model to predict ﬁres in the following year. The results are shown in Table 3. The performances decrease slightly for shorter training periods. This is due to fewer positive training examples, especially in the period of 2011-2012, which only consists of eight months of data (July 2011 to March 2012). However, this is still signiﬁcantly better than guessing by chance, which demonstrates that we were not just “lucky” in predicting ﬁres for a particular year.
+Finally, it is helpful for us and for AFRD to know which features are the most eﬀective predictors. The Random Forest model presents a natural way to evaluate feature importance: for each decision tree in the Random Forest, the importance of a feature is calculated by the ratio of examples split by it. The ﬁnal importance is then averaged among all trees. The top ten most predictive features are displayed in Table 4. Collectively, they capture the intuitive insight that buildings of a larger size or those containing more units (thus more people) would have higher probability of catching ﬁre.
+We also tried logistic regression, a linear model, to estimate each feature’s importance based on the corresponding weight coeﬃcient in the model. We found that the top features in the logistic regression were very diﬀerent from the ones in Random Forest. All were binary features indicating either a particular neighborhood or property owner. Some neighborhoods have either very high or low ﬁre rates, and logistic regression tends to assign large positive or negative weights to them, respectively. However, since each of these features is only good at predicting a small number of properties within a certain area but does not predict well on the overall data, they are not chosen in the ﬁrst few iterations of a decision tree.
+
+Top 10 features
+1 ﬂoor size 2 land area 3 number of units 4 appraised value 5 number of buildings 6 total taxes 7 property type is multi-family 8 lot size 9 number of living units 10 percent leased
+Table 4: Top-10 features in Random Forest
+5.5 Assignment of Risk Scores
+After we built the predictive model, we then applied the ﬁre risk scores of each property to the list of current and potential inspectable properties, so that AFRD could focus on inspecting the properties most at risk of ﬁre. To do this, we ﬁrst computed the raw output of our predictive model for the list of properties we used to train and test the model. This generated a score between 0 and 1, which we then mapped to the discrete range of 1 to 10 that is easier for our AFRD colleagues to work with. Then, based on visual examination of the clustering of risk scores, we categorized the scores into low risk (1), medium risk (2-5), and high risk (6-10). These risk categorizations were intended to assign a manageable amount of medium risk (N = 402) and high risk properties (N = 69) for AFRD to prioritize.
+We then needed to ﬁnd out which of the properties with risk scores were in the lists of 2,573 current annually inspected properties and 6,096 potentially inspectable properties. Because of the lack of a consistent property ID across the various datasets used to develop the risk model, the currently inspected and potentially inspectable properties were spatially joined with the properties in the risk model, based on their geo-coordinates or addresses. After joining, we were able to assign risk scores to 5,022 of the 8,669 total commercial properties on the inspection list (both currently inspected [2,573] and potentially inspectable [6,096]).
+6. IMPACT ON AFRD AND ATLANTA
+6.1 Previous Inspection Process
+Our goal in developing the Firebird framework was to help the Atlanta Fire Rescue Department (AFRD) and other municipal ﬁre departments improve their identiﬁcation and prioritization of commercial property inspections. Before considering the impact our work had on that process, it is important to ﬁrst describe the previous process of commercial ﬁre inspections in Atlanta. First, ﬁre inspectors at AFRD received a list of properties to inspect every month, which had been inspected during that same month in the previous year. The existing process for adding new commercial properties to the list of required inspections was extremely ad hoc, without a formal notiﬁcation process from other city departments when new buildings were built or occupied, or new businesses registered. It was largely the responsibility of individual ﬁre inspectors to notice new inspectable properties and initiate an inspection process while driving to another inspection site. Moreover, there was no formal process used by the inspectors to prioritize their monthly
+
+inspections based on risk, or even to schedule their daily inspections based on proximity to other inspections. In other words, it is very possible that an inspector could return to the same business complex multiple times throughout the year conducting inspections on adjacent properties, which is not the most eﬀective use of municipal resources. In addition, at present, the City of Atlanta Code of Ordinances does not specify the frequency of inspections based upon risk or other factors. As a result, inspections are eﬀectively binary; regardless of potential ﬁre risk, a property either gets an annual inspection in the same month every year, or it is unlikely to be inspected at all.
+6.2 Technology Transfer to AFRD
+After developing the Firebird framework, we ﬁrst provided AFRD’s executive staﬀ and Community Risk Reduction Section with a dataset of all commercial properties in Atlanta that ﬁt their criteria for inspection. This included a shorter list of 6,096 new inspectable properties which are of the top 100 currently inspected property usage types (e.g., restaurants, motor vehicle repair facilities, etc), and a longer list of all commercial properties (19,397) that ﬁt any property usage type that had been previously inspected. This dataset included the associated building- and parcel-level information for those properties in the form of a CSV ﬁle, with a subset of those properties (5,022) assigned a ﬁre risk score. We then provided AFRD with an interactive map-based visualization tool, as part of the Firebird framework, for the ﬁre inspectors and AFRD executive staﬀ to use to augment their policy and decision-making processes. The map in Figure 4 was made using the open source map-making tools Mapbox and Leaﬂet to create the base map layer. Then, using the Javascript visualization library D3.js, we displayed diﬀerently colored circles on the map to represent ﬁre incidents, currently inspected properties, and potentially inspectable properties in red, green, and blue, respectively, using their longitude and latitude coordinates.
+We also built a user interface for the Firebird map developed through discussions with the AFRD Assessment and Planning Section, and reﬁned by incorporating feedback from ﬁre inspectors and AFRD executive staﬀ. The map includes an information panel for displaying property information when hovering over a property on the map, such as its business name, address, occupancy usage type, date since ﬁre incident or inspection, and ﬁre risk score, if available. The map also includes a user interface panel with the ability to ﬁlter the ﬁre incidents, the currently inspected, and the potentially inspectable properties according to their property usage type, the date of ﬁre incident or inspection, and their risk score. Finally, we incorporated a set of regional overlays requested by the AFRD executive staﬀ, including the AFRD battalions, the Atlanta Neighborhood Planning Units (NPU), and Council Districts, of which the latter two are political subdivisions of the city. We included dynamically updated counts and percentages for currently displayed ﬁre incidents, current inspections, and potential inspections for each of those regional overlays (shown in Figure 4), to be displayed when hovering over them, so the AFRD executive staﬀ could make decisions at a battalion, NPU, or Council District level. This map, and the Firebird framework in general, could be used as a powerful tool for supporting data-driven conversations about personnel and resource allocation and inspection decisions, and may even be used to
+
+Figure 4: Interactive map of ﬁres and inspections. The colored circles on the map represent ﬁre incidents, currently inspected properties, and potentially inspectable properties in red, green, and blue, respectively. Inspectors can ﬁlter the displayed properties based on property usage type, date of ﬁre or inspection, and ﬁre risk score. Callout: activating the Neighborhood Planning Unit overlay allows an inspector to mouse-over a political subdivision of the city to view its aggregate and percentage of the ﬁres, inspections, and potential inspections.
+
+inform decisions regarding community education programs for ﬁre safety and prevention.
+6.3 Impact on AFRD Processes
+After receiving the dataset of properties needing inspection, prioritized according to their ﬁre risk score, AFRD has begun integrating the results of the analytics into their ﬁre inspection process. Increasing the number of annual inspections by 6,096 (237%) overnight was not feasible without signiﬁcant changes in organizational processes, local ordinances, or increased staﬃng. As an initial eﬀort, AFRD assigned the 69 high-risk properties to the inspectors covering those respective areas. Of those, 27 had current or out-of-date ﬁre safety permits that required re-inspection, 13 properties required new permits, and 15 properties recently went out of business. The remaining properties were found to not require a ﬁre safety permit. Most signiﬁcantly, the inspectors assigned to review these properties found a total of 48 violations that needed to be addressed to meet the ﬁre code. As AFRD continues working through the list of potentially inspectable properties in descending order of risk, the sheer number of additional inspections (increased workload) and the number of potential violations identiﬁed and mitigated (positive outcomes) has already begun to have a transformative impact on the daily operations of AFRD’s ﬁre inspection process.
+In addition to the immediate impact on the daily property inspections, the results of this work have stimulated important conversations within the executive leadership of AFRD and the Assessment and Planning Section about 1) how to more eﬀectively allocate inspection personnel; 2) how to update and utilize the model to provide dynamic risk data in real time (e.g., on a monthly basis when new inspection assignments are given to the inspectors); 3) how to motivate increased data sharing between various government departments such as the Oﬃce of Buildings and AFRD; 4) how
+
+to give teams of ﬁreﬁghters access to ﬁre safety permit and violation information when they respond to a ﬁre emergency at that commercial property; and 5) how to extend the risk prioritization to residential properties using more behavioral data such as noise or sanitation ordinance violations, and consumer data from companies like Experian or ESRI.
+Though there are many more inspectable properties than AFRD currently has the personnel capacity to handle, AFRD has already begun to take steps toward a more eﬃcient use of their existing personnel, by discussing how to assign inspectors to regions with a higher proportion of properties requiring inspection, rather than by the geographical assignment to ﬁre battalions currently in use. In addition, they have begun to discuss altering properties’ inspection frequencies to reﬂect their ﬁre risk levels. By prioritizing future inspections and more eﬃciently allocating inspection personnel to target the commercial properties most at risk of ﬁre, we hope this work will lead to a reduction in the frequency and severity of ﬁre incidents in Atlanta. We also hope that this framework can be instructive for other municipal ﬁre departments to improve their ﬁre inspection processes.
+7. CHALLENGES
+As ﬁre departments in many municipalities embark on more data-driven ﬁre risk inspection policies and practices, several challenges we encountered could prove instructive for others. As with many governmental data science initiatives, the practical application of the predictive model has been contingent on local politics, organizational inertia, and existing policies, or what [4] calls the “politics of place.’ While AFRD was an active and engaged partner throughout this project, securing access to clean and usable data proved a challenge. At the time of this writing, the City of Atlanta’s Oﬃce of Buildings, Oﬃce of Housing, and AFRD do not share a uniﬁed database of buildings or a shared building identiﬁcation numbering convention, and thus, the process
+
+of joining various datasets was more technologically diﬃcult than it might otherwise have been. Even the seemingly simple task of discovering which properties in the Oﬃce of Building’s dataset were also in the AFRD dataset required a rather elaborate process of fuzzy text-matching and address veriﬁcation. In addition, our ability to leverage regularly updated dynamic data was similarly hindered by the diﬃculty of data sharing among city departments. For instance, the Oﬃce of Building’s Business License database may very well be updated regularly, but without a pipeline in place for those updated data to be used by AFRD, businesses may close without AFRD knowing, causing inspectors to waste time attempting to inspect closed businesses. These challenges could be mitigated if each department with a vested interest in municipal commercial properties and structures worked more closely to share their data and information.
+Entrenched organizational processes may similarly hinder the adoption of new methods of identifying properties to inspect. While, in theory, the ﬁre inspection process targets properties that are required by city ordinance to have a ﬁre safety permit (e.g., restaurants over a certain capacity, auto repair facilities, etc.), in practice there is no existing organizational procedure at AFRD and in many other cities to systematically add properties to the list of regular inspections, or to determine their frequency of inspection [12]. In this work, while we have created and employed an innovative method of identifying new properties to inspect, until interdepartmental data-sharing becomes widespread, this process would need to be redone on a regular basis as new businesses open, close, or change usage type. Further, though we created an interactive map for visualization of various types of property inspections, such a tool has not previously been part of AFRD ﬁre inspectors’ regular workﬂow, and this novelty presents a barrier for adoption, as seen in [10]. Finally, with the number of inspectable properties increasing by up to 237%, there is no clear incentive for the ﬁre inspectors to work more eﬃciently to increase their individual number of property inspections per month.
+From a policy standpoint, the existing municipal ﬁre code in Atlanta requires that inspections occur regularly for a speciﬁed set of commercial property types, but it is not clear that those property types require inspection with equal priority or frequency. After using the results of this work for determining individual property ﬁre risk, the AFRD should begin a conversation about how best to revise the municipal ﬁre code to reﬂect diﬀerences in inspection priority and frequency due to the ﬁre risk associated with various property types. Prior work in [12] has similarly suggested revisions of the British Columbian ﬁre code from being a reactive, inﬂexible document based on tradition and intuition to a data-driven, responsive, and pro-active document that incorporates information about ﬁre risk. Finally, AFRD’s policies for property ﬁre inspections are primarily geared towards commercial properties, yet the majority of the ﬁres in Atlanta occur in residential properties. This will require additional rethinking of their residential community ﬁre safety and prevention education programs.
+As in many municipalities, fully leveraging the power of analytics to improve ﬁre safety in Atlanta will require a signiﬁcant rethinking of how to approach and manage city operations such as ﬁre inspections, and how to best facilitate data sharing practices between diﬀerent city agencies.
+
+8. CONCLUSIONS AND FUTURE WORK
+Due to the large number of commercial properties in Atlanta potentially requiring inspection and the limited inspection personnel capacity of the Atlanta Fire Rescue Department (AFRD), as in many other municipalities, there is a need for a data-driven prioritization of commercial property inspections. In this paper, we provide the Firebird framework: a re-usable method for municipal ﬁre departments to identify and prioritize their commercial property ﬁre inspections based on each property’s ﬁre risk. Our work ﬁrst provides a clear process for joining disparate data sources from multiple municipal departments and private sources to identify new inspectable properties based on currently inspected property types. We were able to identify 6,096 new inspectable properties, comprised of the top 100 property types currently inspected by the AFRD, and a total of 19,397 new inspectable properties comprised of all currently inspected property types by AFRD.
+We next present a method for predicting ﬁre risk for each commercial property. Our models used 58 building- and parcel-level variables to predict ﬁres in 8,223 properties, 5,022 of which are on the list of properties requiring inspection. Speciﬁcally, we trained SVM and Random Forest models using data from 2011-2014 to predict ﬁres in 2015. At a false positive rate of 20%, the SVM and Random Forest models were able to predict 71.36% and 69.28% of the ﬁres in that year, respectively. Furthermore, even the false positives provided valuable insight, since they represent properties with high risk of catching ﬁre, that likely should be inspected by AFRD. We also identiﬁed features that are highly related to ﬁres. From the Random Forest model, we learned that features related to building size, number or units, and value were most predictive. On the other hand, the logistic regression model revealed certain neighborhoods and property owners that associate with very high or low ﬁre rates. We then converted these results to a risk score for each property, and were able to apply these scores to 5,022 currently inspected and potentially inspectable properties (1,975 currently annually inspected and 3,047 potentially inspectable), with 454 of those properties having a medium or high risk score (188 currently inspected and 266 potentially inspectable properties). Finally, we incorporated those scores into our joined dataset of property inspections and visualized each of the properties on an interactive map, with their associated property information and risk score, for use by AFRD to augment their decision-making and inspection processes.
+Research Directions. Future research should seek to reﬁne, expand, and further validate our prediction model. Due to missing or erroneous entries in the data sources, we were only able to incorporate 8,223 properties into our predictive ﬁre risk model, out of the more than 20,000 commercial properties in the city. In addition, because of the lack of integration across city department datasets and a lack of completeness in many of our datasets, we were only able to provide risk scores for 5,022 of the 8,669 current and potentially inspectable properties in the dataset we provided to AFRD. Researchers working with other municipal ﬁre departments might train their models on a dataset that has fewer building- or parcel-level information variables, but may be applicable to more properties. Other work could improve the accuracy of the model by incorporating additional dynamic sources of data, such as violations of prior ﬁre in-
+
+spections, data from the Department of Health and Wellness inspections, information from the Certiﬁcates of Occupancy, or other, more behavioral sources, such as sanitation or noise violations, as seen in [6], rather than the largely static building- and parcel-level data that we used. In addition, more research needs to be done on the usefulness and usability of an interactive map to display inspection, and how the inspectors or executive staﬀ of a ﬁre department could use it in diﬀerent ways to inform their day-to-day planning, decisions, and operations. One step that municipal government agencies can take towards implementing this framework is to generate a unique Building Identiﬁcation Number (BIN), used by all stakeholders, such as the Oﬃce of Buildings, Ofﬁce of Housing or city planning departments, as well as the Fire and Police Departments. This would allow for an easier joining of various disparate sources of data, without the need for the address validation, text matching, and other complex and potentially error-generating processes for joining datasets.
+Identiﬁcation, selection, and prioritization of risky properties for ﬁre inspection can be very diﬃcult for cities that do not have an integrated data platform, because some municipal agencies may have relevant property and structure information that is isolated from other local data sources, and which may not have a regular, timely process for updating. Our work can be a model for improving the complex process of property inspection identiﬁcation and prioritization. We hope that other ﬁre departments and other municipal organizations interested in applying a data-driven analytic approach to their property inspections can use the framework outlined here for identifying and prioritizing inspections based on risk criteria. Additionally, our experience joining isolated datasets from diﬀerent government departments, commercial data, and open data sources could be invaluable for many cities that want to begin utilizing data science for a smarter city, without requiring a signiﬁcant ﬁnancial investment. We hope the impact from our work may further promote the beneﬁcial use of open public sector data, both in the city of Atlanta and elsewhere.
+9. ACKNOWLEDGMENTS
+We want to thank our partners at the Atlanta Fire Rescue Department for their support and willingness to re-examine their existing processes, especially Chief Baker, Chief Rhodes, and the staﬀ of the Community Risk Reduction Section. We also want to thank the Georgia Institute of Technology and the Data Science for Social Good program for their funding and academic support for this research.
+10. REFERENCES
+[1] National Fire Protection Association. Fires in the U.S. http://www.nfpa.org/research/reports-and-statistics/ ﬁres-in-the-us. Accessed: 2016-02-09.
+[2] City of Atlanta. Code of ordinances: Fire prevention and protection. https://www.municode.com/library/ga/atlanta/codes/ code of ordinances, 2015.
+[3] L. Breiman. Random forests. Machine learning, 45(1):5–32, 2001.
+[4] J. B. Carr and K. LeRoux. Which local governments cooperate on public safety?: lessons from michigan.
+
+Working Group on Interlocal Services Cooperation, page 4, 2005.
+[5] J. Clare, L. Garis, D. Plecas, and C. Jennings. Reduced frequency and severity of residential ﬁres following delivery of ﬁre prevention education by on-duty ﬁre ﬁghters: Cluster randomized controlled study. Journal of safety research, 43(2):123–128, 2012.
+[6] E. Copeland. Big data in the big apple. Capital City Foundation., 2015.
+[7] C. Cortes and V. Vapnik. Support-vector networks. Machine learning, 20(3):273–297, 1995.
+[8] M. DaCosta, J. Krinsley, and B. Abelson. Optimizing local smoke alarm inspections with federal data. Bloomberg Data for Good Exchange, 2015.
+[9] M. P. de Vasconcelos, S. Silva, M. Tome, M. Alvim, and J. C. Pereira. Spatial prediction of ﬁre ignition probabilities: comparing logistic regression and neural networks. Photogrammetric engineering and remote sensing, 67(1):73–81, 2001.
+[10] L. Dobrica˘, T. Ionescu, L. Dobrica˘, and S. Elena. Solutions based on gis technology in components of urban management applications. U.P.B Scientiﬁc Bulletin.
+[11] J. H. Friedman. Stochastic gradient boosting. Computational Statistics & Data Analysis, 38(4):367–378, 2002.
+[12] L. Garis and J. Clare. A dynamic risk–based framework for redesigning the scheduling of ﬁre safety inspections. 2014.
+[13] J. Gonzalez. Fuzzywuzzy. https://github.com/seatgeek/fuzzywuzzy, 2015.
+[14] L. S. Iliadis. A decision support system applying an integrated fuzzy model for long-term forest ﬁre risk estimation. Environmental Modelling & Software, 20(5):613–621, 2005.
+[15] D. Kansagara, H. Englander, A. Salanitro, D. Kagen, C. Theobald, M. Freeman, and S. Kripalani. Risk prediction models for hospital readmission: a systematic review. Jama, 306(15):1688–1698, 2011.
+[16] H. Lakkaraju, E. Aguiar, C. Shan, D. Miller, N. Bhanpuri, R. Ghani, and K. L. Addison. A machine learning framework to identify students at risk of adverse academic outcomes. In KDD, pages 1909–1918. ACM, 2015.
+[17] A. Lapucci, S. Lombardo, M. Petri, and A. Santucci. A KDD based multicriteria decision making model for ﬁre risk evaluation. In Conference on GIS-cience (AGILE), 2005.
+[18] M. McGlohon, S. Bay, M. G. Anderle, D. M. Steier, and C. Faloutsos. Snare: a link analytic system for graph labeling and risk detection. In KDD, pages 1265–1274. ACM, 2009.
+[19] J. A. Nelder and R. J. Baker. Generalized linear models. Encyclopedia of Statistical Sciences.
+[20] F. Pedregosa, G. Varoquaux, A. Gramfort, V. Michel, B. Thirion, O. Grisel, M. Blondel, P. Prettenhofer, R. Weiss, V. Dubourg, J. Vanderplas, A. Passos, D. Cournapeau, M. Brucher, M. Perrot, and E. Duchesnay. Scikit-learn: Machine learning in Python. JMLR, 12:2825–2830, 2011.
+

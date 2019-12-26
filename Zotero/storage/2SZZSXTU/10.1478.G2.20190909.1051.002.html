@@ -1,0 +1,409 @@
+<html><head><script type="text/javascript" async="" defer="defer" src="piwik.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>基于Bi-LSTM+CRF的科学文献中生态治理技术相关命名实体抽取研究(9) - 中国知网
+        </title>
+    <link rel="stylesheet" type="text/css" href="Global.css">
+    <link rel="stylesheet" type="text/css" href="knetdetail.css">
+    <link rel="stylesheet" type="text/css" href="ecplogin.css">
+    <link rel="stylesheet" type="text/css" href="picModule.css"><script type="text/javascript" src="getLink.aspx"></script><script type="text/javascript" src="rs.js"></script><script type="text/javascript" src="jquery-1_002.js"></script><script type="text/javascript" src="jquery_004.js"></script><script type="text/javascript" src="Common.js"></script><script type="text/javascript" src="highcharts.js"></script><script type="text/javascript" src="json2.js"></script><script type="text/javascript" src="raphael.js"></script><script type="text/javascript" src="CnkiFlashEmbed_002.js"></script><script type="text/javascript" src="jquery_005.js"></script><script type="text/javascript" src="NiceDCenter.js"></script><script type="text/javascript" src="Kajax.js"></script><script type="text/javascript" src="CatalogFun.js"></script><script type="text/javascript" src="detail.js"></script><script type="text/javascript" src="recommendpic.js"></script><script type="text/javascript" src="jQuery-1.js"></script><script src="ad.js"></script><link href="TopLogin.css" rel="stylesheet"><script type="text/javascript" src="cnkisug.js"></script><link href="ad.css" rel="stylesheet" type="text/css"></head>
+  <body class="rootw"><script type="text/javascript" src="WideScreen.js"></script><input id="loginuserid" value="" type="hidden"><input id="listv" value="" type="hidden"><input id="paramdbcode" value="CJFD" type="hidden"><input id="paramdbname" value="CAPJ" type="hidden"><input id="paramfilename" value="XDTQ20190909000" type="hidden"><input id="paramcitingtimes" value="0" type="hidden"><input id="deliveryType" value="" type="hidden"><input id="deliveryUid" value="" type="hidden"><input id="deliveryUname" value="" type="hidden"><input id="deliveryCoutent" value="#" type="hidden"><input id="deliveryTable" value="" type="hidden"><input id="SingePointShow" value="" type="hidden"><script type="text/javascript" src="jQuery-1.js"></script><script type="text/javascript" src="get.txt"></script><script src="jquery-1.js"></script><script src="jquery_003.js"></script><script src="jquery.js"></script><script src="json2-min.js"></script><script src="topLogin.js"></script><script src="jquery_006.js"></script> <div class="ecp_top-nav"> <div class="ecp_tn-header"> <div class="ecp_tn-nav">  <div class="ecp_tn-title">    <a id="Ecp_header_Mobile" class="ecp_tn-tab" target="_blank" href="http://m.cnki.net/mcnkidown/index.html"><i>手机版</i></a>   <a id="Ecp_header_english" class="ecp_tn-tab" target="_blank" href="http://oversea.cnki.net/"><i>English</i></a>   <!--<a id='Ecp_header_Map' class='ecp_tn-tab' target='_blank' href='http://192.168.107.16/kns/subPage/map.aspx'><i>网站地图</i></a>-->   <a class="ecp_tn-tab" href="https://www.cnki.net/subpages/webMap.html"><i>网站地图</i></a><a id="Ecp_header_Help" class="ecp_tn-tab" target="_blank" href="http://service.cnki.net/helpcenter/"><i>帮助中心</i></a>  </div> </div> <div class="tn-person-r">  <div id="Ecp_top_login_div2" class="ecp_tn-title ecp_tn-title-login">   <!--登录-->   <div id="Ecp_top_login">    <a class="ecp_tn-tab" href="javascript:void(0);">     <i>登录<span class="ecp_tn-arrow"></span></i>    </a>   </div>   <!--弹框-->   <div id="Ecp_top_login_layer" class="tn-topmenulist tn-topmenulist-b Ecp_top_login_layer-my">    <div class="outlogin_layerbox_bylx outlogin_layerbox_bylx_anrrow top_login_layer2-my" node-type="box">     <div>      <a id="Ecp_top_login_closeLayer" class="layerbox_close" href="javascript:void(0);">×</a>     </div>     <div class="layerbox_left">      <div class="ecp_titletips"></div>      <p id="Ecp_errorMsg" class="login_error_tips" style="display:none;"></p>      <ul class="loginformlist">       <li class="ndrelativewrap">        <input id="Ecp_TextBoxUserName" class="styles" name="Ecp_TextBoxUserName" placeholder="请输入用户名/邮箱/手机号" tabindex="1" maxlength="64" type="text">        <a class="register_lnk" href="http://my.cnki.net/Register/CommonRegister.aspx" target="_blank">注册新用户</a>       </li>       <li>        <input id="Ecp_TextBoxPwd" class="styles" name="Ecp_TextBoxPwd" placeholder="请输入密码" tabindex="2" maxlength="20" autocomplete="off" autocapitalize="off" onkeydown="return Ecp_EnterSubmit(event,this,Ecp_Button1,true);" type="password">        <a class="forget_Pwd" href="http://my.cnki.net/mycnki/mycnkiFandPassword.htm" target="_blank">找回密码</a>       </li>       <!--验证码-->       <li id="Ecp_CheckCodeLayer" class="loginform_yzm" style="display:none;">        <input id="Ecp_CheckCode" placeholder="验证码" class="styles" tabindex="3" maxlength="6" autocomplete="off" autocapitalize="off" onkeydown="return Ecp_EnterSubmit(event, this, Ecp_Button1);" type="text">        <img id="Ecp_CheckCodeImg" src="" class="ecp_yzm" alt="看不清？换一张"><a id="Ecp_CheckLink" href="javascript:;" class="reload-code" title="看不清？换一张">看不清换一张</a>       </li>       <li class="ecp_btn_wrap">        <a id="Ecp_Button1" class="ecp_login_btn" href="javascript:void(0);" tabindex="4">登录</a>        <a id="Ecp_Button2" class="ecp_login_btn" href="javascript:void(0);" tabindex="5">IP登录</a>        <label class="rmb_login" title="用户下次访问直接登录系统，为了账户安全，建议您在个人电脑使用此功能">         <input class="auto_checkbox" id="rememberMe" name="rememberMe" autocomplete="off" type="checkbox">         <span>自动登录</span>        </label>       </li>       <li class="sub_wrap_r">        <div class="sub_wrap_r-my">使用合作网站账户登录CNKI：</div>        <a id="Ecp_HyperLinkQQ" href="http://my.cnki.net/ThirdLogin/ThirdLogin.aspx?to=qq&amp;RedirectUrl=http%3a%2f%2fkns.cnki.net%2fkcms%2fDetail%2fDetail.aspx%3fdoi%3d10.1478.G2.20190909.1051.002">         <img src="login_qq.gif" alt="使用腾讯QQ账户登录" width="60" height="24">        </a>        <a id="Ecp_HyperLinkWeixin" href="http://my.cnki.net/ThirdLogin/ThirdLogin.aspx?to=weixin&amp;RedirectUrl=http%3a%2f%2fkns.cnki.net%2fkcms%2fDetail%2fDetail.aspx%3fdoi%3d10.1478.G2.20190909.1051.002">         <img src="login_weixin.gif" alt="使用微信账户登录" width="60" height="24">        </a>        <a id="Ecp_HyperLink163" href="http://my.cnki.net/ThirdLogin/ThirdLogin.aspx?to=163&amp;RedirectUrl=http%3a%2f%2fkns.cnki.net%2fkcms%2fDetail%2fDetail.aspx%3fdoi%3d10.1478.G2.20190909.1051.002">         <img src="login_163.gif" alt="使用网易网账户登录" width="60" height="24">        </a>        <a id="Ecp_HyperLinkSina" href="http://my.cnki.net/ThirdLogin/ThirdLogin.aspx?to=sina&amp;RedirectUrl=http%3a%2f%2fkns.cnki.net%2fkcms%2fDetail%2fDetail.aspx%3fdoi%3d10.1478.G2.20190909.1051.002">         <img src="login_sina.gif" alt="使用新浪网账户登录" width="60" height="24">        </a>        </li>      </ul>      </div>    </div>   </div>   <!--退出-->   <div id="Ecp_top_logout" class="ecp_tn-title" style="display:none;">    <span class="tn-greeting">欢迎</span>    <a id="Ecp_top_logout_showLayer" class="ecp_tn-tab ecp_tn-tab-user" href="javascript:void(0);">     <i><em title="" id="Ecp_loginShowName"></em><span class="ecp_tn-arrow"></span></i>    </a>    <div id="Ecp_top_logout_layer" class="tn-topmenulist tn-topmenulist-a tn-topmenulist-a-user" style="display:none;">     <ul class="tn-text-list">      <li><a id="Ecp_MycnkiLink" href="http://my.cnki.net/" title="我的CNKI" target="_blank">我的CNKI</a></li>      <li><a id="Ecp_top_logoutClick" href="javascript:void(0);" title="退出">退出</a></li>     </ul>    </div>   </div>  </div>  <!--其他-->  <div class="ecp_tn-title" id="Ecp_header_Register">   <a class="ecp_tn-tab" target="_blank" href="http://my.cnki.net/Register/CommonRegister.aspx"><i>注册</i></a>  </div> <div class="ecp_tn-title">     <a class="ecp_tn-tab" target="_blank" href="http://my.cnki.net/"><i>我的CNKI<em class="icon-new"></em></i></a>   </div>  <span class="mycnki topItem" id="spanmycnki"><a id="link_mycnki" href="javascript:void(0);" onclick="setmycnkiclass()">个人书房<i class="ecp_tn-arrow"></i></a><div id="pop_mycnki" class="topItemPop mycnkipop" style="display:none;"><a class="close" href="javascript:void(0)" onclick="$(this).parent().hide()">x</a><div class="klogin_fr"><ul class="mlist"><li><a href="javascript:void(0)" onclick="openKpc()">进入 <b>个人书房</b> &gt;&gt;</a></li><li><a href="javascript:void(0)" onclick="openKpc('fav_paper')">我的收藏</a></li><li><a href="javascript:void(0)" onclick="openKpc('history_search')">我的历史</a></li><li><a href="javascript:void(0)" onclick="openKpc('history_search')">检索历史</a></li><li><a href="javascript:void(0)" onclick="openKpc('history_download')">下载历史</a></li><li><a href="javascript:void(0)" onclick="openKpc('history_brown')">浏览历史</a></li><li><a href="javascript:void(0)" onclick="openKpc('custom')">我的订阅</a></li><li><a href="javascript:void(0)" onclick="openKpc('citationTracking')">引文跟踪</a></li><li><a href="javascript:void(0)" onclick="openKpc('myAchievement')">我的成果</a></li></ul></div><div class="klogin_fl"><ul class="mlist"><li class="prompt"><span>您好，登录个人账号可以查看更多信息</span></li></ul></div></div></span><div class="ecp_tn-title" id="Ecp_header_ChargeCenter">   <a class="ecp_tn-tab" target="_blank" href="http://my.cnki.net/CNKIRecharging/"><i>充值中心</i></a>  </div>  <div class="ecp_tn-title" id="Ecp_header_BuyCard">   <a class="ecp_tn-tab" target="_blank" href="http://vipcard.cnki.net/ec/skwd/skwd.htm"><i>购买知网卡</i></a>  </div> </div> </div> <input id="Ecp_LoginUserName" type="hidden"> <input id="Ecp_LoginUid" type="hidden"> <p style="display:none" id="Ecp_ReturnMsg"></p> <div class="Logo"><a href="https://www.cnki.net/"><img src="logo.gif" alt="中国知网"><img class="logohome" src="home.gif"></a></div></div> <!--海外--> <div id="Ecp_top_login_oversea" class="login-modal" style="display:none;"> <div class="login-l pull-left" style="width:483px;">  <div class="ecpover-mask"></div>  <div class="ecpover-modal">   <div class="ecpover-modal-hd">提示<a onclick="Ecp_LoginResult();" class="close"></a></div>   <div id="ecpover_select" class="ecpover-modal-bd">    <p>您的IP已超出中国大陆的许可使用范围！<br>您今年还可启用<i id="ecp_over_i">j</i>次应急服务，每次<i>7</i>天。<br><i>您确定要启用吗？</i></p>    <div class="btns"><a onclick="Ecp_LoginResult();" class="btn btn-cancel">取消</a><a id="ecpover_open" class="btn">启用</a></div>    <div class="ecpover-tip">中国大陆地区以外的用户，请访问<a href="http://oversea.cnki.net/" target="_blank"><i> oversea.cnki.net</i> &gt;</a></div>   </div>   <div id="ecpover_close" class="ecpover-modal-bd" style="display:none;">    <p id="ecpover_p_close">您的IP已超出中国大陆的许可使用范围！<br>您今年的应急服务次数已耗尽！<i>暂无法登录。</i></p>    <div class="btns"><a onclick="Ecp_LoginResult();" class="btn">关闭</a></div>    <div class="ecpover-tip">中国大陆地区以外的用户，请访问<a href="http://oversea.cnki.net/" target="_blank"><i> oversea.cnki.net</i> &gt;</a></div>   </div>  </div> </div> </div> <!--海外--> <script>var Ecp_topLoginUrl = '//login.cnki.net/TopLogin/'; var Ecp_PageStyle = 'header'; var Ecp_Style='1';var Ecp_CookieDomain = '.cnki.net'; var Ecp_isAuotIpLogin = '1'</script><div id="headerBox"></div>
+    <div class="line-box">
+      <h1><span id="catalog_Ptitle">期刊</span><span class="kcmslogo"></span></h1>
+    </div><script type="text/javascript" src="CnkiFlashEmbed.js"></script><script type="text/javascript" src="jquery_002.js"></script><div id="mainArea" class="wxwrap">
+      <div class="wxwrap">
+        <div class="searchtop"><span class="showPlaceholder"><input id="searchinput" name="searchinput" onkeypress="setPlaceholder(this);" onpaste="return setPlaceholder(this);" onkeyup="setPlaceholder(this);" type="text"><label for="searchinput" class="placeholder" id="searchtext">请输入搜索内容</label></span><input id="searchbtn" value="检索" onclick="submitSearch()" type="button"></div>
+      </div><script>      
+      $("#searchinput").keypress(function (event) {
+      if (event.keyCode == 13)
+      submitSearch();
+      });
+    </script><script>$("#catalog_Ptitle").html("期刊");</script><div class="wxside">
+        <div id="CatalogSide" class="wxside kcmsCatalog">
+          <div class="clHd">知识节点</div>
+          <div class="clBd">
+            <dl>
+              <dt id="lcatalog_Ptitle" onclick="TurnToTitle('catalog_Ptitle')"><a><i></i>基本信息
+              </a></dt>
+            </dl>
+            <dl>
+              <dt id="lcatalog_ABSTRACT" onclick="TurnToTitle('catalog_ABSTRACT')"><a><i></i>摘要
+                </a></dt>
+            </dl>
+            <dl>
+              <dt id="lcatalog_KEYWORD" onclick="TurnToTitle('catalog_KEYWORD')"><a><i></i>关键词
+                </a></dt>
+            </dl>
+            <dl>
+              <dt id="lcatalog_ZTCLS" onclick="TurnToTitle('catalog_ZTCLS')"><a><i></i>分类号
+                </a></dt>
+            </dl>
+            <dl>
+              <dt id="lcatalog_divimg" class="leftBar_Img" style="display:none;" onclick="TurnToTitle('catalog_divimg')"><a><i></i>文内图片
+              </a></dt>
+            </dl>
+            <dl>
+              <dt id="lcatalog_divzqcl" class="leftBar_Img" style="display:none;" onclick="TurnToTitle('catalog_divzqcl')"><a><i></i>附加材料
+              </a></dt>
+            </dl>
+          </div>
+          <div class="clHd">
+      知识网络
+      <input id="catalogIds" value="" type="hidden"></div>
+          <div class="clBd">
+            <dl>
+              <dt id="lcatalog_ref" onclick="TurnToTitle('catalog_ref')"><a><i></i>引文网络
+              </a></dt>
+            </dl>
+            <dl>
+              <dt id="lcatalog_func601" onclick="GetAndShowFiles(this);"><a><i></i>关联作者
+          </a></dt>
+            </dl>
+            <dl>
+              <dt id="lcatalog_func604" onclick="GetAndShowFiles(this);"><a><i></i>相似文献
+          </a></dt>
+            </dl>
+            <dl>
+              <dt id="lcatalog_func605" onclick="GetAndShowFiles(this);" style="display: none;"><a><i></i>读者推荐
+          </a></dt>
+            </dl>
+            <dl style="display:none;">
+              <dt id="lcatalog_func602" onclick="GetAndShowFiles(this);"><a><i></i>主题指数
+          </a></dt>
+            </dl>
+            <dl>
+              <dt id="lcatalog_func603" onclick="GetAndShowFiles(this);"><a><i></i>相关基金文献
+              </a></dt>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="wxmain">
+        <div class="head-tag">
+          <div><b>（单篇优先）网络出版时间：2019-09-09 11:55:17</b></div>
+        </div>
+        <div class="wxTitle">
+          <h2 class="title">基于Bi-LSTM+CRF的科学文献中生态治理技术相关命名实体抽取研究(9)</h2><a class="btn-note" target="_blank" href="http://x.cnki.net/search/common/testlunbo?dbcode=CJFD&amp;tablename=CAPJ&amp;filename=XDTQ20190909000&amp;filesourcetype=1"><img src="note-btn.gif"></a><div class="author"><span>马建霞</span><span>袁慧</span><span>蒋翔</span></div>
+          <div class="orgn"><span><a onclick="
+                    TurnPageToKnet('in','中国科学院西北生态环境资源研究院文献情报中心','')
+                  ">中国科学院西北生态环境资源研究院文献情报中心</a></span><span><a onclick="
+                    TurnPageToKnet('in','中国科学院大学经济与管理学院图书情报与档案管理系','')
+                  ">中国科学院大学经济与管理学院图书情报与档案管理系</a></span></div>
+          <div class="link"><a class="icon icon-output" href="javascript:void(0);" onclick="
+        SubTurnExport('//kns.cnki.net/kns/ViewPage/viewsave.aspx','CAPJDAY!XDTQ20190909000!1!0')
+      "><i></i>导出/参考文献
+    </a><span class="shareBoard" onmouseover="$('#sharedet').show();$('#this').addClass('shareBoardCUR')" onmouseout="$('#sharedet').hide();$('#this').removeClass('shareBoardCUR')"><a class="icon icon-share" href="#"><i></i>分享<em></em></a><script> document.write(ShareAstr('shareHide'));</script><ul class="shareHide" id="sharedet"><li><a href="javascript:void(0);" onclick="CopyToClipboard()" class="copy" title="复制链接"><i></i>复制链接</a></li><li><a href="javascript:void(0);" onclick="ShareAction('xl')" class="xl" title="分享到新浪微博"><i></i>新浪微博</a></li><li><a href="javascript:void(0);" class="wx" title="微信扫一扫"><i></i>微信扫一扫</a> <div class="qrcode"><img src="Get.gif" alt=""></div></li></ul></span><a class="icon icon-track" href="javascript:void(0);" id="RefTrack" onclick="RefTrack()"><i></i><label>创建引文跟踪</label></a><a class="icon icon-favor" href="javascript:void(0);" id="addfavtokpc" onclick="AddFavToKpc()"><i></i><label>收藏</label></a><a class="icon icon-print" href="javascript:void(0);" onclick="window.print();"><i></i>打印
+    </a><a class="icon icon-comment" title="评论" href="#" style="display:none;"><i></i>评论
+    </a><span class="otherversions" style="display:none"></span></div>
+        </div>
+        <div id="datapupart"></div>
+        <div class="wxInfo">
+          <div class="wxBaseinfo">
+            <p><label id="catalog_ABSTRACT">摘要：</label><span id="ChDivSummary" name="ChDivSummary">[目
+的]从文本中抽取脆弱生态治理技术、实施地、实施时间等命名实体，并分析相关态势。[方法]利用Bi-LSTM+CRF结合基于特征的命名实体知识库对脆
+弱生态治理领域度发表的CNKI文献进行脆弱生态治理技术、地名实体、时间实体的自动抽取和标记。[结果]在中文文献中生态治理技术相关实体的抽取上，获
+得了P值74.34%、R值64.04%和F值68.81%。采用Bi-LSTM+CRF神经网络模型与单纯采用CRF相比，P值提高了9.41%，F1
+提高了4.26，R值基本持平。[局限]如果融合更全面的知识库效果将会更好；本研究的结果依赖于中文分词工具的准确性；当前仅对相关的实体进行了抽取，
+尚未对实体之间的关系进行抽取。[结论]Bi-LSTM+CRF结合基于特征的命名实体知识库抽取命名实体技术，可用于基于细粒度内容的资源环境情报分
+析。&nbsp;</span><span><a id="ChDivSummaryMore" onclick="MoerSummary('ChDivSummary','ChDivSummaryMore','ChDivSummaryReset')" style="display:none">更多</a><a id="ChDivSummaryReset" onclick="ResetSummary('ChDivSummary','ChDivSummaryMore','ChDivSummaryReset')" style="display:none">还原</a></span><br></p><script type="text/javascript">
+      AbstractFilter('ChDivSummary','ChDivSummaryMore','ChDivSummaryReset');
+    </script><p><label id="catalog_KEYWORD">关键词：</label><a onclick="
+                      TurnPageToKnet('kw','Bi-LSTM+CRF','')
+                    ">Bi-LSTM+CRF;
+                  </a><a onclick="
+                      TurnPageToKnet('kw','文本挖掘','')
+                    ">文本挖掘;
+                  </a><a onclick="
+                      TurnPageToKnet('kw','生态治理技术','')
+                    ">生态治理技术;
+                  </a><a onclick="
+                      TurnPageToKnet('kw','命名实体抽取','')
+                    ">命名实体抽取;
+                  </a></p>
+            <p><label id="catalog_ZTCLS">分类号：</label>TP391</p>
+            <p><label id="catalog_divimg" style="display:none ;">文内图片：</label></p><div id="imgdiv" class="imgcont"></div>
+            <p></p>
+            <div id="zqfilelist"></div>
+            <div class="dllink-box">
+              <div class="dllink-box-left">
+                <div class="dllink" id="DownLoadParts"><a onclick="WriteKrsDownLog()" target="_blank" class="icon icon-dlcaj" id="cajDown" name="cajDown" href="https://kns.cnki.net/kns/download.aspx?filename=tlHbztyZKtCZ2FzMNBHSNdXRW9kSyVTVVF3Ql1UO2t0Vp9SNR5GSCh3MrsCRJ1kQ2wmWRd2V6FHeV9GV3VHeRpEShhFSa9CO35UST1UVjhkUkZzd65Ee1F1ZwsCRDlnUHNDM5o2KKVVe1lXawAlVkdjb1o0dsFjZ&amp;tablename=CAPJDAY">
+              CAJ下载
+            </a><a onclick="WriteKrsDownLog()" target="_blank" class="icon icon-dlpdf" id="pdfDown" name="pdfDown" href="https://kns.cnki.net/kns/download.aspx?filename=tlHbztyZKtCZ2FzMNBHSNdXRW9kSyVTVVF3Ql1UO2t0Vp9SNR5GSCh3MrsCRJ1kQ2wmWRd2V6FHeV9GV3VHeRpEShhFSa9CO35UST1UVjhkUkZzd65Ee1F1ZwsCRDlnUHNDM5o2KKVVe1lXawAlVkdjb1o0dsFjZ&amp;tablename=CAPJDAY&amp;dflag=pdfdown">
+              PDF下载
+            </a></div>
+                <div class="dllink-down">
+                  <div class="info">
+                    <div class="total"><span class="h"><label>页数：</label><b>16</b></span><span class="h"><label>大小：</label><b>492K</b></span></div>
+                    <div class="hotspotCen" style="display:none;"><label>热点关注度：</label><div class="hotspot"><span value="" style="width:0%;" class="HotSpotPower"></span></div><span class="HotSpotValue" id="HotValue">0</span><b class="h">（注：最近下载、浏览的数量值）</b></div>
+                  </div>
+                  <div class="qr-code"><img alt="" src="Get_002.gif"><p class="text"><b>手机阅读本文</b><span>下载安装手机APP</span><span>扫码同步阅读本文</span></p><i class="icon-trangle"></i><div class="tip-pop">
+                      <div class="inner">
+                        <h6>即刻使用手机阅读</h6>
+                        <div class="f-left first"><img alt="" src="icon-qrcode-download.jpg"><span>第一步</span><p>扫描二维码下载</p>
+                          <p>"移动知网-全球学术快报"客户端</p>
+                        </div>
+                        <div class="f-left second"><img alt="" src="icon-pop-sample.jpg"><span>第二步</span><p>打开“全球学术快报”</p>
+                          <p>点击首页右上角的扫描图标</p>
+                        </div>
+                        <div class="f-left third"><img alt="" src="Get_002.gif"><span>第三步</span><p>扫描二维码</p>
+                          <p>手机同步阅读本篇文献</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="ad" id="recommend" style="display: none;"></div><script>
+        try {  window.adsContainer.loadAds('','数据分析与知识发现');   } catch (e) { }
+      </script></div>
+          </div>
+          <div class="wxsour">
+            <div class="cover"><a id="jpic" onclick="getKns55NaviLink('','CJFD','CJFDbaseinfo','XDTQ');"><img src="XDTQ.jpg"></a><i></i></div>
+            <div class="sourinfo">
+              <p class="title"><a onclick="getKns55NaviLink('','CJFD','CJFDbaseinfo','XDTQ');">数据分析与知识发现</a></p>
+              <p><a onclick="getKns55NaviLink('','CJFD','CJFDbaseinfo','XDTQ');">Data Analysis and Knowledge Discovery</a></p>
+              <p></p>
+              <p>
+                  ISSN：2096-3467</p><span id="bqsm"></span></div>
+            <div class="sourlink"><span id="mlyll"></span><a target="_blank" class="icon icon-subm" href="http://xdtq.cbpt.cnki.net/"><i></i>给本刊投稿
+              </a><a target="_blank" class="icon icon-ediemail" href="mailto:XDTQ@chinajournal.net.cn"><i></i>编辑部邮箱
+              </a></div><script type="text/javascript">
+                RegDujia('CJFD','XDTQ','','','jpic');
+              </script></div>
+        </div>
+        <div class="wxMod" id="catalog_ref" style="display:none">
+          <h2 id="MapTitle" class="hd hdTab" style="display: none;"><a class="active" href="javascript:void(0)" onclick="showRefChart(this)">引文网络</a><a href="javascript:void(0)" onclick="showFlash(this)">参考引证图谱</a></h2>
+        </div>
+        <div class="wxMod" id="ref_nodata" style="">
+          <h3 class="title2">
+        引文网络
+        <b class="titleTotle">未找到相关数据</b></h3>
+        </div>
+        <div id="MapArea" style="display:none">
+          <div class="MapAreaLeft">
+            <div class="map">
+              <div class="jdwx" title="">节点文献</div>
+              <div class="gywx"><a id="rl5" name="rl" title="（也称同引文献）与本文有相同参考文献的文献，与本文有共同研究背景或依据">共引文献</a><span id="rc5">(0)</span></div>
+              <div class="tbywx"><a id="rl6" name="rl" title="与本文同时被作为参考文献引用的文献，与本文共同作为进一步研究的基础">同被引文献</a><span id="rc6">(0)</span></div>
+              <div class="rjckwx"><a id="rl2" name="rl" title="本文参考文献的参考文献。进一步反映本文研究工作的背景和依据">二级参考文献</a><span id="rc2">(0)</span></div>
+              <div class="ckwx"><a id="rl1" name="rl" title="反映本文研究工作的背景和依据">参考文献</a><span id="rc1">(0)</span></div>
+              <div class="yzwx"><a id="rl3" name="rl" title="引用本文的文献。本文研究工作的继续、应用、发展或评价">引证文献</a><span id="rc3">(0)</span></div>
+              <div class="rjyzwx"><a id="rl4" name="rl" title="本文引证文献的引证文献。更进一步反映本文研究工作的继续、发展或评价">二级引证文献</a><span id="rc4">(0)</span></div>
+            </div>
+            <div class="time"><span onmouseover="TimeAxisMoveRight('AxisFrameDivLeft');" onmouseout="TimeAxisStop();" onclick="TimeAxisMoveFaster();" class="ArrowLeftDisable" title="显示前面的年份" id="ArrowLeft_AxisFrameDivLeft"></span><div class="year" id="AxisFrameDivLeft"></div><span onmouseover="TimeAxisMoveLeft('AxisFrameDivLeft');" onmouseout="TimeAxisStop();" onclick="TimeAxisMoveFaster()" class="ArrowRightEnable" title="显示后面的年份" id="ArrowRight_AxisFrameDivLeft"></span><div class="TimeMiddle" id="AxisFrameDivCurrent" style="height: 55px;"></div><span onmouseover="TimeAxisMoveRight('AxisFrameDivRight');" onmouseout="TimeAxisStop();" onclick="TimeAxisMoveFaster()" class="ArrowLeftDisable" title="显示前面的年份" id="ArrowLeft_AxisFrameDivRight"></span><div class="year" id="AxisFrameDivRight"></div><span onmouseover="TimeAxisMoveLeft('AxisFrameDivRight');" onmouseout="TimeAxisStop();" onclick="TimeAxisMoveFaster()" class="ArrowRightEnable" title="显示后面的年份" id="ArrowRight_AxisFrameDivRight"></span><span style="display: none; visibility: hidden;" class="ArrowLeftEnable" alt=""></span><div class="clear"></div>
+            </div>
+            <div id="NodeValueDiv1" class="TimeHide" onmouseout="HideNodeValueDiv();" onmouseover="window.clearTimeout(window.timeout_NodeValueDiv);">
+              <ul>
+                <li><a id="NodeValueDiv1ReferType1Link" onclick="ChangeReferType('1');" title="反映本文研究工作的背景和依据">参考文献</a><span id="NodeValueDiv1ReferType1Level1"></span></li>
+                <li><a id="NodeValueDiv1ReferType2Link" onclick="ChangeReferType('2');" title="本文参考文献的参考文献。进一步反映本文研究工作的背景和依据">二级参考文献</a><span id="NodeValueDiv1ReferType2Level2"></span></li>
+              </ul>
+            </div>
+            <div id="NodeValueDiv2" class="TimeHide" onmouseout="HideNodeValueDiv();" onmouseover="window.clearTimeout(window.timeout_NodeValueDiv);">
+              <ul>
+                <li><a id="NodeValueDiv2ReferType4Link" onclick="ChangeReferType('3');" title="引用本文的文献。本文研究工作的继续、应用、发展或评价">引证文献</a><span id="NodeValueDiv2ReferType4Level1"></span></li>
+                <li><a id="NodeValueDiv2ReferType16Link" onclick="ChangeReferType('4');" title="本文引证文献的引证文献。更进一步反映本文研究工作的继续、发展或评价">二级引证文献</a><span id="NodeValueDiv2ReferType16Level2"></span></li>
+              </ul>
+            </div>
+            <div id="NodeValueDiv3" class="TimeHide" onmouseout="HideNodeValueDiv();" onmouseover="window.clearTimeout(window.timeout_NodeValueDiv);">
+              <ul>
+                <li><a id="NodeValueDiv3ReferType1Link" onclick="ChangeReferType('1');" title="反映本文研究工作的背景和依据">参考文献</a><span id="NodeValueDiv3ReferType1Level1"></span></li>
+                <li><a id="NodeValueDiv3ReferType2Link" onclick="ChangeReferType('2');" title="本文参考文献的参考文献。进一步反映本文研究工作的背景和依据">二级参考文献</a><span id="NodeValueDiv3ReferType2Level2"></span></li>
+                <li><a id="NodeValueDiv3ReferType4Link" onclick="ChangeReferType('3');" title="引用本文的文献。本文研究工作的继续、应用、发展或评价">引证文献</a><span id="NodeValueDiv3ReferType4Level1"></span></li>
+                <li><a id="NodeValueDiv3ReferType16Link" onclick="ChangeReferType('4');" title="本文引证文献的引证文献。更进一步反映本文研究工作的继续、发展或评价">二级引证文献</a><span id="NodeValueDiv3ReferType16Level2"></span></li>
+              </ul>
+            </div>
+          </div>
+        </div><script type="text/javascript">       
+        SetRefChartDataEx('CJFD','XDTQ20190909000','CAPJ','');
+      </script><iframe id="frame1" name="frame1" scrolling="no" width="100%" frameborder="no" height="0"></iframe>
+        <div id="func607" class="wxMod"></div>
+        <iframe id="framecatalog_CkFiles" name="framecatalog_CkFiles" scrolling="no" src="" width="100%" frameborder="no" height="0"></iframe>
+        <iframe id="framecatalog_YzFiles" name="framecatalog_YzFiles" scrolling="no" src="" width="100%" frameborder="no" height="0"></iframe>
+        <div id="func601" class="wxMod"></div>
+        <div id="func614" class="wxMod"></div>
+        <div id="func604" class="wxMod"></div>
+        <div id="func605" class="wxMod"></div>
+        <div id="func602" class="wxMod"></div>
+        <div id="func603" class="wxMod"></div>
+      </div>
+    </div><script type="text/javascript">
+      GetInfo('XDTQ','','','数据分析与知识发现');
+
+      try{ GetImgPath('XDTQ20190909000');}catch(err){};
+
+      
+      GetZqInfo('XDTQ20190909000','CAPJ','CJFD');
+      
+        GetYxInfoN('XDTQ20190909000','CAPJ','CJFD');
+      
+      GetSfZhengShu('XDTQ20190909000','CAPJ','CJFD','XDTQ');
+      function LoadFilesFromId(oid)
+      {
+      if(!oid) return;
+      switch (oid)
+      {
+      case "catalog_func607":  
+      WriteToPage('XDTQ20190909000','CAPJ','CJFD','CJFQ','607');
+      
+      LoadFile('framecatalog_CkFiles','/kcms/detail/frame/list.aspx?filename=XDTQ20190909000&dbcode=CJFD&dbname=CAPJ&reftype=1');
+      
+      LoadFile('framecatalog_YzFiles','/kcms/detail/frame/list.aspx?filename=XDTQ20190909000&dbcode=CJFD&dbname=CAPJ&reftype=3');
+      
+      break;
+      case "catalog_func601":  
+      WriteToPage('XDTQ20190909000','CAPJ','CJFD','CJFQ','601');
+      break;
+      case "catalog_func604":  
+      WriteToPage('XDTQ20190909000','CAPJ','CJFD','CJFQ','604');
+      break;
+      case "catalog_func605":
+      WriteToPage('XDTQ20190909000','CAPJ','CJFD','CJFQ','605');
+      break;
+      case "catalog_func602":
+      WriteToPage('XDTQ20190909000','CAPJ','CJFD','CJFQ','602');
+      break;
+      case "catalog_func603":
+      WriteToPage('XDTQ20190909000','CAPJ','CJFD','CJFQ','603');
+      break;
+      default : break;
+      }
+      }
+
+      setYxCatalog();
+      setGkfxFlagByBm('CAPJ2019');
+      </script><script type="text/javascript" id="imgjosnhtml" src="getimage.txt" charset="utf-8"></script><div class="wxToolbar" id="wxDlToolbar" style="display: none;">
+      <div class="wxwrap">
+        <div class="dllink"><a onclick="WriteKrsDownLog()" target="_blank" class="icon icon-dlcaj" id="cajDownF" name="cajDownF" href="https://kns.cnki.net/kns/download.aspx?filename=tlHbztyZKtCZ2FzMNBHSNdXRW9kSyVTVVF3Ql1UO2t0Vp9SNR5GSCh3MrsCRJ1kQ2wmWRd2V6FHeV9GV3VHeRpEShhFSa9CO35UST1UVjhkUkZzd65Ee1F1ZwsCRDlnUHNDM5o2KKVVe1lXawAlVkdjb1o0dsFjZ&amp;tablename=CAPJDAY">
+              CAJ下载
+            </a><a onclick="WriteKrsDownLog()" target="_blank" class="icon icon-dlpdf" id="pdfDownF" name="pdfDownF" href="https://kns.cnki.net/kns/download.aspx?filename=tlHbztyZKtCZ2FzMNBHSNdXRW9kSyVTVVF3Ql1UO2t0Vp9SNR5GSCh3MrsCRJ1kQ2wmWRd2V6FHeV9GV3VHeRpEShhFSa9CO35UST1UVjhkUkZzd65Ee1F1ZwsCRDlnUHNDM5o2KKVVe1lXawAlVkdjb1o0dsFjZ&amp;tablename=CAPJDAY&amp;dflag=pdfdown">
+              PDF下载
+            </a></div>
+        <div class="infotxt">
+          <div class="total"><span class="h"><label>页数：</label><b>16</b></span><span class="h"><label>大小：</label><b>492K</b></span></div>
+          <div class="hotspotCen" style="display:none;"><label>热点关注度：</label><div class="hotspot"><span value="" style="width:0%;" class="HotSpotPower"></span></div><span class="HotSpotValue" id="HotValue">0</span><b class="h">（注：最近下载、浏览的数量值）</b></div>
+        </div>
+      </div>
+    </div><script>FloatDownloadPartCantrol();</script><iframe scrolling="no" id="headad" style="display:none;" frameborder="0"></iframe>
+    <div class="wait" id="waitDiv" style="visibility:hidden;">
+          正在为您查找，请稍等...
+        </div>
+    <div class="dazhong-ad" style="padding:40px 0 0 0; width:1200px; margin:0 auto;margin-bottom:-23px;overflow:hidden;"><script type="text/javascript" src="R018.js"></script></div>
+    <div id="footerBox"><style type="text/css">
+	ul, li { list-style:none; }
+
+	/*---footer---*/
+	#klogin_footer { clear:both; padding-top:30px; }
+	#klogin_footer .botNav {width:1000px;height:24px;margin:0 auto;background-color:#2f8bd6;text-align:center;margin-top:8px;}
+	#klogin_footer .botNav a {font-size:12px;color:#fff !important;line-height:24px;margin:0 10px;}
+	#klogin_footer .botNav a:hover {color:#CFE3F6 !important;}
+    #klogin_footer .botNav:after {clear: both;content: " ";display: block;font-size: 0;height: 0;visibility: hidden;}
+	
+	#klogin_footer #bottom {clear:both;background: url(/kns/images/gb/bottom.jpg) repeat-x; padding:10px 0; margin-top:5px;  }
+	#klogin_footer .botbox { width:994px; margin:0px auto; line-height:22px;overflow:hidden;}
+	#klogin_footer .botbox a {color:#666;}
+	#klogin_footer .botbox a:hover {color:#FF6600;}
+	#klogin_footer .leftinside { width:600px; float:left; color:#666; padding-top:20px;}
+	#klogin_footer .leftinside li { float:left;width:200px;}
+	#klogin_footer .leftinside b { display:block; }
+	#klogin_footer .rigfooter { float:right; width:330px; height:150px; padding:58px 0px 0px 20px; background: url(/kns/images/gb/footerbg.gif) no-repeat 0px 0px; }
+
+	#klogin_footer .logo-xl, .logo-tx, .logo-rr, .logo-kx, .logo-wy, .logo-yx { display:inline-block; margin-right:5px; width:16px; height:16px; vertical-align:middle; background:url(/kns/images/gb/i-logothi.png) no-repeat scroll 0 0 transparent; }
+	#klogin_footer .logo-tx { background-position:0 -32px; }
+	#klogin_footer .logo-rr { background-position:0 -64px; }
+	#klogin_footer .logo-kx { background-position:0 -80px; }
+	#klogin_footer .logo-wy { background-position:0 -48px; }
+	#klogin_footer .logo-yx { background-position:0 -96px; }
+
+	/*1200*/
+	.rootw #klogin_footer .botNav,
+	.rootw #klogin_footer .botbox { width:1200px; }
+    .rootw #klogin_footer .botNav a { margin:0 24px; }
+    .rootw #klogin_footer .leftinside { width:760px; padding-left:30px; }
+    .rootw #klogin_footer .leftList li { height:68px; }
+    .rootw #klogin_footer .rigfooter { width:350px;  padding-left:50px;}
+</style>
+
+<div id="klogin_footer">
+	<div class="botNav">
+		<a href="http://cnki.net/gycnki/gycnki.htm" target="_blank">关于我们</a>
+		<a href="http://www.cnki.net/other/gonggao/gongsirongyu.html" target="_blank">CNKI荣誉</a>
+		<a href="http://www.cnki.net/other/gonggao/bqsm.htm" target="_blank">版权公告</a>
+		<a href="http://service.cnki.net/" target="_blank">客服中心</a>
+		<a href="http://help.cnki.net/" target="_blank">在线咨询</a>
+		<!-- <a href="http://kbs.cnki.net/forums/10873/ShowForum.aspx" target="_blank" >用户交流</a> -->
+		<a href="http://help.cnki.net/Live800_1_2.aspx?GroupID=503&amp;PageID=101008&amp;Name=&amp;CookieName=TTKN_OnLine_800" target="_blank">用户建议</a>
+	</div>
+	<div id="bottom">
+		<div class="botbox">
+			<div class="leftinside">
+				<ul>
+					<li style="width:120px;"><b>读者服务</b>
+						<p>
+							<a href="http://vipcard.cnki.net/ec/skwd/skwd.htm" target="_blank">购买知网卡</a><br>
+							<a href="http://my.cnki.net/CNKIRecharging/czzx.html" target="_blank">充值中心</a><br>
+							<a href="https://kns.cnki.net/kns/RedirectPage.aspx?action=&amp;url=&amp;domain=http%3a%2f%2fmy.cnki.net/" target="_blank">我的CNKI</a><br>
+							<a href="http://service.cnki.net/helpcenter/" target="_blank">帮助中心</a>
+						</p>
+					</li>
+					<li style="width:170px;"><b>CNKI常用软件下载</b>
+						<p>
+							<a href="http://cajviewer.cnki.net/" target="_blank">CAJViewer浏览器</a><br>
+							<a href="http://www.cnki.net/software/xzydq.htm#CNKIe-Learning" target="_blank">CNKI数字化学习平台</a><br>
+							<a href="http://mall.cnki.net/Reference/Soft/CNKI%E5%B7%A5%E5%85%B7%E4%B9%A6.rar" target="_blank">工具书桌面检索软件</a>
+						</p>
+					</li>
+					<li style="width:130px;"><b>特色服务</b>
+						<p>
+							<a href="http://wap.cnki.net/touch/web" target="_blank">手机知网</a><br>
+							<a href="http://wuxizazhi.cnki.net/" target="_blank">杂志订阅</a><br>
+							<a href="http://mall.cnki.net/" target="_blank">数字出版物订阅</a><br>
+							<a href="http://ad.cnki.net/index.aspx" target="_blank">广告服务</a>
+						</p>
+					</li>
+					<li style="width:160px;"><b>客服咨询</b>
+						<p>
+							订卡热线：400-819-9993<br>
+							服务热线：400-810-9888<br>
+							在线咨询：<a href="http://help.cnki.net/" target="_blank">help.cnki.net</a><br>
+							邮件咨询：<a href="mailto:help@cnki.net" target="_blank">help@cnki.net</a><br>
+							客服微博：<span style="margin-top:-16px;"><a class="logo-xl" title="客服新浪微博" href="http://e.weibo.com/u/3059308095" target="_blank"></a><a class="logo-tx" title="客服腾讯微博" href="http://t.qq.com/CNKI_kefu" target="_blank"></a></span>
+						</p>
+					</li>
+				</ul>
+			</div>
+			<div id="footerrightdiv" name="footerrightdiv" class="rigfooter">			
+				京ICP证040431号
+                <a href="http://piccache.cnki.net/index/images/gb/271.jpg" target="_blank">网络出版服务许可证 (总)网出证(京)字第271号</a><br> 
+				
+				京公网安备11010802020460号<br>
+				© 1998-2019中国知网(CNKI)<br> 《中国学术期刊(光盘版)》电子杂志社有限公司<br>
+				KDN平台基础技术由KBASE 11.0提供.   
+				<!--可信网站图片LOGO安装开始
+                <span id="kx_verify"></span>  <script type="text/javascript"> (function () { var _kxs = document.createElement('script'); _kxs.id = 'kx_script'; _kxs.async = true; _kxs.setAttribute('cid', 'kx_verify'); _kxs.src = ('https:' == document.location.protocol ? 'https://ss.knet.cn' : 'http://rr.knet.cn') + '/static/js/icon3.js?sn=e13111111010043364isll000000&tp=icon3'; _kxs.setAttribute('size', 1); var _kx = document.getElementById('kx_verify'); _kx.parentNode.insertBefore(_kxs, _kx); })();</script>-->
+                <!--可信网站图片LOGO安装结束-->               
+				<div class="clear"></div>                 
+        <label id="uIP">您当前IP：222.66.117.21</label>                
+			</div>
+		</div>
+	</div>
+</div></div>
+    <div class="fixedbar">
+      <div class="adviceside"><a class="fixCon" target="_blank" href="http://help.cnki.net/">在线咨询</a><a target="_blank" class="fixFed" href="https://kns.cnki.net/knsvote/vote.aspx">
+          用户反馈
+        </a></div>
+      <div class="backtop hiddenV" id="backtop"><a id="backTopSide" href="javascript:scroll(0,0);" title="返回顶端"></a></div>
+    </div><script type="text/javascript" src="Recommend.js"></script><script> toTop();</script><script>
+      InsertCatalog();
+
+      try{
+        FlushLogin();
+        modifyEcpHeader(true);
+      }
+      catch(es){}
+      
+      KLogin.getFooter();
+    </script><script type="text/javascript" src="klib.js"></script><script type="text/javascript" src="Timeaxis.js"></script><script type="text/javascript" src="piwikCommon70.js"></script><script type="text/javascript" src="krecord.js"></script><script type="text/javascript">LoadScript('//piccache.cnki.net/kdn/KCMS/detail/js/min/cnkisug.min.js',function(){sugPara.IsTopK = false; sugPara.IsExp = false; sugPara.IsAttr = false;InitSug('http://acad3.cnki.net');});</script><script>
+          setRecommendPic();
+          isHasAddFav();
+          isHasRefTrack();
+        </script><input id="writebrowselog" value="5033" type="hidden">
+<div id="__droplist" class="dictdiv"></div></body></html>

@@ -1,0 +1,200 @@
+Color profile: Generic CMYK printer profile Composite Default screen
+
+1420
+Fire growth using minimum travel time methods
+Mark A. Finney
+
+Abstract: Fire-growth modeling on complex landscapes can be approached as a search for the minimum time for fire to travel among nodes in a two-dimensional network. The paths producing minimum travel time between nodes are then interpolated to reveal the fire perimeter positions at an instant in time. These fire perimeters and their fire behavior characteristics (e.g., spread rate, fireline intensity) are essentially identical to the products of perimeter expansion techniques. Travel time methods offer potential advantages for some kinds of modeling applications, because they are more readily parallelized for computation than methods for expanding fire fronts and require no correction for crossed fronts or merging separate fires.
+Résumé : La modélisation de la progression du feu dans des paysages complexes peut être envisagée comme la recherche du temps minimum requis pour que le feu se déplace parmi des noeuds dans un réseau bi-dimensionnel. Les trajets qui correspondent au temps minimum de déplacement entre les noeuds sont alors extrapolés pour connaître la position du périmètre de feu à un moment donné dans le temps. Ces périmètres de feu et les caractéristiques du comportement du feu qui leur sont associées (p. ex., taux de progression, intensité sur la ligne de feu) sont essentiellement identiques aux résultats obtenus avec les techniques d’expansion du périmètre. Les méthodes basées sur le temps de déplacement offrent possiblement des avantages pour certains types d’application de la modélisation parce qu’elles sont plus faciles à paralléliser pour effectuer des calculs que les méthodes d’expansion du front et n’exigent aucune correction pour les fronts croisés ou les feux distincts qui convergent.
+[Traduit par la Rédaction] Finney 1424
+
+Introduction
+Wildland fire growth is frequently modeled by application of Huygens’ principle to the propagation of a fire shape (Sanderlin and Van Gelder 1977; Anderson et al. 1982; Richards 1990, 1995; French 1992; Coleman and Sullivan 1996; Finney 1998). Huygens’ principle asserts that wave fronts can be propagated from discrete points acting independently. The wave shape is generally assumed ellipsoidal for wildland fires depending primarily on wind speed and slope (Van Wagner 1969; Alexander 1985; Richards 1995). Implementations of Huygens’ principle involve expanding fire-perimeter positions across a landscape (Anderson et al. 1982; Richards 1990, 2000) and require intensive measures to correct crossing segments on the fire edge and to merge multiple fronts (Richards and Bryce 1995; Finney 1998; Knight and Coleman 1993; Vinje et al. 1993). Nevertheless, the perimeter expansion technique has been practical for modeling spatial fire behavior in heterogeneous conditions, including fire travel time.
+Travel times through two- and three-dimensional networks are also commonly calculated according to graph theory or network theory (Moser 1991; Cheng and House 1996). These techniques use algorithms to search for minimum cumulative travel times of waves (e.g., seismic waves) along
+Received 24 January 2002. Accepted 10 April 2002. Published on the NRC Research Press Web site at http://cjfr.nrc.ca on 30 July 2002.
+M.A. Finney. USDA Forest Service Fire Sciences Laboratory, Rocky Mountain Research, Station, P.O. Box 8089, Missoula, MT 59807, U.S.A. (e-mail: mfinney@fs.fed.us).
+
+straight-line paths among nodes of a network. The algorithms produce spatial data fields of arrival time (and other characteristics) recorded at discrete points. Travel time techniques should apply to fire growth using elliptical waves because Huygens’ principle assumes independence of wave propagation from point sources. Minimum travel time methods that involve calculations among regularly spaced nodes or grid points (Moser 1991) differ from cellular automata (e.g., Kourtz and O’Regan 1971; Green 1983; O’Regan et al. 1976; Ball and Guertin 1992), because land area is not associated with nodes. Thus, fire arrival at zero-dimensional points does not imply burning or occupying whole “cells” of the grid and fire movement is assumed continuous among potentially all nodes in the network not contagious in discrete steps only among neighboring nodes.
+This paper demonstrates the application of a minimum travel time algorithm that generates spatial data fields essentially identical to the products of fire growth simulations using wave-front expansions based on Huygens’ principle.
+Materials and methods
+Fire travel times across a two-dimensional landscape were calculated by overlaying a rectangular lattice of arbitrary resolution over a spatial data set consisting of terrain, fuels, fuel moistures, and winds. A rectangular lattice offered a convenient geometry for organizing the spatial data in homogeneous cells (Moser 1991), but any spatial network could be used (e.g., random, triangular). The resolution of the lattice can be adjusted to capture the smallest spatial features of a particular landscape. The minimum travel time was obtained by searching for the fastest fire travel time along straight-line transects connecting nodes (cell corners) of the
+
+Can. J. For. Res. 32: 1420–1424 (2002)
+
+DOI: 10.1139/X02-068
+
+© 2002 NRC Canada
+
+I:\cjfr\cjfr3208\X02-068.vp Thursday, July 25, 2002 5:24:01 PM
+
+Color profile: Generic CMYK printer profile Composite Default screen
+
+Finney
+
+1421
+
+lattice. Each transect was composed of segments delimited by the intersections with cell boundaries and (or) nodes.
+Fire behavior and travel times along the line segments were calculated from fire-behavior values in the underlying cells of the lattice. These fire behaviors were obtained by preprocessing the landscape data using fire-behavior models (Rothermel et al. 1972; Andrews 1986; Finney 1998). Firebehavior characteristics were developed into separate spatial data themes for major fire-spread direction (wind vectored with slope for a given fuel type), maximum spread rates and intensities, and the elliptical fire shape dimensions based on the strength of the resultant wind-slope vector (Anderson 1983; Alexander 1985). The fire shape and maximum spread rate determine the Cartesian expansion rates of an elliptical fire along the ground surface (Anderson et al. 1982; Catchpole et al. 1982):
+[1] ∂X = a sin(θ) ∂t
+[2] ∂Y = b cos (θ) + c ∂t
+where θ is the angle from the center of the ellipse (–π < θ < π), b + c is the forward maximum spread rate (θ = 0), a is the flanking spread rate, and c is the offset from the centre of the ellipse to the ignition point (Fig. 1). The ignition point is often, but not necessarily, assumed to be the rear focus of the ellipse (Catchpole et al. 1982; Alexander 1985; Beck 2000).
+The travel time across a given cell can be obtained from eqs. 1 and 2 by specifying component distances for the transect segment (dX and dY) to obtain θ (Catchpole et al. 1982):
+
+Fig. 1. Elliptical fire spread rate dimensions (a, b, c) and angles (α, β, θ) for computing fire travel times from the ignition point over an arbitrary distance defined by dX and dY.
+dX
+dY
+θ
+b
+β
+a c
+Ignition Point
+α
+
+[3]
+
+θ
+
+=
+
+cos−1
+
+  
+
+a
+
+cos β [a 2
+
+cos2 β + (b2 − c2) a 2 cos2 β + b2
+
+sin2 sin2
+
+β]0.5 β
+
+−
+
+bc sin2
+
+β
+
+ 
+
+
+
+[4]
+
+β
+
+=
+
+tan−1 
+
+dX dY
+
+
+
+−
+
+α
+
+where β is the angle orientation of the transect and α is the maximum fire spread direction. The fire spread rate normal to the front at any angle is given by
+
+[5] r =
+
+a(c cos θ + b)
+
+a 2 cos2 θ + b2 sin2 θ
+
+which can be used to obtain the fireline intensity for a given fuel type and moisture condition (Byram 1959; Catchpole et al. 1982). On sloping terrain the transect segment distance must be divided by the cosine of slope in the direction of movement to produce correct fire travel times, since the lattice is horizontal and elliptical dimensions are parallel to the ground surface.
+The algorithm developed for finding the minimum fire travel time among nodes was similar to concepts described by Moser (1991) and involved searching vertically among rows and laterally within columns of nodes in the lattice. No
+
+restrictions were placed on the number, angles, or length of paths among nodes. The shortest arrival time was stored at each node along with associated data on fire behavior and the coordinate of the other node defining the shortest path. The basic algorithm was as follows: (i) initialize all nodes with minimum arrival time t* = ∞; (ii) input ignition source(s) (point, line, polygon) and calculate an arrival time t* to nodes immediately surrounding the ignition(s); (iii) for all nodes with t* < ∞ in a each row, calculate cumulative travel times t to all nodes in all other rows and store fire behavior and travel time if t < t*; (iv) repeat the previous step, backward and forward among rows, until all t ≥ t*. This is necessary to account for curving trajectories where the fastest fire spread direction is repeatedly reversed (e.g., following the spiral inside a “snail shell”). Efficiency of the algorithm was improved by (i) stopping the search after failing to update nodes to shorter arrival times for a specified number of consecutive rows or columns (three rows and six columns were used here) and (ii) parallelizing the travel time computations by column and the fire behavior preprocessing by spatial blocks. Fire movement was depicted by converting the arrival-time data field to iso-chrons or time
+© 2002 NRC Canada
+
+I:\cjfr\cjfr3208\X02-068.vp Thursday, July 25, 2002 5:24:02 PM
+
+Color profile: Generic CMYK printer profile Composite Default screen
+
+1422
+
+Can. J. For. Res. Vol. 32, 2002
+
+Fig. 2. Nearly identical fire growth patterns are produced by (A) the minimum time algorithm and (B) the fire perimeter expansion of Huygens’ principle in the FARSITE model. Contour lines show fire perimeter position at 10-min intervals. The landscape is flat with wind from the south with patches of slower burning fuels (shaded). Both calculations were performed with a horizontal resolution of 15 m (one half the cell resolution).
+
+A
+
+B
+
+Fig. 3. Fire growth patterns across complex landscapes (topography and fuels vary spatially) from (A) minimum travel time methods and (B) perimeter expansions using Huygens’ principle from FARSITE. Fire perimeters are shown every 60 min. Minor differences result from the positions of calculation points relative to spatial gradients on the landscape.
+
+A
+
+B
+
+contours. Tests of the algorithm were performed on two spatial data sets and compared with the fire-growth maps produced by fire-perimeter expansion with Huygens’ principle as implemented in the FARSITE model (Finney 1998). All computations used identical landscapes and constant environmental conditions.
+Results and discussion
+Fire-perimeter growth from the minimum time algorithm was essentially identical to the fire-perimeter expansions from FARSITE simulations for both simple and complex landscapes (Figs. 2 and 3). The similarity affirms the independence among calculations assumed by Huygens’ principle, because the travel routes are completely ignorant of the neighboring node positions or orientations on the fire front that are essential to perimeter expansion techniques (Anderson et al. 1982; Richards 1990; Finney 1998). Small differences between the techniques result because of different juxtapositions of the calculation points for each technique
+
+relative to the spatial gradients on the landscape (e.g., changes in fuel or topography). Specifically, calculation points are located at the nodes of the lattice but are distributed along the edge of the fire perimeters by a maximum spacing criterion for the wave-front expansion. Contours from the arrival time field are also interpolated, whereas the perimeters produced by wave-front expansion are found by finite difference approximation.
+Minimum travel time methods offer opportunities for efficiently computing fire growth, particularly for parallel computing. The independence assumed by the travel time calculations facilitates parallel computing of fire-behavior characteristics across the landscape (e.g., preprocessed by independent spatial data blocks) and searching for minimum travel times (e.g., by column). The tests reported here show the relative efficiency depends on the specific fire problem being simulated. A simple fire geometry (Fig. 2) required twice the computing time for FARSITE as the minimum time algorithm using one processor and about four times longer using four processors for each (multithreaded on a
+© 2002 NRC Canada
+
+I:\cjfr\cjfr3208\X02-068.vp Thursday, July 25, 2002 5:24:17 PM
+
+Color profile: Generic CMYK printer profile Composite Default screen
+
+Finney
+
+1423
+
+shared memory computer). The more complex fire (Fig. 3) took FARSITE 8 times longer than the minimum time algorithm using one processor and 12 times longer using 4 processors. For larger fires, the relative efficiency of the minimum time algorithm would be expected to rise with additional processors, because the perimeter expansion is not as scalable in parallel. Parallel computing of perimeter expansions with Huygens’ principle is compromised because the fire perimeters must be unified at each time step to perform serial tasks (e.g., derive the orientation of points on the front, merge multiple fire fronts, and excise crossed perimeter segments). The complex and computationally expensive algorithms that correct crossed perimeter segments and merge multiple fires (Richards 1990; Richards and Bryce 1995; Finney 1998) are not needed by minimum travel time methods. Although the fire behavior computation (preprocessing) is the fastest step in the procedure (requiring less than 2% of the total computing time for the examples described here) and should improve linearly with the number of processors, the relative performance of minimum time methods is greatest when fire sizes occupy high proportions of the landscape, because preprocessing of fire behavior data is not wasted on areas not “burned”.
+Minimum travel time methods will likely lose computational efficiency compared with perimeter expansion when the fire environment changes frequently in time (e.g., wind shifts in direction or speed, fuel moisture dynamics). Although not attempted here, temporal variations would require all landscape fire-behavior data to be recalculated and travel-time calculations interrupted along each transect at the start of the new condition. Where temporal conditions are constant, travel-time methods and cellular automata can produce nearly indistinguishable results if travel routes (or paths between cells) are not restricted by proximity of neighbors (French 1992; Xu and Lathrop 1993). Minimum travel time algorithms can probably be improved to handle spatial heterogeneity efficiently using nonuniform grid refinements that depend on local spatial gradients instead of the uniform rectangular lattice used here. Additional work would also be needed to account for spotting at its effect on fire growth.
+Minimum travel time techniques may be well suited to short-range assessments of fire growth, where weather conditions could be assumed constant (e.g., several hours). They can also be easily embedded in other applications that justify a constant environment. Examples include fire-risk assessments that require thousands of fire simulations from various ignition points and fuel treatment optimization, where treatment units are located to block critical pathways through the landscape as identified by the minimum-time routes. Arrivaltime algorithms may stimulate new uses like identifying zones of convergence among multiple fire fronts. This would be reflected in the numbers of attempted travel routes that produced near-simultaneous arrival times from multiple arrival directions. Such zones could indicate places where fire fronts converge and potentially interact to produce extreme fire behavior.
+Conclusion
+Minimum travel time methods can be used to produce spatial fire growth and behavior data identical to perimeter
+
+expansion techniques. They are simpler to implement and can be more readily parallelized than perimeter expansion methods. A minimum travel time approach has direct application where the fire environment can be assumed constant in time. More work is required to determine the relative efficiency of travel time methods under dynamic temporal conditions.
+Acknowledgements
+This research was conducted and supported by the USDA Forest Service, Rocky Mountain Research Station, Missoula Fire Sciences Laboratory Research Work Unit 4401. The author is grateful to Don Lathman for his reviews and comments.
+References
+Andrews, P.L. 1986. BEHAVE: Fire behavior prediction and fuel modeling system — BURN subsystem Part 1. USDA For. Serv. Gen Tech. Rep. INT-194.
+Alexander, M.E. 1985. Estimating the length-to-breadth ratio of elliptical forest fire patterns. Proceedings of the 8th Conference on Fire and Forest Meteorology. Society of American Foresters, Bethesda, Md. Publ. 85-04. pp. 287–304.
+Anderson, D.G., Catchpole, E.A., DeMestre, N.J., and Parkes, T. 1982. Modeling the spread of grass fires. J. Aust. Math. Soc. (Ser. B), 23: 451–466.
+Anderson, H.E. 1983. Predicting wind-driven wildland fire size and shape. USDA For. Serv. Res. Pap. INT-305.
+Ball, G.L., and Guertin, P.D. 1992. Improved fire growth modeling. Int. J. Wildland Fire, 2(2): 47–54.
+Beck, J.A. 2000. Towards an operational geographical information and modelling system for fire management in western Australia. Ph.D. thesis, Curtin University of Technology, Perth, Australia.
+Byram, G.M. 1959. Combustion of forest fuels. Ch. 3. In Forest fire: control and use. Edited by K.P. Davis. McGraw-Hill, New York.
+Catchpole, E.A., de Mestre, N.J., and Gill, A.M. 1982. Intensity of fire at its perimeter. Aust. For. Res. 12: 47–54.
+Cheng, N., and House, L. 1996. Minimum travel time calculation in 3-D graph theory. Geophysics, 61: 1895–1898.
+Coleman, J.R., and Sullivan, A.L. 1996. A real-time computer application for the prediction of fire spread across the landscape. Simulation, 67: 230–240.
+Finney, M.A. 1998. FARSITE: fire area simulator — model development and evaluation. USDA For. Serv. Res. Pap. RMRS-RP-4.
+French, I.A. 1992. Visualization techniques for the computer simulation of bushfires in two dimensions. M.S. thesis, University of New South Wales, Australian Defense Force Academy, Canberra, Australia.
+Green, D.G. 1983. Shapes of simulated fires in discrete fuels. Ecol. Modell. 20: 21–32.
+Knight, I., and Coleman, J. 1993. A fire perimeter expansion algorithm based on Huygens’ wavelet propagation. Intl. J. Wildland Fire, 3(2): 73–84.
+Kourtz, P., and O’Regan, W.G. 1971. A model for a small forest fire to simulate burned and burning areas for use in a detection model. For. Sci. 17: 163–168.
+Moser, T.J. 1991. Shortest path calculation of seismic rays. Geophysics, 56: 59–67.
+O’Regan, W.G., Kourtz, P., and Nozaki, S. 1976. Bias in the contagion analog to fire spread. For. Sci. 22: 61–68.
+© 2002 NRC Canada
+
+I:\cjfr\cjfr3208\X02-068.vp Thursday, July 25, 2002 5:24:18 PM
+
+Color profile: Generic CMYK printer profile Composite Default screen
+
+1424
+
+Can. J. For. Res. Vol. 32, 2002
+
+Richards, G.D. 1990. An elliptical growth model of forest fire fronts and its numerical solution. Int. J. Numer. Meth. Eng. 30: 1163–1179.
+Richards, G.D. 1995. A general mathematical framework for modeling two-dimensional wildland fire spread. Int. J. Wildland Fire, 5(2): 63–72.
+Richards, G.D. 2000. The mathematical modeling and computer simulation of wildland fire perimeter growth over a 3dimensional surface. Int. J. Wildland Fire, 9(3): 213–221.
+Richards, G.D., and Bryce, R.W. 1995. A computer algorithm for simulating the spread of wildland fire perimeters for heterogeneous fuel and meteorological conditions. Int. J. Wildland Fire, 5(2): 73–79.
+Rothermel, R.C. 1972. A mathematical model for predicting fire spread in wildland fuels. USDA For. Serv. Res. Pap. INT-115.
+
+Sanderlin, J.C., and Van Gelder, R.J. 1977. A simulation of fire behavior and suppression effectiveness for operation support in wildland fire management. In Proceedings of the 1st International Conference on Mathematical Modeling, St Louis, Mo. University of Missouri, St. Louis, Mo. pp. 619–630.
+Van Wagner, C.E. 1969. A simple fire growth model. For. Chron. 45: 103–104.
+Vinje, V., Iverson, E., and Gjoystadl, H. 1993. Travel time and amplitude estimation using wavefront construction. Geophysics, 58: 1157–1166.
+Xu, J., and Lathrop, R.G. 1993. Geographic information system based wildfire spread simulation. In Proceedings of the 12th Conference on Fire and Forest Meteorology, 26–28 Oct. 1993, Jekyll Island, Georgia. Society of American Foresters, Bethesda Md. pp. 477–484.
+
+I:\cjfr\cjfr3208\X02-068.vp Thursday, July 25, 2002 5:24:19 PM
+
+© 2002 NRC Canada
+

@@ -1,0 +1,1443 @@
+2017 IEEE 15th Student Conference on Research and Development (SCOReD)
+
+116
+
+Time Series Forecasting using Multiplicative Model: A Predictive Model for Fire Risk in the
+City of Manila
+
+Reymar V. Manaloto
+College of Computer Studies Laguna State Polytechnic University San Pablo City, Laguna, Philippines
+manalotoreymar@gmail.com
+
+Francis F. Balahadia
+College of Computer Studies Laguna State Polytechnic University
+Siniloan, Laguna, Philippines francis.balahadia@lspu.edu.ph
+
+Abstract— this paper utilized the components in time series such as secular trend, irregular fluctuation, cyclical and seasonal movements to extrapolate prediction using multiplicative model. The main objective of this research is to predict fire risk in shortrange period based on the past data. Scrutinizing fire risk based on time series forecasting with multiplicative model, provide possible conclusion on the following questions in analyzing fire risk. Such as, who are the districts that are prone to fire? When is the crucial time that fire will most probably arise? And what is the most possible cause of fire? This study analyzed fire data in the city of Manila from 2011 – 2015 and predicted the possible occurrence of fire and its risk. A tally of 2823 fire incidents were included in this study and as recorded based on the cumulative frequency, Electrical failure is most cause of fire incident with an average of 315 cases per year. Moreover Tondo is the most densely population in Manila and also predicted as the most risk in fire with 153 possible cases a year prediction with 9.96% absolute mean error. The arises of monthly pattern prediction shows that September is the most risk in fire incidents with possible 61 cases a year, meanwhile summer months are also prone in fire occurrence particularly February, March and May with an average of 57 cases a year with 8.09% absolute mean error which is also the warmest month in a year. Daily pattern show much relationship on the fire incident and fire risk prediction, Saturday is the crucial day in terms of fire risk with 109 possible cases will happen on this day and majority of the possible fire accident will arise between 7:00pm to 9:00pm with 120 possible cases a year with 22% mean absolute error. The significance of understanding fire risk using Time series forecasting must be utilize and administer, which can be useful tool to serve as guide and help to mitigate fire incidents. Future researchers recommend to focus on other variables that contribute fire occurrence to predict fire risk with more accuracy rate.
+Keywords—e-government, public service, local government, forecasting, citizen, fire prediction;
+I. INTRODUCTION
+Fire is one of the most destructive phenomena that a human race deal with that produces major impact in society and economy. In the Philippines fire cases increment significantly, according to Bureau of Fire Protection the number of fire cases last 2015 in most record reached a record
+
+high of 17,138 fire incidents in Philippines history with about 16.7% of these cases happened in the month of March which also the warmest month in a year. As we recall a recorded case Ozone Disco fire incidents considered as the worst cases in Philippine history that took 168 lives which was happened way back March 18,1996, the said incident also considered as the 7th World’s worst fire incident [1].
+Manila is one of the most densely region in the Philippines with 1.7 million residents, fire safety is a critical issue in this city, with the rapid growing of population on this area fire risk is a major concerns. As recorded most fire incident in this city cause by Electrical Failure due to illegitimate power connection [2]. Likewise these results are same with the account of the Manila BFP (Bureau of Fire Protection) Director. In the beginning of March 2015 which is said to the most record fire incident in Philippine history there is an average of 2 cases per day and about 68 million damaged in the said year alone[3]. Fire incident must address seriously by the authorities, fire safety and proper program dissemination should take place.
+Environmental and Socioeconomic impact are the major concern of this study, a Time Series Forecasting using Multiplicative Model was utilized in this research to analyzed the past data and predict into the future. This study was initiated to provide authorities and decision makers a better insight of fire risk and its possible cause that help to form fire risk management plan.
+Some researches has used predictive modelling in predicting fire risk, “An intelligent system for forest fire risk prediction in Galicia Europe” [4] and “Integrated Spatio‐temporal Data Mining for Forest Fire Prediction [5] researches that are similar on this study that dealt with fire risk and the main focus is to identify fire prone area. However this research uses on historical data to predict fire risk in the future which is dissimilar with other studies that uses real time variables such as current temperature and humidity through the usage of Geographic Information System, weather station and satellite imagery [6,7], in predicting fire risk .
+In this paper, researchers seek to predict the risk of fire and its possible cause with the use of Time Series Forecasting using Multiplicative Model [8]that allow to study past data to
+
+978-1-5386-2126-4/17/$31.00 ©2017 IEEE
+
+2017 IEEE 15th Student Conference on Research and Development (SCOReD)
+
+117
+
+extrapolate prediction into the future that will help to identify the threat and risk of fire and to generate significant conclusion which can be used as tool to guide authorities in formulating their risk reduction management plan.
+The rest of the paper is organized as follows: Section 2 Methodologies, Results and discussion and presented in Section 3. Section 4 concludes the paper with outline future work.
+II. METHODOLOGIES
+A. Case Study Implementation Philippines has 16 urban areas, one of which is Manila and
+considered as the most densely populated city in the world with 42,857 individuals for each square mile otherwise 111,002 people per square mile. Manila has a population of 1.78 million in 2016, as per census data. Moreover Manila has grown quickly over the last century, separately for a period between 1990 and 2000 when it had negative growth rate of 0.13%. Concerning 2000 and 2010, the people had an average annual growth rate of 0.44%. By 2020, it is foretell that Asia will be the most mega city in the world and Metro Manila will have 20 million populations as projected [9]. Manila is composed of 16 district particularly: Tondo, Binondo, Quiapo, San Nicolas, Sta. Cruz, Sampaloc, San Andres, San Miguel, Ermita, Intramuros, Malate, Pako ,Pandacan, Port Area, Sta. Plateau and Sta. Ana. Tondo was the most populated district with 38% of the total population, followed by Sampaloc with 20.7% and Santa Ana with 10.7% of the total population [10].
+B. Data Collections and Procedures The fire incidents in this study arise during the period of
+January 1, 2011 to December 31, 2015 which also inspected by the Arson section at the Bureau of Fire and Protection (BFP) Manila Headquarter. Data was collected from the BFP headquarter through reference, data was summarized and encoded by the nature of causes of fire incident, and categorized in different group such as causes ,month, day, time and amount of damages with a total of 2823 fire incidents. The Operation and Arson department in BFP were interviewed by the researchers and to make understand and analyze the data easier the dialogue was recorded in audio format. The data collected also undergone reviews to fill specific gaps. Other reviews were made by the researchers to identify fires individual reports and to create master list of all fire incidents. Raw data were inspected for processing, the yearly report of fire incidents and was made in excel worksheet with monthly record of fire incident per year.
+C. Decomposition: Time Series Forecasting using Multiplicative Model In the multiplicative model an original time series is
+expressed as a product of three components [11]:
+ the trend-cycle component (TCt);  the seasonal effects (St);  the irregular fluctuations (It);  the Observed series (Ot),
+
+Therefore, the multiplicative decomposition is expressed by the following equation (1):
+
+Observed series = Trend x Seasonal x Irregular
+
+Ot = TCt x St x I
+
+(1)
+
+Smoothing: Moving average smoothing
+In Moving Average Smoothing [12], each observation is assigned an equal weight, and each observation is forecasted by using the average of the previous observation(s). Using the time series X1, X2, X3, ....., Xt, this smoothing technique predicts Xt+k (2) as follows :
+
+St = Average (xt-k+1, xt-k+2, ....., xt), t= k, k+1, k+2, ...N (2)
+
+where, k is the smoothing parameter.
+
+Absolute mean error [13] abe = Summation of actual data – Summation of prediction
+
+III. RESULT AND DISCUSSIONS Based on the result acquire in the combined analysis fire incidences from year 2011 to 2015, a total of 2823 cases were stated in the City of Manila with 16 districts. Table 1. (Fire Incident per District) show the occurrence of fire incident in the different districts, Tondo tallying the most number of cases with 699 incidents, followed by Sampaloc with 586 which is the second of the most number of cases. San Nicolas is the least number of fire incidents. Tondo and Sampaloc are two of the most densely population based on the August 2015 Census of Population and Housing by the National Statistics Office, Tondo accounting 38% of the total population of Manila fallowed by Sampaloc accounting 20.7%. As the Correlation, the more densely district will more possibility of fire arises.
+TABLE 1. Fire Incident Tabulation per District
+
+District Tondo Binondo Quiapo San Nicolas Sta Cruz Sampaloc San Miguel Ermita Intramuros Malate Paco Pandacan Port Area Sta Ana Sta Mesa San Andres Total
+
+Year
+
+2011 2012 2013 2014 2015 Total
+
+124
+
+102
+
+166
+
+147
+
+160
+
+699
+
+25
+
+17
+
+25
+
+29
+
+22
+
+118
+
+12
+
+16
+
+21
+
+36
+
+13
+
+98
+
+4
+
+1
+
+4
+
+5
+
+1
+
+15
+
+64
+
+65
+
+54
+
+60
+
+64
+
+307
+
+151
+
+120
+
+96
+
+120
+
+81
+
+568
+
+21
+
+6
+
+10
+
+6
+
+8
+
+51
+
+31
+
+34
+
+32
+
+44
+
+30
+
+171
+
+10
+
+8
+
+13
+
+3
+
+3
+
+37
+
+26
+
+22
+
+24
+
+25
+
+26
+
+123
+
+31
+
+26
+
+41
+
+16
+
+10
+
+124
+
+27
+
+36
+
+25
+
+27
+
+11
+
+126
+
+3
+
+5
+
+6
+
+9
+
+6
+
+29
+
+31
+
+43
+
+45
+
+53
+
+34
+
+206
+
+0
+
+12
+
+40
+
+29
+
+28
+
+109
+
+6
+
+2
+
+12
+
+12
+
+10
+
+42
+
+2823
+
+Cumulative Frequency Analysis shows relationship and related pattern between Time Series Forecasting as shown in Fig.1 and shows detailed presentation in Table 2. As predicted based on the Multiplicative model it shows that
+
+2017 IEEE 15th Student Conference on Research and Development (SCOReD)
+
+118
+
+Tondo is most risk in fire with possible of 153 possible cases in a year, followed by Sampaloc with possible of 124 cases in year and San Nicolas tallying the least fire risk with 4 possible cases in a year, all prediction had 9.96% absolute mean error.
+Time Series Forecasting using Multiplicative Model:Incident * District
+180 160 140 120 100 80 60 40 20
+0
+
+Tondo Binondo Quiapo San Nicolas Sta Cruz Sampaloc San Miguel
+Ermita Intramuros
+Malate Paco
+Pandacan Port Area
+Sta Ana Sta Mesa San Andres
+Tondo Binondo Quiapo San Nicolas Sta Cruz Sampaloc San Miguel
+Ermita Intramuros
+Malate Paco
+Pandacan Port Area
+Sta Ana Sta Mesa San Andres
+Tondo Binondo Quiapo San Nicolas Sta Cruz Sampaloc San Miguel
+Ermita Intramuros
+Malate Paco
+Pandacan Port Area
+Sta Ana Sta Mesa San Andres
+
+2011
+
+2012
+
+2013
+
+Fire Incident
+
+Prediction
+
+Time Series Forecasting using Multiplicative
+
+Model:Incident * District
+
+180
+
+153
+
+160
+
+140
+
+124
+
+120
+
+100
+
+80
+
+66
+
+60
+
+39
+
+43
+
+40 20
+
+27 23 4
+
+27 27 27 24
+
+12 8
+
+8
+
+8
+
+0
+
+Tondo Binondo Quiapo San Nicolas Sta Cruz Sampaloc San Miguel
+Ermita Intramuros
+Malate Paco
+Pandacan Port Area
+Sta Ana Sta Mesa San Andres
+Tondo Binondo Quiapo San Nicolas Sta Cruz Sampaloc San Miguel
+Ermita Intramuros
+Malate Paco
+Pandacan Port Area
+Sta Ana Sta Mesa San Andres
+Tondo Binondo Quiapo San Nicolas Sta Cruz Sampaloc San Miguel
+Ermita Intramuros
+Malate Paco
+Pandacan Port Area
+Sta Ana Sta Mesa San Andres
+
+2014
+
+2015
+
+Prediction
+
+Fire Incident
+
+Prediction
+
+Fig. 1. Fire Prediction by District
+
+TABLE 2. Incident * District
+
+T ime Se rie s Fore casting using M ultiplicativ e M ode l : Incide nt * District
+
+No. 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16
+Tota l
+
+D i str i c t Tondo B inondo Quiapo San Nicolas S ta Cruz S am paloc San Miguel E rm ita Intram uros M alat e P ac o P andac an P ort A rea Sta Ana Sta Mesa S an A ndres
+
+2011 124 25 12
+4 64 151 21 31 10 26 31 27 3 31 0 6 566
+
+2012 102 17 16
+1 65 120 6 34 8 22 26 36 5 43 12 2 515
+
+Actua l Ca se s 2013 166 25 21 4 54 96 10 32 13 24 41 25 6 45 40 10 612
+
+2014 147 29 36
+5 60 120 6 44 3 25 16 27 9 53 29 14 623
+
+2015 160 22 13
+1 64 81 8 30 3 26 10 11 6 34 28 10 507
+
+P redic tion 153 27 23 4 66 124 12 39 8 27 27 27 8 43 24 8 620
+
+As shown in Table 3. , based on cumulative frequency Electrical Failure is most number of fire incidents across the district tallying 1576 for the period of January 2011 – December 2015. Under Investigation, Unattended Open Flame, Cigarette Butts and LPG related were also enumerated as the other major causes.
+
+TABLE 3. Fire Causes Tabulation per Year
+
+Causes
+
+2011 2012 2013 2014 2015 Total
+
+Electrical Failure
+
+340 288 354 352 242 1576
+
+LPG Related
+
+24 33 52 31 27 167
+
+Cigarette Butt
+
+44 37 51 58 31 221
+
+Unattended Open flame
+
+41 54 36 44 48 223
+
+Neglected appliances/devices 39 31 22 14 19 125
+
+Under Investigation
+
+66 58 90 103 117 434
+
+Intentional
+
+1 2 2 6 14 25
+
+Others
+
+4 6 2 9 6 27
+
+Mechanical Failure
+
+4 5 3 3 3 18
+
+Not Indicated
+
+3 1 0 30 7
+
+Total 2823
+
+Fig. 2, shows the possible month were fire will arise a in a year. Based on Cumulative Frequency fire incident record as presented on table 4, from year 2011 - 2015 the graph does not much shows pattern on Time Series Forecasting model, moreover prediction shows that summer months are the high risk in fire particularly February, March and May with an average of 57 cases a year however September is the most prone month in fire all prediction got an absolute mean error rate of 8.09%.
+
+Tim e Series Forecasting using M ultiplicative M odel:Incident * M o nth
+
+80
+
+70
+
+60
+
+50
+
+40
+
+30
+
+20
+
+10
+
+0
+
+Jan
+
+Feb
+
+ar M
+
+rAp
+
+ay M
+
+nuJ
+
+ulJ
+
+Aug
+
+Sep
+
+tcO voN
+
+Dce
+
+nJa
+
+eFb
+
+ar M
+
+rAp
+
+ay M
+
+nuJ
+
+Jlu
+
+uAg
+
+Spe
+
+tcO
+
+vNo
+
+cDe
+
+Jan
+
+Fbe
+
+ar M
+
+pAr
+
+ya M
+
+unJ
+
+lJu
+
+uAg
+
+peS
+
+Oct
+
+oNv
+
+eDc
+
+2011
+
+2012
+
+2013
+
+Fire Incident
+
+P rediction
+
+Tim e Series Forecasting u sing M u ltiplicative M od el:Incident * M onth
+
+90
+
+80
+
+70 60 50
+
+48 56 58 48 58 48 52 45 61 44 47 42
+
+40
+
+30
+
+20
+
+10
+
+0
+
+naJ
+
+Fbe
+
+ra M
+
+rpA
+
+ay M
+
+Jnu
+
+ulJ
+
+Aug
+
+Spe
+
+Oct
+
+Nov
+
+ceD
+
+Jan
+
+eFb
+
+ar M
+
+Arp
+
+ay M
+
+nuJ
+
+ulJ
+
+Agu
+
+Spe
+
+cOt
+
+ovN
+
+cDe
+
+naJ
+
+Fbe
+
+ra M
+
+rAp
+
+ay M
+
+uJn
+
+Jlu
+
+Agu
+
+Spe
+
+cOt
+
+voN
+
+Dce
+
+2014
+
+2015
+
+P re d ictio n
+
+Fire Incident
+
+P r e d ictio n
+
+Linear (P rediction)
+
+Linear (Prediction)
+
+Fig. 2. Incident * Month
+
+TABLE 4. Incident * Month
+
+Time Series Forecasting using Multiplicative Model : Incident * Month
+
+Actual Cases
+
+No.
+
+Month 2011
+
+2012
+
+2013
+
+2014
+
+2015 Prediction
+
+1
+
+Jan
+
+54
+
+28
+
+42
+
+58
+
+43
+
+48
+
+2
+
+Feb
+
+53
+
+39
+
+70
+
+46
+
+53
+
+56
+
+3
+
+Mar
+
+56
+
+44
+
+54
+
+64
+
+51
+
+58
+
+4
+
+Apr
+
+26
+
+59
+
+54
+
+64
+
+19
+
+48
+
+5
+
+May
+
+54
+
+48
+
+71
+
+70
+
+24
+
+58
+
+6
+
+Jun
+
+61
+
+38
+
+43
+
+48
+
+32
+
+48
+
+7
+
+Jul
+
+47
+
+46
+
+44
+
+62
+
+46
+
+52
+
+8
+
+Aug
+
+38
+
+42
+
+47
+
+44
+
+36
+
+45
+
+9
+
+Sep
+
+56
+
+39
+
+61
+
+47
+
+82
+
+61
+
+10
+
+Oct
+
+41
+
+42
+
+45
+
+49
+
+28
+
+44
+
+11
+
+Nov
+
+45
+
+45
+
+44
+
+42
+
+44
+
+47
+
+12
+
+Dec
+
+35
+
+45
+
+37
+
+29
+
+49
+
+42
+
+Total
+
+566
+
+515
+
+612
+
+623
+
+507
+
+607
+
+Fig. 3, shows prediction of the most critical day that fire will arise. Based on the fire incident record, from year 2011 2015 the graph shows pattern on Time Series Forecasting using Multiplicative model prediction shows Saturday is high risk in fire with 109 possible fire cases will happen on this day in a year as presented on table 4 with an absolute mean error rate of 13.94%.
+
+Time Series Forecasting using Multiplicative Model:Incident * Day
+140
+
+120
+
+108107 108 109
+
+101
+
+100
+
+95 93
+
+80
+
+60
+
+40
+
+20
+
+0
+
+on M
+
+eTu
+
+ed W
+
+huT
+
+Fir
+
+aSt
+
+uSn
+
+no M
+
+Tue
+
+ed W
+
+huT
+
+iFr
+
+Sta
+
+nSu
+
+no M
+
+euT
+
+ed W
+
+uTh
+
+Fir
+
+Sat
+
+Sun
+
+no M
+
+eTu
+
+de W
+
+hTu
+
+Fir
+
+Sat
+
+Snu
+
+on M
+
+Teu
+
+ed W
+
+Tuh
+
+iFr
+
+taS
+
+unS
+
+no M
+
+Teu
+
+de W
+
+uhT
+
+Fri
+
+Sta
+
+uSn
+
+2011
+
+2012
+
+2013
+
+2014
+
+2015
+
+Prediction
+
+Actual Fire
+
+Prediction
+
+Fig. 3. Incident * Day
+
+2017 IEEE 15th Student Conference on Research and Development (SCOReD)
+
+119
+
+Table 5. , shows the detailed presentation of data between
+
+actual cases and possible fire occurrence by day, moreover the
+
+table shows that Saturday is the most critical day in fire
+
+occurrence.
+
+TABLE 5. Incident * Day
+
+Time Series Forecasting using Multiplicative Model : Incident * Day
+
+Actual Cases
+
+No.
+
+Day
+
+2011
+
+2012
+
+2013
+
+2014
+
+2015 Prediction
+
+1
+
+Mon
+
+77
+
+79
+
+107
+
+88
+
+68
+
+108
+
+2
+
+Tue
+
+85
+
+63
+
+96
+
+91
+
+84
+
+107
+
+3
+
+Wed
+
+74
+
+65
+
+91
+
+103
+
+62
+
+101
+
+4
+
+Thu
+
+88
+
+97
+
+80
+
+76
+
+80
+
+108
+
+5
+
+Fri
+
+78
+
+71
+
+80
+
+92
+
+50
+
+95
+
+6
+
+Sat
+
+81
+
+67
+
+79
+
+120
+
+88
+
+109
+
+7
+
+Sun
+
+83
+
+73
+
+79
+
+53
+
+75
+
+93
+
+Total
+
+566
+
+515
+
+612
+
+623
+
+507
+
+721
+
+In fig. 4, the crucial time that fire will possible arise is between 7:00pm to 9:00pm and also this particular time majority of the residents at time moment are using Electrical Appliances, tallying 120 possible fire cases will arise at this specific time in a year prediction with an absolute mean error rate of 22.45%. Moreover the second to most possible fire occurrence in terms of time is between 10:00am to 12:00pm with 109 possible fire cases will arise at this time, also at this moment is the peak of temperature in day.
+
+Time Series Forecasting using Multiplicative Model:Incident * Time
+
+160
+
+140
+
+120
+
+120
+
+109
+
+100
+
+84 79
+
+76
+
+80
+
+60
+
+60
+
+48 38
+
+40
+
+20
+
+0
+
+MA03-:0 A0M1:0
+
+A0M0:6AM:040
+
+0:9-0MA MA007:
+
+P1002:-M M010:A0
+
+-03MP0: M00:1P
+
+M6P0:000M4:P
+
+0M:90P700P:M
+
+A:00-12M 1MA:000
+
+300:AM:010MA
+
+-6MA00: MA4:00
+
+-090M:A M0A70:
+
+:02M1-0P M0:01A0
+
+MP00:-3 P10M:0
+
+M0-0:P6 0M:P40
+
+0P-M09: MP070:
+
+1:00AM-2 00:01AM
+
+:3-00AM M00:1A
+
+-0M0A6: AM04:0
+
+-9:00AM 00AM:7
+
+:0-210MP M10A0:0
+
+M00:3P0:01MP
+
+060P-:M 4P00:M
+
+0:9PM-0 MP070:
+
+:00AM211A0M:00
+
+-3:00AM 0MA:10
+
+:6M-00A 04AM0:
+
+MA90-0: :00A7M
+
+0MP:01-2 01A0:M0
+
+03-P0M: MP001:
+
+00:MP-6 4:00PM
+
+PM090-: 70:PM0
+
+0:AM21-0 0A0:1M0
+
+A00:3-M A1M:00
+
+060:AMA:0M40
+
+00:9A-M 700AM:
+
+1-MP00:2 MA0001:
+
+0P0M:-3 100PM:
+
+0P:6M00:0P4M
+
+9:00P-M M007:P
+
+M1:A02-0 M0:001A
+
+0A0:-3M 0AM01:
+
+M:A60-0 4:M00A
+
+-:090MA A0M:70
+
+PM-1:002 A010:0M
+
+-:3PM00 10P0M:
+
+:0M60-P 00:4PM
+
+-009M:P :PM700
+
+-00:1M2A 1M00A:0
+
+2011
+
+2012
+
+2013
+
+2014
+
+2015
+
+Prediction
+
+Fire Incident Cases
+
+Prediction
+
+Fig. 4. Incident * Time
+
+Table 6. , shows the detailed presentation of data between
+
+actual cases and possible fire occurrence by time and also
+
+shows that between 7:00pm to 9:00pm is the most critical time
+
+in fire occurrence.
+
+TABLE 6. Incident * Time
+
+No. 1 2 3 4 5 6 7 8
+Total
+
+Time 1:00AM -3:00AM 4:00AM -6:00AM 7:00AM -9:00AM 10:00AM -12:00PM 1:00PM -3:00PM 4:00PM -6:00PM 7:00PM -9:00PM 10:00AM -12:00AM
+
+2011 43 26 45 90 77 90 126 69 566
+
+Actual Cases
+
+2012
+
+2013
+
+2014
+
+31
+
+38
+
+46
+
+20
+
+28
+
+31
+
+36
+
+57
+
+49
+
+83
+
+106
+
+89
+
+91
+
+71
+
+95
+
+68
+
+82
+
+92
+
+116
+
+133
+
+132
+
+70
+
+97
+
+89
+
+515
+
+612
+
+623
+
+2015 68 82 96 137 46 22 31 25 507
+
+Prediction 48 38 60 109 84 79 120 76 614
+
+IV. CONCLUSIONS AND RECOMMENDATION
+Fire is considered as one of the most dangerous incident that repeatedly happen in our daily lives which effect both social and economy. The study seeks to understand the possible risk of fire in the City of Manila using Time Series Forecasting Multiplicative Model, which indicated Tondo is the most prone in fire, Electrical Failure is the common causes of fire, which most happen during these months particularly
+
+February, March, May and September, between 7:00pm to 9:00pm and 10:00am to 12:00pm. The data included in the study had a total of 2823 which happened over five year period (2011 - 2015) and presented by Year, Month, Day and Time.
+It is found that those fire incidents has a pattern which is similar with the forecasted result, therefore the probability of occurrence fire based on the predicted result can be utilize as a tool to guide decision makers and authorities to have preemptive plan and risk safety management program to mitigate the possible fire incident in the future.
+Decision makers, authorities and community as a whole must understand the importance of fire risk to improve fire service, with the use of Time Series Forecasting model it will be a great help and serve as a tool to analyze location that are prone in fire, particular month , day will arise and even crucial time.
+With regards to future researcher, there are still numerous variables that affect the occurrence of fire, researchers recommend investigate those variables to make prediction more precisely. Geographic Information Systembased Time Series Forecasting model is also must take opportunity that serve a powerful tool to predict fire risk.
+ACKNOWLEDGMENT
+This research paper would not have been possible without the support of Laguna State Polytechnic University, San Pablo City Campus. I am especially grateful to Prof. Catherine A. Castillo, Associate Dean of College of Computer Studies, who have been helpful of my profession goals and who worked dynamically to provide me with the needed requirement to pursue this research paper.
+Most importantly, I wish to thank my loving and supportive wife, Aubrey, who provide unending inspiration.
+REFERENCES
+[1] “Top 3 Worst Fire Incidents in the Philippines.” PSST!PH, http://www.psst.ph/worst-fire-incidents-in-the-philippines/
+[2] “Manila Population 2017.” Manila Population 2017 (Demographics, Maps, Graphs), worldpopulationreview.com/world-cities/manilapopulation/.
+[3] “Philippines - Manila Fire Incident (MDRPH017): DREF Operation 1.” ReliefWeb, 8 Mar. 2015, reliefweb.int/report/philippines/philippinesmanila-fire-incident-mdrph017-dref-operation-1.
+[4] Alonso-Betanzos, Amparo, et al. "An intelligent system for forest fire risk prediction and fire fighting management in Galicia." Expert systems with applications 25.4 (2003): 545-554.
+[5] Cheng, Tao, and Jiaqiu Wang. "Integrated Spatio‐temporal Data Mining for Forest Fire Prediction." Transactions in GIS12.5 (2008): 591-611.
+[6] Jaiswal, Rajeev Kumar, et al. "Forest fire risk zone mapping from satellite imagery and GIS." International Journal of Applied Earth Observation and Geoinformation 4.1 (2002): 1-10.
+
+2017 IEEE 15th Student Conference on Research and Development (SCOReD)
+
+120
+
+[7] Nepstad, Daniel, et al. "Forest fire prediction and prevention in the Brazilian Amazon." Conservation Biology 12.5 (1998): 951-953.
+
+[8] “Multiplicative Decomposition.” Machine Learning Mastery, https://ec.europa.eu/eurostat/sa-elearning/multiplicative-decomposition
+
+[9] “Manila Population 2017.” Manila Population 2017 (Demographics, Maps, Graphs), worldpopulationreview.com/world-cities/manilapopulation/.
+
+[10] Philippine
+
+Statistics
+
+Authority,
+
+26
+
+July
+
+2013,
+
+psa.gov.ph/content/population-city-manila-climbed-17-million-results-
+
+2010-census-population-and-housing.
+
+[11] Eurostat. “Logo.” Multiplicative decomposition | Seasonal adjustment, ec.europa.eu/eurostat/sa-elearning/multiplicative-decomposition.
+
+[12] “5.2 Smoothing Time Series.” 5.2 Smoothing Time Series | STAT 510, onlinecourses.science.psu.edu/stat510/?q=node%2F70.
+
+[13] “Absolute Error & Mean Absolute Error.” Statistics How To, www.statisticshowto.com/absolute-error/.
+

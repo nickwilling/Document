@@ -1,0 +1,676 @@
+Fire Data Analysis and Feature Reduction Using Computational Intelligence Methods
+Majid Bahrepour, Berend Jan van der Zwaag, Nirvana Meratnia, and Paul Havinga University of Twente, The Netherlands {m.bahrepour,b.j.vanderzwaag,n.meratnia,p.j.m.havinga}@utwente.nl
+
+Abstract. Fire is basically the fast oxidation of a substance that produces gases and chemical productions. These chemical productions can be read by sensors to yield an insight about type and place of the ﬁre. However, as ﬁres may occur in indoor or outdoor areas, the type of gases and therefore sensor readings become different. Recently, wireless sensor networks (WSNs) have been used for environmental monitoring and real-time event detection because of their low implementation costs and their capability of distributed sensing and processing. In this paper, the authors investigate spatial analysis of data for indoor and outdoor ﬁres using data-mining approaches for WSN-based ﬁre detection purposes. This paper also delves into correlated data features in ﬁre data sets and investigates the most contributing features for ﬁre detection applications.
+
+1 Introduction
+Fire may take place in various places and may be caused by different mechanisms. Its humanitarian, economical and environmental catastrophic effects vary depending on its type (causing factor), location, scale, etc. Despite all the precautions, the US National Interagency Fire Center reports occurrence of 15,918 ﬁres affecting 403,509 acres in 2009 alone [15]. Fast and effective ﬁre detection is the key in ﬁghting the ﬁre. To this end, over the years various technologies and detection mechanisms have been developed and used not only to speed up the detection process but also to enhance reliability of the information analysis. The fact that ﬁre is basically the fast oxidation of a substance that produces gases and chemical productions makes high spatial and temporal resolution sensing technologies such as wireless sensor networks (WSNs) a better candidate for fast ﬁre detection compared to often-used low spatial and temporal resolution remote sensing and satellite imagery. Wireless sensor networks consist of a large number of tiny, usually battery-powered devices equipped with radio, memory, processing units as well as different type of sensors (e.g., temperature, humidity, smoke) being densely deployed in an environment to monitor a phenomenon.
+A careful analysis of existing research in the ﬁeld of ﬁre detection reveals that while much attention has been paid to developing complex detection algorithms, not equal attention has been paid to analysis of ﬁre data to identify the most effective features and
+
+G. Phillips-Wren et al. (Eds.): Advances in Intel. Decision Technologies, SIST 4, pp. 289–298.
+
+springerlink.com
+
+c Springer-Verlag Berlin Heidelberg 2010
+
+290 M. Bahrepour et al.
+
+head fire intensity (HFI) head fire intensity (HFI)
+
+105
+Fuel types [8]:
+
+104
+
+1: C1 - Spruce Lichen Woodland
+
+2: C2 - Boreal Spruce
+
+103
+
+3: C3 - Mature Jack/Lodgepole Pine
+
+4: C4 - Immature Jack/Lodgepole Pine
+
+5: C7 - Ponderosa Pine/Douglas Fir
+
+102
+
+6: D1 - Leaﬂess Aspen
+
+7: M1 - Boreal Mixedwood – Leaﬂess
+
+101
+
+8: NF - (No Fuel)
+
+9: O1a - Matted Grass
+
+100
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+fuel type
+
+a Fuel type vs HFI
+
+105
+
+104
+
+103
+
+102
+
+101
+
+100
+
+−5
+
+0
+
+5
+
+10
+
+15
+
+20
+
+25
+
+30
+
+air temperature [degree C]
+
+b Temperature vs HFI
+
+Fig. 1. Scatter plots of fuel type and ambient temperature versus head ﬁre intensity (HFI)
+
+the optimal set of features (sensors). In this paper, by applying data analysis and feature extraction techniques originated from computational intelligent ﬁeld on two ﬁre data sets, i.e., wildﬁre and residential ﬁre, we identify the most contributing features (sensors) to the process of ﬁre detection [1, 2]. We then apply our distributed naive Bayes and neural network outlier detection techniques designed for WSNs on the extracted features and present the performance evaluation.
+
+2 Wildﬁre Data Analysis
+Some of the input features in a data set are more important than others, with respect to how well they predict an output feature. In other words, the less important features do not effect the predictability of the system signiﬁcantly. Therefore, in order to reduce computational effort, we want to reduce the number of features that are used for predicting the system’s output. There are many methods that accomplish such a feature reduction, and we will illustrate one here, based on iteratively reducing the number of features until an optimal set of features is found.
+
+2.1 Data Set
+The data set we have used contains a wide range of features used by Canadian forest ﬁre management information systems [8]. Features used in these systems comprise geographical data (latitude, longitude, province), timing data (date, time), environmental data (ecoregion, ecozone, fuel type), weather data (air temperature, relative humidity, wind speed and direction, precipitation), sensor information (sensor type, platform) and sets of codes and indices used by two ﬁre management information systems: the Canadian forest ﬁre weather index system FWI (ﬁne fuel moisture code, duff moisture code, drought code, initial spread index, buildup index, ﬁre weather index) and the Canadian forest ﬁre behavior prediction system FBP (crown fraction burned, total fuel consumption, head ﬁre rate of spread, head ﬁre intensity). The relation between some features is shown in the scatter plots of Fig. 1.
+
+Fire Data Analysis and Feature Reduction 291
+2.2 Feature Extraction Method
+For our experiments, we use an initial set of 15 features as input features (latitude (LA), longitude (LO), province (PV), date (DA), time (TI), ecoregion (ER), ecozone (EZ), fuel type (FT), air temperature (TE), relative humidity (RH), wind speed (WS), wind direction (WD), precipitation (PC), sensor type (ST) and platform (SP)) and one feature that we want to predict, namely head ﬁre intensity (HFI).
+In order to reduce the computational complexity of our prediction mechanism and because we expect that most features only marginally contribute to the predictive ability of our method, we reduce the number of features to an optimal set of features that yields the best prediction accuracy.
+Our feature reduction method is iterative. In the ﬁrst iteration, we determine the prediction accuracy using the full set of input features. In each following iteration, we determine which feature has the least contribution to the prediction accuracy and then remove this feature from the set of input features.
+Because some input features seem to contradict each other when predicting the HFI, the prediction accuracy will actually increase when removing those contradicting features, until the reduced set of input features is so small that reducing it even further would cause the accuracy to decrease again. We call the feature set size optimal if removing any more features would signiﬁcantly worsen the prediction accuracy.
+
+HFI Prediction
+
+We use a Kohonen self-organizing map [7] to predict the HFI in the following way.
+
+First, we split our data set randomly in a training set and a test set. As we have a large
+
+data set, a relatively small part is sufﬁcient for training; our training set contains 20%
+
+(2458 samples) of the entire data set; the test set the remaining 80% (9835 samples).
+
+Second, we train a self-organizing map with the training set for a ﬁxed number of
+
+epochs (20000). We found that this number, along with the lattice size (20×20) and
+
+other learning parameters give best results in preliminary experiments. Ideally, the self-
+
+organizing map will cluster data samples that are similar. After training, each node in
+
+the Kohonen map will contain a vector that is representative for the sample data vectors
+
+(in the training set).
+
+Third, we assign labels to the nodes in the map. Each node is assigned the HFI of
+
+the data sample (in the training set) that is most similar (i.e., has the smallest Euclidean
+
+distance) to the vector stored in the node.
+
+Fourth, we calculate an error measure by checking to which node in the Kohonen
+
+map each sample in the test set is mapped, and comparing the sample’s true HFI with
+
+its predicted HFI, which is the HFI of the node in the map. Figure 2 shows two scatter
+
+plots of predicted HFI versus true HFI for the full set of input features and for an optimal
+
+set of four features, respectively.
+
+For comparison, we have used two different error measures: Ec = 1 − cxy, where cxy
+
+is the correlation between all test samples’ HFI values x and the HFI values y of the
+
+corresponding
+
+nodes
+
+in
+
+the
+
+Kohonen
+
+map;
+
+and
+
+EMSE
+
+=
+
+1 N
+
+∑ (x
+
+−
+
+y)2,
+
+the
+
+mean
+
+squared
+
+error (MSE).
+
+292 M. Bahrepour et al.
+
+predicted class
+
+HFI of test set 1 0.9 0.8 0.7 0.6 0.5 0.4 0.3 0.2 0.1
+
+predicted class
+
+HFI of test set 1 0.9 0.8 0.7 0.6 0.5 0.4 0.3 0.2 0.1
+
+0
+
+0
+
+0
+
+0.1
+
+0.2
+
+0.3
+
+0.4
+
+0.5
+
+0.6
+
+0.7
+
+0.8
+
+0.9
+
+1
+
+0
+
+0.1
+
+0.2
+
+0.3
+
+0.4
+
+0.5
+
+0.6
+
+0.7
+
+0.8
+
+0.9
+
+1
+
+true class
+
+true class
+
+a For all features: Ec = 0.334, EMSE = 0.061 b For four features: Ec = 0.074, EMSE = 0.013
+
+Fig. 2. Scatter plots of predicted HFI versus ground truth. Ideally, all points should lie on the line where HFIpredicted = HFItrue
+
+0.35
+
+0.07
+
+0.3
+
+0.06
+
+mean squared error (MSE)
+
+correlation error (1 − correlation)
+
+0.25
+
+0.05
+
+0.2
+
+0.04
+
+0.15
+
+0.03
+
+0.1
+
+0.02
+
+0.05
+
+0.01
+
+0 WD TI SP ST PV RH LA TE WS LO ER EZ PC DA FT consecutively removed features
+a Results using correlation
+
+0 WD TI SP ST PV RH LA TE ER LO WS EZ PC DA FT consecutively removed features
+b Results using MSE
+
+Fig. 3. Resulting error measures when progressively removing one feature at a time from the initial full feature set. Consecutively removed features are listed on the horizontal axis; the rightmost bars show the error measure for a single feature, which in both cases is the fuel type
+
+If the error is zero, the predictor is perfect. In practice this will not be the case, so we try to ﬁnd the predictor that has the smallest error. In order to reduce the inﬂuence of statistical variations each experiment is repeated one hundred times with different random splits of the data set, and the ﬁnal error measure per feature set is averaged accordingly.
+
+2.3 Results
+Our method successfully reduced the number of features to a representative set of features. Figure 3a shows the progressive results using correlation as optimization criterion and Fig. 3b presents the results using MSE. In both cases the fuel type (FT) is the most signiﬁcant feature, and together with date (DA), precipitation (PC), and ecozone (EZ) a comprehensive set of four features has been found that produces the best predictor for head ﬁre intensity (HFI).
+
+Fire Data Analysis and Feature Reduction 293
+
+3 Residential Fire Data Analysis
+By looking back to the basic notions on residential ﬁre detection, it is seen that earlier works were conducted by only one sensor type [1]. Temperature, ﬂame detector and airobscuration sensors are mostly used as an individual sensor for residential ﬁre detection [1, 2]. However, investigation of gas sensors such as carbon monoxide (CO) demonstrated that gas sensors contribute the most to ﬁre detection techniques [1, 13, 14]. Recent studies show that temperature, ionization, photoelectric, and CO sensors together make an optimal sensor set for residential ﬁre detection [1, 2, 3]. Therefore, we use these four sensors to analyze residential ﬁre data and further to detect residential ﬁre. There is an invaluable database on residential ﬁre provided by National Institute of Standards and Technology (NIST, http://www.nist.gov) from which we make a sample data set. Residential ﬁres are categorized into ﬂaming (having ﬂames and making massive heats) and smoldering (having less ﬂames and heats and more smokes) ﬁres. Additionally, some actions such as toasting a bread or lighting a cigarette may generate nuisances that can be mistaken with real ﬁre. Hence to have a global insight into residential ﬁre data, before analyzing the data we ﬁrst combine data sets of various ﬂaming ﬁres, smoldering ﬁres and nuisances. Figure 4 shows a 2D plot of temperature, ionization, photoelectric and CO sensor data generated by residential ﬁres.
+From Fig. 4a, we can see that temperature sensor can be a ﬁne indicator of ﬂaming ﬁres, as ﬂaming ﬁres produce massive heats. However, nuisances and smoldering ﬁres are overlapping each other and the temperature sensor is not a good separator between smoldering ﬁres and nuisances. Figure 4b shows that although some overlaps exist between the three types of ﬁre, ionization can distinguish well between smoldering ﬁres and the other two. Figure 4c shows that the photoelectric sensor can make a distinction between the three classes to some extent, as smoldering ﬁres have lower values, while nuisances have intermediate values and ﬂaming ﬁres have the highest values. Figure 4d shows that CO separates nuisances well, as ﬂaming ﬁres and smoldering ﬁres have a value around zero and nuisances have a variety of values. Table 1 presents the
+
+Temperature (C) ION (1/m)
+Photo (1/m) CO (ppm)
+
+450
+
+5
+
+0.6
+
+40
+
+Nuisances
+
+Nuisances
+
+Nuisances
+
+Nuisances
+
+400
+
+Flaming Fires
+
+Smoldering Fires
+
+Flaming Fires Smoldering Fires 0.5
+
+Flaming Fires
+
+35
+
+Smoldering Fires
+
+Flaming Fires Smoldering Fires
+
+350
+
+30
+
+0.4
+
+300
+
+0
+
+25
+
+250
+
+0.3
+
+20
+
+200
+
+0.2
+
+15
+
+150
+
+−5
+
+10
+
+0.1
+
+100
+
+5
+
+0
+
+50
+
+0
+
+0
+
+−10
+
+0 500 1000 1500 2000 2500 3000 0
+
+Instance number
+
+a Temperature
+
+500 1000 1500 2000 2500 Instance number
+b Ionization
+
+−0.1 3000 0
+
+500 1000 1500 2000 2500 Instance number
+c Photoelectric
+
+−5 3000 0
+
+500 1000 1500 2000 2500 3000 Instance number
+
+d Carbon monoxide
+
+Fig. 4. Scatter plots for four features of residential ﬁre data set #2
+
+294 M. Bahrepour et al.
+
+Table 1. Correlation between features
+
+Temperature Ionization Photoelectric CO gas
+
+Temperature Ionization Photoelectric CO gas
+
+1 −0.061
+0.097 −0.044
+
+−0.061 1 0.087
+−0.036
+
+0.097 0.087 1 −0.208
+
+−0.044 −0.036 −0.208
+1
+
+correlations between sensors. As it can be seen in this table, correlations are less than 10% in all situations except the correlation between CO and photo, which is almost −20%. Therefore, we can say that almost all features are independent.
+
+3.1 Contribution of Features to the Fire Detection
+Finding the optimal set of features (sensors) to robustly and accurately detect ﬁre has been investigated in several studies. As a result, having temperature, ionization, photo and CO sensors are proposed as the minimum set of sensors for ﬁre detection [1, 2, 3]. Although the ﬁre detection can be conducted with only one sensor, ﬁre detection using all four sensors is more robust to environmental noise and provides extra support for sensor failures. The exact contribution of each sensor to the ﬁre detection varies based on the classiﬁer or detection algorithm. Nevertheless, it has been reported that CO is the most contributing feature [1, 2, 3]. In Table 2, we report detection accuracies of the 16 possible combinations of sensors using decision trees, neural networks, and naive Bayes classiﬁers. A brief introduction to neural networks, naive Bayes, and decision trees is presented next.
+Neural Networks, Naive Bayes, and Decision Tree Classiﬁers
+An artiﬁcial neural network (ANN) is a computational model inspired by biological neural networks. It consists of an interconnected collection of artiﬁcial neurons and processes information using a connectionist method [2, 19]. As a simple modeling of biological neural networks, feed-forward neural networks (FFNN) consist of one input layer, one or more hidden layers and one output layer. Inputs are the data and the output is a predicted value (class) that input data is expected to belong to. The Naive Bayes classiﬁer uses Bayesian statistics and Bayes’ theorem to ﬁnd the probability of each instance belonging to a speciﬁc class. It is called naive because of its emphasis on independency of the input data [2]. Decision trees are decision-supporting tools that represent a set of if-then-else rules as tree-like graphs. To make a decision using decision trees, variables are evaluated from the root of the tree down to the leaves. Finally, tree-node evaluations lead to a single leaf, which returns a value and is considered as the result of the decision-making process.
+
+Fire Data Analysis and Feature Reduction 295
+
+Table 2. Residential ﬁre detection using decision tree, feed-forward neural network, and naive Bayes classiﬁers
+
+Combinations of sensor types used
+
+Detection accuracies for three classiﬁers
+
+Temperature Ionization Photoelectric CO gas Decision tree Neural network Naive Bayes
+
+99.08
+
+98.69
+
+71.58
+
+-
+
+98.53
+
+98.00
+
+71.18
+
+-
+
+96.78
+
+97.43
+
+70.27
+
+-
+
+98.80
+
+98.53
+
+71.25
+
+-
+
+89.25
+
+70.00
+
+63.00
+
+-
+
+-
+
+95.52
+
+97.30
+
+70.20
+
+-
+
+-
+
+95.58
+
+95.00
+
+71.78
+
+-
+
+-
+
+63.78
+
+97.00
+
+60.05
+
+-
+
+-
+
+61.28
+
+68.73
+
+62.80
+
+-
+
+-
+
+98.17
+
+98.00
+
+71.13
+
+-
+
+-
+
+80.67
+
+66.80
+
+63.28
+
+-
+
+-
+
+-
+
+97.33
+
+94.00
+
+70.43
+
+-
+
+-
+
+-
+
+52.43
+
+84.18
+
+61.05
+
+-
+
+-
+
+-
+
+37.50
+
+45.68
+
+62.85
+
+-
+
+-
+
+-
+
+44.83
+
+84.48
+
+62.50
+
+3.2 Analysis of Fire Detection Techniques
+By looking back to the basic notions of ﬁre alarms using electronic devices, it can be seen that smoke sensors are the preliminary tools for detecting ﬁres. Smoke sensors are generally either responsive to air ionization or obscuration [5]. The problem with such simple detectors is that they are prone to false alarms because they assume that only ﬁres and nothing else may produce smoke.
+Generally speaking, the existing WSN-based ﬁre detection techniques are either threshold-based [10, 16, 17, 18] or pattern-matching based [6, 9, 12, 21]. Threshold based techniques deﬁne a threshold value for their sensor readings and when the sensor value is larger or smaller than the pre-deﬁned threshold value, an alarm is generated. As, ﬁnding a predeﬁned threshold value is not something straightforward, Liang and Wang presents an automatically-selected threshold value approach [10] in which a sliding window technique automatically ﬁnds the threshold values, dynamically. In case of having more than one feature, Vu et al. propose evaluating various sensor values separately by considering them as an “atom” or distinct value [17]. For example, if ﬁre is detected using both smoke and temperature sensors, an alarm will be generated when temperature exceeds 30 ◦C and smoke exceeds 100 mg/L. Lim et al. [11] introduce a generic ﬁre detection and rescue support system, which they say is applicable for any other disaster recoveries.
+In the pattern-matching studies, techniques such as contour maps [20], sensorreading maps [6], distributed fuzzy logic [12], neural networks, naive Bayes, and support vector machines [1, 2, 3, 4] have been proposed. Map-based studies deﬁne an acceptable range for sensor values, which exceeding from it generates an alarm
+
+296 M. Bahrepour et al.
+
+Fig. 5. Block diagram of the approach presented in [3]
+indicating a ﬁre event. In pattern matching studies, sample data are needed to train the classiﬁer. Then, the classiﬁer conducts the pattern matching either inside a node or by several nodes in a distributed fashion. Generally, as a new trend in ﬁre or other event detection practices in WSNs the pattern-matching techniques are proposed in a distributed manner [1, 2, 3, 4, 12].
+
+4 Distributed Wildﬁre and Residential Fire Detection
+As mentioned earlier, the new trend in WSN ﬁre detection is to use a distributed approach to perform the detection by using several nodes. Therefore, we use the distributed approach presented in [3] to provide reports on the residential and wildﬁre detection. In the following subsections the approach and results are described.
+
+4.1 The Distributed Approach Using Data Fusion
+A notion of detecting events inside each sensor nodes (irrespective to the available sensor types in the sensor nodes) and then fuse the all results in a higher level is presented in [3]. Figure 5 shows the general topology of this approach.
+Sensor nodes and the data fuser can use any classiﬁer or algorithm to do its classiﬁcation or fusion job. However, naive Bayes (NB) and feed forward neural network (FFNN) are already used for this approach. Here we also used NB and FFNN to see their accuracy on the analyzed residential and wildﬁre data sets. The results are reported in Table 3. The experiment method is the same as original study in [3].
+
+Table 3. The results of residential ﬁre and wildﬁre detection using the distributed approach in [3]
+
+Distributed approach using FFNN Distributed approach using NB
+
+Mean
+
+STD
+
+Mean
+
+STD
+
+Wildﬁre
+
+93.29
+
+1.61
+
+92.64
+
+2.47
+
+Residential ﬁre 85.73
+
+1.98
+
+81.40
+
+10.52
+
+Fire Data Analysis and Feature Reduction 297
+5 Conclusion
+This paper presents a thorough data analysis on wildﬁre and residential ﬁre data sets using feature extraction and machine-learning techniques. The contribution of the paper is on providing an insight on ﬁnding the correlation between various features and identifying the most contributing features to the goal of ﬁre detection. This identiﬁed set forms the optimal set of sensors that can efﬁciently and reliably detect ﬁres.
+Experimental results of applying our distributed neural network and naive Bayes based ﬁre detection techniques on this optimal set prove high ﬁre detection accuracy, i.e., over 81% for residential ﬁre detection and over 92% for wildﬁre detection.
+Acknowledgements. This paper describes work in part undertaken in the context of the SENSEI project, “Integrating the Physical with the Digital World of the Network of the Future” (www.senseiproject.eu). SENSEI is a Large Scale Collaborative Project supported by the European 7th Framework Programme, contract number: 215923.
+References
+1. Bahrepour, M., Meratnia, N., Havinga, P.J.M.: Automatic ﬁre detection: a survey from wireless sensor network perspective. Technical Report TR-CTIT-08-73, Centre for Telematics and Information Technology, University of Twente, Enschede (2008) ISSN 1381-3625
+2. Bahrepour, M., Meratnia, N., Havinga, P.J.M.: Use of AI techniques for residential ﬁre detection in wireless sensor networks. In: AIAI 2009, Thessaloniki, Greece (2009)
+3. Bahrepour, M., Meratnia, N., Havinga, P.J.M.: Sensor fusion-based event detection in wireless sensor networks. In: SensorFusion 2009, Toronto, Canada. IEEE, Los Alamitos (2009)
+4. Bahrepour, M., Zhang, Y., Meratnia, N., Havinga, P.J.M.: Use of event detection approaches for outlier detection in wireless sensor networks. In: ISSNIP 2009, Melbourne, Australia (2009)
+5. Brain, M.: How smoke detectors work (2000), http://home.howstuffworks.com/smoke1.htm
+6. Jin, G., Nittel, S.: NED: an efﬁcient noise-tolerant event and event boundary detection algorithm in wireless sensor networks. In: 7th International Conference on Mobile Data Management. IEEE Computer Society, Los Alamitos (2006)
+7. Kohonen, T.: Self-organized formation of topologically correct feature maps. Biological Cybernetics 43, 59–69 (1982)
+8. Lee, B.S., Alexander, M.E., Hawkes, B.C., Lynham, T.J., Stocks, B.J., Engleﬁeld, P.: Information systems in support of wildland ﬁre management decision making in Canada. Computers and Electronics in Agriculture 37, 185–198 (2002)
+9. Li, D., Wong, K.D., Hu, Y.H., Sayeed, A.M.: Detection, classiﬁcation, and tracking of targets. Signal Processing Magazine 19(2), 17–29 (2002)
+10. Liang, Q., Wang, L.: Event detection in sensor networks using fuzzy logic system. In: EEE International Conference on Computational Intelligence for Homeland Security and Personal Safety, Orlando, FL, USA (2005)
+11. Lim, Y.-s., Lim, S., Choi, J., Cho, S., Kim, C.-k., Lee, Y.-W.: A ﬁre detection and rescue support framework with wireless sensor networks. In: International Conference on Convergence Information Technology, pp. 135–138. IEEE Computer Society, Los Alamitos (2007)
+
+298 M. Bahrepour et al.
+12. Marin-Perianu, M., Havinga, P.: D-FLER – a distributed fuzzy logic engine for rule-based wireless sensor networks. In: Ichikawa, H., Cho, W.-D., Satoh, I., Youn, H.Y. (eds.) UCS 2007. LNCS, vol. 4836, pp. 86–101. Springer, Heidelberg (2007)
+13. Milke, J.A.: Using multiple sensors for discriminating ﬁre detection. In: Fire Suppression and Detection Research Application Symposium, National Fire Protection Research Foundation,, pp. 150–164 (1999)
+14. Milke, J.A., McAvoy, T.J.: Analysis of signature patterns for discriminating ﬁre detection with multiple sensors. Fire Technology 31(2), 120–136 (1995)
+15. National Interagency Fire Center: Fire Information – National Fire News, http://www.nifc.gov/fire info/nfn.htm (March 17, 2010)
+16. Segal, M.L., Antonio, F.P., Elam, S., Erlenbach, J., de Paolo, K.R.: Method and apparatus for automatic event detection in a wireless communication system, USA Patent (2000)
+17. Vu, C.T., Beyah, R.A., Li, Y.: Composite event detection in wireless sensor networks. In: IEEE International, Performance, Computing, and Communications Conference, IPCCC 2007 (2007)
+18. Werner-Allen, G., Lorincz, K., Ruiz, M., Marcillo, O., Johnson, J., Lees, J., Welsh, M.: Deploying a wireless sensor network on an active volcano. IEEE Internet Computing 10(2), 18–25 (2006)
+19. Wikipedia: Artiﬁcial neural network, http://en.wikipedia.org/wiki/Artificial neural network (accessed in March 2010)
+20. Xue, W., Luo, Q., Chen, L., Liu, Y.: Contour map matching for event detection in sensor networks. In: International Conference on Management of Data. ACM, New York (2006)
+21. Zoumboulakis, M., Roussos, G.: Escalation: complex event detection in wireless sensor networks. In: Kortuem, G., Finney, J., Lea, R., Sundramoorthy, V. (eds.) EuroSSC 2007. LNCS, vol. 4793, pp. 270–285. Springer, Heidelberg (2007)
+

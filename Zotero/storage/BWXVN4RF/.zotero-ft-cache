@@ -1,0 +1,498 @@
+See discussions, stats, and author profiles for this publication at: https://www.researchgate.net/publication/320849311
+A Data Mining Method for Potential Fire Hazard Analysis of Urban Buildings based on Bayesian Network
+Conference Paper ¬∑ July 2017
+DOI: 10.1145/3144789.3144811
+
+CITATIONS
+0
+5 authors, including:
+Xin Liu University of Nebraska at Lincoln 9 PUBLICATIONS 13 CITATIONS
+SEE PROFILE
+
+READS
+111
+
+All content following this page was uploaded by Xin Liu on 19 February 2018.
+The user has requested enhancement of the downloaded file.
+
+A Data Mining Method for Potential Fire Hazard Analysis of
+
+Urban Buildings based on Bayesian Network
+
+Xin Liu, Yutong Lu
+National University of Defense Technology Deya Road, Kaifu District,
+Changsha, Hunan, P.R.China
+star0117-liu@163.com ytlu@nudt.edu
+
+Zijun Xia, Feifei Li, Tianqi Zhang
+National Supercomputer Center in Tianjin 3F, No.5 Building, TEDA Service Industrial Park, Tianjin, P.R.China
+{xiazj, liff, zhangtq}@nscc-tj.gov.cn
+
+ABSTRACT
+At present, with rapid development of China‚Äôs urbanization, the population density increases, the structure of buildings become more complexity, and building materials and techniques emerge endlessly. Frequent unsafe personal behavior and complex external unsafe factors bring more uncontrollable influences on preventing and controlling fire hazard of buildings in urban area. Traditional methods of fire hazard analysis have limitations on fire hazards forecasting in complex urban areas.
+This paper presents a data mining method based on Bayesian Network for fire hazard analysis of urban buildings. Based on the historical records of fire incidents in a city of China in past three years, from 2014 to 2016, we analyze the potential fire risk according to building properties and outside influences of buildings. We process and analyze the data, and construct a Bayesian Network based on the analytic results and the actual fire extinguishing situation. After that, we train the model with positive samples and negative samples. At last, we use the Bayesian Network model to assess the risks of building fire hazards.
+By using ROC curve to analyze the accuracy of the model, we get accurate and stable results. Based on Bayesian Network model with building property and external influence, the building fire risk probability is about 1.0√ó10%& to 1.0√ó10%'( . We also introduce another machine learning method, Logistic Regression algorithm to evaluate the performance of Bayesian Network model. The results show that our Bayesian Network model can achieve better performance.
+CCS Concepts
+‚Ä¢ Applied computing ‚ûùOperations research ‚ûùForecasting
+Keywords
+Bayesian Network; Data Statistics; Risk Probability of Fire Hazard; Quantitative Analysis; Machine Learning.
+1. INTRODUCTION
+Permission to make digital or hard copies of all or part of this work for personal or classroom use is granted without fee provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice and the full citation on the first page. Copyrights for components of this work owned by others than ACM must be honored. Abstracting with credit is permitted. To copy otherwise, or republish, to post on servers or to redistribute to lists, requires prior specific permission and/or a fee. Request permissions from Permissions@acm.org.
+IIP'17, July 17‚Äì18, 2017, Bangkok, Thailand‚Ä® ¬© 2017 Association for Computing Machinery. ACM ISBN 978-1-4503-5287-1/17/07...$15.00 https://doi.org/10.1145/3144789.3144811
+
+With rapid development of urbanization in China and its quickly growing economy, large buildings, high-rise buildings and buildings with high potential fire hazards emerge constantly in urban areas. In addition, the advent and development of new materials, new technologies and new equipment of buildings bring many new challenges to the fire safety.
+Currently, the information technology for fire preventing develops swiftly, internet of things (IoT) and geographic information systems (GIS) improve the speed and efficiency of fire prevention and fire extinguishment, and the equipment also improved greatly. Though with these advantages, frequent unsafe personal behavior and complex unsafe factors still put forward severe challenges to fire prevention and fire extinguishment. The buildings in urban area have characteristic such as high density, complex construction, diverse utilizations, strong mobility and large density of people, building fire control in urban area becomes the key and difficult points in fire prevention and fire extinguishment.
+Urban building fires often result in great losses of manpower, material and financial. In order to reduce as much hazards and losses caused by fire as possible, it is very important to analyze the fire possibility in early stage and take corresponding prevention measures.
+In conventional study of fire hazard analysis, since the source of fire information is single, it makes the fire information partial or even missing, and it affects the authenticity and reliability of fire information indirectly. As the reasons for urban fires are complex and fire related factors are difficult to count, the study of urban fire prediction is limited.
+Mehdi Ben Lazreg et al. [2] introduce a Bayesian Network model that infers the state of the fire and predicts its future situation based on smartphones‚Äô sensor data gathered within fire area. The Bayesian network uses a node to present each room in the building. In their research, they only focus on stages of fire growing and development, and they pay no attention to the probability of fire. Dlamini et al. [3] use a Bayesian Network approach to assess the fire risk in Swaziland, and they derive probabilistic risk maps by using GIS and remote sensor data integrating multiple variables. Accuracy assessments indicate that the performance of active fire and burned area Bayesian Network models based on EM-algorithm are satisfactory, and have high prediction accuracy. However, their work only use GIS and remote sensor data, and the data dimensions need to be extended. Nelisse et al. [4] uses Bayesian inference to calculate the probability of a large fire occurring in a road tunnel based on two large fires. The characteristics that tunnel fires considered include traffic intensity, duration of working period, tunnel length, total
+
+number of vehicle, travel distance and number of fires. However, the characteristics are far less than that may affect urban building fires. ≈†eriƒá et al. [5] design and implement a Bayesian network for forest fire observer by considering the time, temperature, humidity etc. The differences between their work and our work is that some natural conditions cannot be used to analysis urban building fires. Bashari et al. [6] demonstrate how a probabilistic Bayesian Network model could be produced to predict fire incidents in the ecosystems with lots of unknown interactions among management and environmental characteristics and fire occurrence. They take human factors and biophysical factors into consideration, which is inadequate to analysis urban building fire risks.
+Some existing work [7, 8, 9] increase reliability and reduce the rate of false alarm by analyzing smoke characteristics of fire burning, and building models to enhance predicting capability of fire equipment, such as fire detector. As the impact factors of forest fires are relatively simple than urban fires, Can Lv et al. [10] use Bayesian Network to predict forest fire. Most study for urban fire assessment focus on specific areas and use long timegranularity. Liuhen Liu et al. [11] study the fire prevention and control in large communities. Zhang Li et al. [12] analyze the wireless sensor networks in city metro to guide the design of subway fire alarm system scientifically.
+However, these methods are not targeting at effectively fire assessment and fire forecast for buildings in urban area. They lack comprehensive considerations and the dimension of data characteristics is insufficient. To our best knowledge, due to the complexity of prediction modeling, our paper may be the first one to leverage Bayesian Network to forecast building fires in urban area. Pre-fire forecasting is a process to predict uncertainty events. Bayesian Networks [1] is a very important regression algorithm in machine learning, and it can analyze possibilities based on a variety of related factors. Therefore, we firstly analyze 1,649 building fire incidents in a city in China from 2014 to 2016 by using mathematical statistic method, and analyze the direct and indirect causes of fire. Then we establish multi-dimensional Bayesian Network model based on incidents‚Äô statistics, including building related information, climate, holiday etc. After that, we train the model to forecast the probability of building fires in urban area.
+We first introduce statistical results of fire incidents from multidimensional analysis during year 2014 to 2016. It demonstrates the periodical impacts on fire incidents incurred by different surrounding factors. Then we describe data cleaning and data pre-processing, which includes completing information, irrelevant data elimination, discretization of data characteristics, supplementing negative sample data etc. The processed data are used for model training and testing respectively. We also present the construction of Bayesian Network and show the final model, along with the algorithms for training the Bayesian Network. After that, we test the model with test data sets, and use ROC curve to analyze the results. In addition, to fully demonstrate the advantages of Bayesian Network, we also introduce Logistic Regression for training and forecasting. The results show that Bayesian Network can achieve better performance.
+2. STATISTICAL ANALYSIS
+There were 1,640 fire incidents in urban area of the city from 2014 to 2016. Among them, there were 1,047 building fires, accounting for 63.8%, and 593 vehicle fires, accounting for more than 36.2%. We first use statistical analysis method to analyze fire data and dig out various characteristics of the factors that affect
+
+the fire so as to provide references for extracting features to build Bayesian Network. These analyses show that the features related to fire incidents can be used as the basis for evaluating fire risks. In addition, the components for constructing Bayesian Network can be extracted from analyses results, research work, experience, references etc.
+2.1 The Influence of Building Uses on Fire
+Different uses of buildings may result in different kinds of materials stored in buildings, personal aggregation, visitors‚Äô flow, complexity of personal identities etc. There are 134 fires due to electrical circuits, which accounts for 37.8% in the total fire incidents in year 2014. In 2015, the number of similar fire incidents are 115, which accounts for 33.5% of the entire fires. In 2016, the occurrence of incidents raised to 128, which accounts for 36.5% of the annual fires. Hence, it has different effects on fire occurrence and file sprawl. In past three years, 66% of building fire incidents occurred in residential properties such as flats and houses, 12% of them happened in factories, 8% occurred in business places, and the remaining are related to hotels/motels, warehouses, office buildings, public entertainment places etc. As residential properties have characteristics such as large density of population, complicated personal identity and diverse human activities, it becomes the place where fire occurs the most. The ratio of fires occurred in different buildings is shown in Figure 1.
+Figure 1. The influence of building uses on fire
+2.2 Fire Causes
+In all building fire incidents, the major causes of fires include electrical circuit fault, careless use of living fires, legacy fire, smoking etc. In 2014 to 2016, there are 377 fires caused by electric circuit fault, and it accounts for 38% of total fires. The ratio is clearly higher than other causes. Electrical wires that have not been repaired for many years or that are improperly used often cause fire. More attentions should be payed to them, and maintenance should be provided to these situations. The ratio of different fire causes is shown in Figure 2.
+Figure 2. The ratio of fire causes
+2.3 Fire Time Analysis
+In different months of the year, varying weather conditions and seasonal changes of human activities often affect the occurrence
+
+of fires indirectly. As shown in Figure 3, the number of fires increases from November to next March annually, and then it decreases gradually. There are less fires in summer, and the number of fires rises in autumn and winter. The statistical data for last three years show basically the same trend.
+Figure 3. Fire time analysis
+2.4 Summary
+Based on the data analysis, building fires in urban area show certain changing trends with the changes of seasons, holidays, building properties and other factors. These factors may also directly or indirectly affect human unsafe behavior, so as to cause certain effects on fire probability. In addition, properties of buildings, human behaviors and climates all indirectly affect fire incidents of urban buildings. We visited fire-fighting workers to collect real data for statistical analysis, and use several references to select and complete the multidimensional data related to urban building fires for constructing the Bayesian Network.
+3. DATA PRE-PROCESSING
+When using machine learning algorithms to analyze data, the most important part is data preprocessing. Data preprocessing includes completing information, irrelevant data elimination, discretization of data characteristics, supplementing negative sample data etc.
+3.1 Data Cleaning
+This paper mainly focuses on the statistical analysis of fire information of urban buildings. Therefore, we first analyze fire hazards such as automobile self-burning, rubbish burning outside of buildings etc. From 2014 to 2016, there happened 1,640 fire incidents in the city, in which there are 1,047 building fires (63.8%) and 593 automobile files (36.2%). Vehicle fire is not included in our research, hence we eliminated those data. In addition, we also eliminate the data that lost some important feature entries„ÄÇ
+3.2 Data Completing
+The data of fire incidents that are collected and recorded through information system may be incomplete, hence the information are completed manually for some cases. The information that can be manually completed include the address of the building that can be directly searched on the internet, the daily temperature and humidity, date and holiday, some building type data etc.
+3.3 Positive and Negative Samples of Training Data
+In order to ensure the authenticity of the data, more than 1,000 fire information in the city during past three years was taken as positive samples. Days in which no fire occurred in buildings are taken as negative samples. The positive samples and negative samples together are input as the training data. Though the number of positive samples and negative samples differs a lot, they can best reflect the actual situation.
+
+4. IMPLEMENTATION
+4.1 Bayesian Network Model
+Bayesian Network is proposed in 1986. It integrates probability theory and graph theory, and it is used to represent and ratiocinate uncertain events. It is an information representation which combines the causality and the conditional probability of a variable.
+Bayesian Network is based on probability theory, and it studies the statistical regularity of the relationships among several factors in a specific field. It directly expresses the causal relationship among various random variables in the form of graph theory. BN can not only qualitatively represent the independent and dependent relations among random variables by directed acyclic graph (DAG), but also can describe the dependencies between various random variables and their parent nodes quantitatively by a conditional probability distribution table. Bayesian Network becomes a hot topic of theoretical research in recent years due to its unique representation of uncertainty knowledge, the incremental learning features of comprehensive prior knowledge and the combination of probability theory and graph theory. It is widely used in risk assessment of natural disasters, such as tsunami risk assessment and avalanche risk assessment.
+In this paper, we take a variety of factors that are related to fires as variables and design variable dependencies. We design and implement the Bayesian Network structure and train the model to predict and evaluate the probability of fire for key buildings in the city under different circumstances.
+4.2 Constructing Bayesian Network
+We propose a Bayesian Network model with two stages. In the first stage, it analyzes important factors of fire, chooses key indices that can perfectly reflect the fire situation as the nodes in Bayesian Network, and leverages the causality between variables to establish network topology structure. In the second stage, with specified network structure, it uses data sets for parameter learning and model training, and it tests whether the established model meets users‚Äô requirements. The specific modeling processes are shown in Figure 4.
+Begin
+
+Analysis Fire Influence
+Extract Key Index
+Determine Mesh Structure
+
+Data Acquisition
+Data Discretization
+Parameter Learning
+
+If meet the
+
+NO
+
+requirements?
+
+YES
+
+End
+
+Figure 4. Modeling processes
+
+4.3 Nodes‚Äô Selection
+Considering all factors that may cause a fire, the consequences of a file and some other necessary factors, we extract following key elements as nodes of network model. In this model, we select the
+
+building attributes, natural environment conditions, building internal conditions, time and personal information etc. The detailed information is described in Table 1.
+
+Table 1. Data discretization
+
+Type
+Building
+Natural Condition
+Interior Condition
+Time
+Human Behavior
+Fire Incidents
+
+Features Constructing time
+Material
+Building uses Building height Fire resistance
+Adjacent buildings
+Humidity Temperature Wind speed Thunder strike Length of gas pipe
+Electrical circuit
+Ventilation Electricity consumption
+Storage
+Equipment aging Fire hydrant Automatic fire extinguishing Season
+Holiday Hour
+Flow of people
+Education level
+Sex ratio Fire service level of security people Fire incidents at
+the same day
+
+Describe
+When did the building build Wood, brick, concrete etc.,
+flammable or not Living , office, storage,
+shopping mall etc. The height of the building Fire resistance of buildings:
+low, medium or high Material and uses of adjacent
+buildings, and the distance between buildings
+Daily minimum humidity
+Daily maximum temperature
+Daily maximum wind speed
+Thunder strikes or not
+Total length of gas pipe Aging of circuit, insulation
+level and whether it is charged and exposed Is the building ventilated Total electricity usage of the building for the day Type and characteristic of storage, and the spaces
+between them The condition of the
+equipment The number of fire hydrant Whether it has automatic fire
+extinguishing system Spring/Summer/ Autumn/Winter
+Spring festival, National day etc.
+Time period of the day Total volume of people in the
+building for the day Overall education level of
+people in the building Sex ratio among all people in
+the building Fire service level of security
+people in the building The probability of fire in
+certain area of the day
+
+4.4 Nodes‚Äô Modeling
+Through aforementioned nodes‚Äô selection and further analysis of the data, we build the Bayesian Network model based on the causality. Figure 5 shows the causal relationships among these variables.
+
+4.5 Data Discretization
+In order to train the Bayesian Network model, it is necessary to carry out pre-process steps such as data cleaning, data completion and data standardization. We eliminate the non-building fire data,
+
+complete the holiday and weather data, some non-discretized data are discretized and discretization data are sorted. Table 2 describes the factors and related data.
+
+Material Distance
+
+Circuit Aging Bad Insulation
+
+Use
+
+Adjacent Buildings Built-up Area Fire Rating
+Height
+Material
+Use Building Time
+
+Wind Temperature
+Humidity Lightning Basic Info
+Buidlings
+
+Material Bare Wire
+
+Circuit Problems
+Gas Pipeline
+
+Storage of Goods
+
+Distance Automatic Fire Extinguishing System Fire Hydrant
+Fire-fighting Equipment
+Equipment Aging
+Electricity Consumption
+
+Natural
+
+Internal State
+
+Ventilation
+
+Season
+
+Fire Hazard
+
+Time
+Assistance Message Personnel Circumstance
+
+Time
+Holiday and Vacations
+Flow of Peopel Education Standard Sex Ratio Security Personnel
+
+Figure 5. Bayesian Network Structure
+
+Table 2. Data discretization
+
+Fire factors Building Region
+Fire Starting Time
+Building Uses
+Building Height
+Humidity
+Month
+
+Number {‚ÄúWQ‚Äù, ‚ÄúNK‚Äù, ‚ÄúBH‚Äù, ‚ÄúHB‚Äù, ‚ÄúBD‚Äù, ‚ÄúHX‚Äù, ‚ÄúBC‚Äù, ‚ÄúJX‚Äù, ‚ÄúDL‚Äù, ‚ÄúXQ‚Äù, ‚ÄúHQ‚Äù, ‚ÄúNH‚Äù, ‚ÄúJH‚Äù,
+‚ÄúHP‚Äù, ‚ÄúJN‚Äù, ‚ÄúHD‚Äù, ‚ÄúDG‚Äù, ‚ÄúHG‚Äù}
+Number
+{‚ÄúApartment‚Äù, ‚ÄúBusiness‚Äù, ‚ÄúGas‚Äù, ‚ÄúHospital‚Äù, ‚ÄúHotel‚Äù, ‚ÄúLaboratory‚Äù, ‚ÄúOffice‚Äù, ‚ÄúOthers‚Äù, ‚ÄúPlant‚Äù, ‚ÄúPublic‚Äù, ‚ÄúStadium‚Äù, ‚ÄúStoreroom‚Äù,
+‚ÄúTeaching‚Äù, ‚ÄùTraffic‚Äù, ‚ÄúElectric‚Äù, ‚ÄúMuseum‚Äù}
+{‚Äú1‚Äù, ‚Äú4-10‚Äù, ‚Äú11-‚Äù, ‚Äú2-3‚Äù, ‚Äú0‚Äù}
+Humidity level: 1: <=32; 2: <=49; 3: <=65; 4: <=80; 5: >80
+{‚Äú1‚Äù, ‚Äú2‚Äù, ‚Äú3‚Äù, ‚Äú4‚Äù, ‚Äú5‚Äù, ‚Äú6‚Äù, ‚Äú7‚Äù, ‚Äú8‚Äù, ‚Äú9‚Äù, ‚Äú10‚Äù, ‚Äú11‚Äù, ‚Äú12‚Äù}
+
+Day
+
+Number
+
+Hour
+
+Number
+
+Predict Temperature Wind Speed
+Holiday
+
+Predict: 1: 0; 2: or<=0.1; 3: <=0.9; 4: <=4; 5: >4
+Temperature level: 1: <=1.8; 2: <=10.8; 3: <=19.5; 4: <=25.7; 5: >25.7
+Wind Level: 1: <=1; 2: <=2; 3: <=3; 4: <=4; 5: >4
+0: Work days; 1: Two-day weekends; 2: Holiday
+
+Date
+
+Number
+
+Year
+
+Number
+
+Fire or not
+
+F, T
+
+4.6 Training Bayesian Network
+The parameter learning is the second stage of modeling. It mainly uses sample sets to train the given network, and determines the conditional probability distribution of each node in the network.
+
+The set of conditional probability tables for all nodes in a network is called network parameter Œ∏. In this paper, we use Maximum Likelihood Estimation method for parameter learning. The Maximum Likelihood Estimation method bases on traditional statistical analysis. It evaluates the likelihood of training samples and Bayesian Network model according to the likelihood between training samples and network parameters.
+
+Assuming that data D is made up of (D', D(, ‚ãØ , D.), where D is independent and identically distributed. It means that the samples in D are independent with given parameter Œ∏. It can be expressed as follow.
+8
+Ì†µÌ∞ø Ì†µÌ∞∑ Ì†µÌºÉ = Ì†µÌ±É Ì†µÌ∞∑ Ì†µÌºÉ = Ì†µÌ±É(Ì†µÌ∞∑6|Ì†µÌºÉ)
+69'
+The conditional probability distribution P(D;|Œ∏)of each sample D; is the same. Typically, the conditional probabilities of data P(D|Œ∏ = Œ∏<) are used to measure the likelihood between parameter Œ∏ = Œ∏<and data D. Greater probability value P(D|Œ∏ = Œ∏<) represents higher likelihood between parameter Œ∏< and data Œ∏< . For arbitrary parameter Œ∏ , the conditional probability P D Œ∏ of data D is called the likelihood function of Œ∏, which is denoted as:
+
+Ì†µÌ∞ø Ì†µÌºÉ Ì†µÌ∞∑ = Ì†µÌ±É(Ì†µÌ∞∑|Ì†µÌºÉ)
+
+(1)
+
+The maximum likelihood estimation of parameter Œ∏ is the one Œ∏‚àóthat makes the likelihood function L Œ∏ D maximum, which is:
+
+Ì†µÌºÉ‚àó = arg supL(Œ∏|D)
+
+(2)
+
+E
+
+Considering that a Bayesian Network consists of n variables X =
+
+{X', X(, ‚ãØ , XI} , where the variable X; have r; values, and their parent nodes œÄ(X;) have q; values, the network parameter is
+
+Ì†µÌºÉ6MN = Ì†µÌ±É(Ì†µÌ±ãP = Ì†µÌ±ò|Ì†µÌºã(Ì†µÌ±ãP)
+
+The value of i ranges from 1 to n. For a fixed i, the value of j and k range from 1 to q; and from 1 to r; respectively. All the records Œ∏;VWin the network are recorded as Œ∏, which can be expressed as follow.
+
+YZ
+
+YZ
+
+Ì†µÌºÉ6MN = Ì†µÌ±É(Ì†µÌ±ã6 = Ì†µÌ±ò|Ì†µÌºã Ì†µÌ±ã6 = Ì†µÌ±ó) = 1, ‚àÄÌ†µÌ±ñ, Ì†µÌ±ó
+
+N9'
+
+N9'
+
+Therefore, the number of independent parameters in the network
+
+is
+
+I ;9'
+
+q;(r;
+
+‚àí
+
+1).
+
+Since the samples in dataset D are independent and identically distributed, there are:
+
+Ì†µÌ∞ø Ì†µÌºÉ Ì†µÌ∞∑ = Ì†µÌ±ôÌ†µÌ±úÌ†µÌ±î
+
+8 69'
+
+Ì†µÌ±É
+
+Ì†µÌ∞∑6
+
+Ì†µÌºÉ
+
+=
+
+8 69'
+
+Ì†µÌ±ôÌ†µÌ±úÌ†µÌ±îÌ†µÌ±É(Ì†µÌ∞∑P
+
+|Ì†µÌºÉ)
+
+(3)
+
+To obtain expressions of logP(Dc|Œ∏), the characteristic functions of sample D; can be described as follow.
+
+œÜ i, j, k: Ì†µÌ∞∑f
+
+=
+
+1, Ì†µÌ±ñÌ†µÌ±ì Ì†µÌ±ã6 = Ì†µÌ±ò Ì†µÌ±éÌ†µÌ±õÌ†µÌ±ë Ì†µÌºã Ì†µÌ±ã6 0, Ì†µÌ±íÌ†µÌ±ôÌ†µÌ±†Ì†µÌ±í
+
+= Ì†µÌ±ó Ì†µÌ±ñÌ†µÌ±õ Ì†µÌ∞∑f
+
+(4)
+
+Then we have following expression.
+
+Ì†µÌ±ôÌ†µÌ±úÌ†µÌ±îÌ†µÌ±É Ì†µÌ∞∑6 Ì†µÌºÉ =
+
+o 69'
+
+nZ M9'
+
+YZ N9'
+
+Ì†µÌºë(Ì†µÌ±ñ,
+
+Ì†µÌ±ó,
+
+Ì†µÌ±ò
+
+:
+
+Ì†µÌ∞∑f
+
+)Ì†µÌ±ôÌ†µÌ±úÌ†µÌ±îÌ†µÌºÉ6MN
+
+(5)
+
+When substituting expression (5) into expression (3), we will get following expression.
+
+8
+
+Ì†µÌ∞ø Ì†µÌºÉ Ì†µÌ∞∑ = Ì†µÌ±ôÌ†µÌ±õÌ†µÌ±É Ì†µÌ∞∑f Ì†µÌºÉ
+f9' 8 o nZ YZ
+
+=
+
+Ì†µÌºë(Ì†µÌ±ñ, Ì†µÌ±ó, Ì†µÌ±ò: Ì†µÌ∞∑f)Ì†µÌ±ôÌ†µÌ±úÌ†µÌ±îÌ†µÌºÉ6MN
+
+f9' 69' M9' N9'
+
+o nZ YZ 8
+
+=
+
+Ì†µÌºë(Ì†µÌ±ñ, Ì†µÌ±ó, Ì†µÌ±ò: Ì†µÌ∞∑f)Ì†µÌ±ôÌ†µÌ±úÌ†µÌ±îÌ†µÌºÉ6MN
+
+69' M9' N9' f9'
+
+=
+
+o 69'
+
+nZ M9'
+
+YZ N9'
+
+Ì†µÌ±ö6MN
+
+Ì†µÌ±ôÌ†µÌ±úÌ†µÌ±îÌ†µÌºÉ6MN
+
+(6)
+
+In expression (6), the number m;VW =
+
+. c9'
+
+œÜ
+
+i, j, k: Dc
+
+is
+
+the
+
+number of samples satisfying X; = k and œÄ X; = j in D . We
+
+record m;V =
+
+rs W9'
+
+m;VW
+
+.
+
+Therefore,
+
+the
+
+maximum
+
+likelihood
+
+estimation is:
+
+Ì†µÌºÉ6‚àóMN
+
+=8Ztu
+8Zt
+
+‚àÄÌ†µÌ±ó ‚àà
+
+1: Ì†µÌ±û6 , ‚àÄÌ†µÌ±ò ‚àà
+
+1: Ì†µÌ±ü6
+
+(7)
+
+Intuitively,
+
+Ì†µÌºÉ6‚àóMN
+
+=
+
+yz{ |}8~f{ o‚Ä¢8‚Ç¨{Y ‚Ä¢‚Äö ∆íZ9N }o‚Äû ‚Ä¶ ∆íZ 9M 6o ‚Ä† yz{ |}8~f{ o‚Ä¢8‚Ç¨{Y ‚Ä¢‚Äö ‚Ä¶ ∆íZ 9M 6o ‚Ä†
+
+(8)
+
+5. VERIFICATION
+We test the performance of Bayesian Network and evaluate the results by comparing to Logistic Regression algorithm to prove the superiority of Bayesian Network. Logistic Regression algorithm deals with the same training data and the test data. Logistic Regression is a commonly used method of machine learning in industry, which is used to estimate the possibility.
+
+5.1 Test Results of Bayesian Network
+The training data is randomly selected. It takes 80% positive examples and 80% negative examples for training (206,413 items in total). The remaining 20% positive examples (212 items) are used as positive test cases. We randomly selected 5 groups of examples from the remaining 20% negative examples, and each group (212 items) is used as negative test cases.
+
+In this paper, the Receiver Operating Characteristic curve (ROC) is used to verify the results. ROC curve is drawn by a series of different two-class classifications (thresholds), with true positive rate (sensitivity) as y-axis and false positive rate (1- specificity) as x-axis. Traditional diagnostic evaluation methods have a common characteristic that the test results need to be divided into two states to conduct statistical analysis. The ROC evaluation method is different from traditional evaluation method, and it does not have these restrictions. ROC processes data according to actual situations and it allows intermediate states, which include normal, roughly normal, suspicious, roughly abnormal and abnormal states. Therefore, ROC curve evaluation method is suitable for wider ranges.
+
+In the ROC result curve shown below, the x-axis is the False Positive Rate (FPR) which represents specificity. FPR means the rate that a negative instance is wrongly predicted to be positive. The y-axis is True Positive Rate (TPR) which represents sensitivity. TPR means the rate that a positive instance is truly predicted to be positive.
+
+The ROC curves of 5 groups of data are shown in Figure 6. The test curves of these groups are in the upper left of the 45-degree ray, which indicates that the TPR is greater than the FPR of
+
+prediction. It is obvious that the correct fire prediction is more than false fire prediction when using this prediction model. The trend is approximately the same, which shows that the prediction results are basically accurate and stable.
+Figure 6. ROC result curve of 5 groups
+5.2 Comparison of Algorithms
+Figure 7. ROC curves of BNet and LR Figure 7 shows the results‚Äô comparison of two algorithms. The curves calculated by two algorithms are located in the top left, which indicates that the true prediction rates are higher than false prediction rates. By comparing these two ROC results we could see that the results of Bayesian Network are located above the results of Logistic Regression. It indicates that Bayesian Network has better performance than Logistic Regression.
+5.3 Results‚Äô Analysis
+The experimental results show that Bayesian Network can achieve accurate and stable predictions of fire incidents for buildings in urban area, and its performance is better than Logistic Regression algorithm. However, as the number of real fires is much less than that of no fire, the real situation is different from experiments. The experimental results can be qualitatively expressed the accuracy of the model. In the actual forecast process, the level of fire risk can be obtained according to the output of model probability. However, higher probability of fire risk does not mean a fire will occur, and low probability of fire risk does not mean that there will be no fire.
+
+6. CONCLUSION
+We proposed a method of using that Bayesian Network to model building fires in urban area. The experimental results show that the fire risk assessment for key buildings is accurate and stable. Since the dimension of collected data cannot fully satisfy the needs to design the model, it will inevitably affect the results of the model. Our next step will focus on expanding the dimension of featured data, and collecting more available and reliable data to build a reliable model. Meanwhile, since human behaviors, especially the unsafe behaviors, have important impacts on fire, we will also expand the research on human behaviors, such as collecting characteristics of group behaviors through mobile communication data, educational background, members of families to analyze human‚Äôs impacts on fires.
+7. REFERENCES
+[1] Nielsen T D, Jensen F V. Bayesian networks and decision graphs[M]. Springer Science & Business Media, 2009.
+[2] Lazreg M B, Radianti J, Granmo O C. A Bayesian Network Model for Fire Assessment and Prediction[C]//International Workshop on Machine Learning, Optimization and Big Data. Springer, Cham, 2015: 269-279.
+[3] Dlamini W M. Application of Bayesian networks for fire risk mapping using GIS and remote sensing data[J]. GeoJournal, 2011, 76(3): 283-296.
+[4] Nelisse R M L, Vrouwenvelder A. Probability of a Large Fire in a Road Tunnel Bayesian Inference[C]//14th International Probabilistic Workshop. Springer International Publishing, 2017: 123-134.
+[5] ≈†eriƒá L, ≈†tula M, Stipaniƒçev D, et al. Bayesian proprioceptor for forest fire observer network[C]//Proceedings of the 6th KES International Conference on Agent and Multi-Agent Systems: Technologies and Applications, Ser. KESAMSTA'12. 2012: 14-23.
+[6] Bashari H, Naghipour A A, Khajeddin S J, et al. Risk of fire occurrence in arid and semi-arid ecosystems of Iran: an investigation using Bayesian belief networks[J]. Environmental monitoring and assessment, 2016, 188(9): 531.
+[7] Jing Chen, Jingqi Fu. Application of Bayesian network in fire alarm system[J]. Instrument Technology, 2011, 10: 4751.
+[8] Qifeng Wu. Research on fire information fusion method based on Bayesian network[D], MS Thesis, Shenyang University of Aeronautics and Astronautics, 2013.
+[9] Yuda Shi, Yansheng Lu, Liming Wang. Research on fire alarm pattern recognition system based on Bayes decision model[J], Journal of Huazhong Normal University (Natural Sciences), 2007, 41(2): 211-214.
+[10] Can Lv, Xiaobo Zhang, Ping Tang. Research on fire warning model based on continuous Bayesian network[J], Industrial Control Computer, 2016 (2): 104-106.
+[11] Liuhen Liu, Lei Chen, Maohong Zhang. Fire safety assessment model for large city community based on Bayesian network[J], Application Research of Computers, 2011, 28(1).
+[12] Zhang Li, Network city fire alarm system design, 2016, Electronic Technology & Software Engineering, ISSN:20955650
+
+View publication stats
+

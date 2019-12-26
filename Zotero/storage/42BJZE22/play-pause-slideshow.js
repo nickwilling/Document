@@ -1,0 +1,3 @@
+$=jQuery;
+$(document).ready(function(){$(".carousel-indicators").each(function(index){$(this).append('<li class="glyphicon glyphicon-play carousel-play" id="carousel-play-'+index+'"></li>');$(this).append('<li class="glyphicon glyphicon-pause carousel-pause" id="carousel-pause-'+index+'" style="display: none;"></li>');$("#carousel-play-"+index).click(function(){$("#carousel-play-"+index).hide();$("#carousel-pause-"+index).show();$(this).parents(".carousel").carousel("cycle")});$("#carousel-pause-"+index).click(function(){$("#carousel-pause-"+
+index).hide();$("#carousel-play-"+index).show();$(this).parents(".carousel").carousel("pause")})})});

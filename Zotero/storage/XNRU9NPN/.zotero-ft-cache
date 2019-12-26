@@ -1,0 +1,274 @@
+IEEE International Symposium on Industrial Electronics (ISlE 2009) Seoul Olympic Parktel, Seoul, Korea July 5-8, 2009
+
+Smoke detection in open areas using its texture features and time series properties
+Hidenori Maruta*, Yasuharu Katot , Akihiro Nakamural and Fujio Kurokawal l
+*Information Media Center, Nagasaki University, Nagasaki, 852-8521 Japan Email: hmaruta@nagasaki-u.ac.jp
+tOraduate School of Science and Technology, Nagasaki University, Nagasaki, 852-8521 Japan +Faculty of Engineering, Nagasaki University, Nagasaki, 852-8521 Japan Email:fkurokaw@nagasaki-u.ac.jp
+
+Abstract- In extensive facilities such as port facilities, chemical plants, and power stations, it is important to detect a fire early and certainly. The purpose of this paper is to present a new smoke detection method in open areas, as smoke is considered as a significant signal of the fire. It is assumed that the camera monitoring the scene of the open area is stationary. Since smoke does not keep stationary shape or image features like edges, it is difficult apply ordinal image processing techniques such as the edge or contour detection directly. In this paper, we propose a novel method of the smoke detection in an image sequence, in which we combines the several images techniques to detect smoke . We apply it to images of open areas under general environmental conditions. First, moving objects are detected from gray-scale image sequences, and then the noise is removed with the image binarization and the morphological operation. Furthermore, since the smoke pattern must be examined, the smoke feature is extracted with the texture analysis. Then, to obtain the final result of the proposed method, we discussed the properties of the proposed features as the time series data.
+I. INTRODUCTION
+To detect a fire early and certainly is important in extensive open areas such as port facilities, chemical plants, thermal and atomic power stations. However, the fire or flames detection methods [1][2][3] are very limited because sources of them cannot always fall into the field of view due to their positions and sizes especially in open areas. On the other hand, smoke is one of the important signs to detect the fire immediately in such a case. We can simply and easily observe the smoke of the fire by a camera even if the flames are not visible.
+Since conventional smoke detection methods have used special devices to detect smoke, they have a weakness when they are used in open areas or large indoor areas as it is difficult to set smoke-detection devices around the target areas.
+Computer vision based approach using images or image sequences is useful for the smoke detection. The strength of image or video based methods is to serve large and open areas. We can easily set video cameras anywhere and we can also obtain the information of wide-view images as time series data.
+Smoke gradually grows and does not have a stationary shape as it is affected by surrounding environments. Because of these properties, conventional image processing techniques, such as edge and contour detection, have difficulties to be used in the smoke detection directly. Previous approaches
+
+to detect an existence of smoke , using pixel- and blockbased, or color-based image processing methods have been presented[4] [5]. These methods try to detect edge or contour information of smoke. However, they have difficulties in treating characteristic properties of smoke and needing highcost computations to detect smoke whole of wide-view images or image sequences. Additionally, handling color information is also a problem because it may be affected by sources or fuel types of the fire.
+In this paper, we propose a novel method of the smoke detection in image sequences. In our proposed method, we combine some image processing methods under considerations of characteristic properties of smoke. Firstly we extract regions of moving objects, which are candidates of smoke regions. In this processing, we consider characteristic properties of smoke such as a growth speed and a non-stationary shape. Then, we obtain a measure of the similarity between these regions and smoke regions on the basis of texture analysis and a property as time series data. For the evaluation, we prepare ideal smoke, which are ideally and manually selected smoke regions from image sequences. And a similarity measure between the extracted regions and smoke is defined based on texture features of ideal smoke. Using this, smoke detection on the image sequence is proceeded.
+We note that all images used in this paper are gray-scale.
+II. PRE-PROCESSING FOR SMOKE DETECTION: DETECTION
+OF MOVING REGIONS AS SMOKE CANDIDATES
+In our proposed method, we detect moving objects in whole images as candidates of smoke regions in pre-processing. As a growth-speed of smoke is considered, we obtain 1 frame-persecond rate image sequences from original image sequences.
+We use these image sequences, f (t) (t == 0, 1, 2, ... ), in the
+following processing. Pre-processing to detect candidates of smoke regions consists of five steps:
+(i) image subtraction and accumulation, (ii) image binarization, (iii) morphological operation (called opening) to remove
+noise-like parts, (iv) extraction of Feret's diameters and their position as
+Feret's regions, moving objects that are obtained as smoke candidate regions,
+
+978-1-4244-4349-9/09/$25.00 ©2009 IEEE
+
+1904
+
+(v) creation of the image mask to obtain the moving objects of gray-scale image J(t) .
+Outline of the pre-processing is shown in Fig. 1. After the pre-processing, we obtain images which contains some moving objects as smoke candidate regions, in which smoke detection is proceeded .
+j(t-I)
+
+image subtraction
+
+g(t- l)
+
+g(t)
+
+h(t)
+image binarization and morphologica l operation
+
+a basic technique of morphological noise removal, which consists of the two different morphological operations, dilation and erosion. And let mb(t) be the image frame sequence after opening operation to bet). mb(t) is used in the following process to detect the candidates of smoke regions .
+C. Detection of Feret's regions and the creation ofimage mask to obtain moving objects
+To determine shapes and positions of moving object regions in mb(t) , we apply a method to extract Feret's diameter of them. We can extract a circumscribed rectangle of one region of objects (moving object region in this case), which is the smallest surrounding rectangle . Lengths of horizontal and vertical edges of this rectangle are called Feret's diameters . When we extract it, we also obtain the position and the approximated shape of the object as the rectangle . We call it Feret's region, which is considered as estimated moving objects with the rectangle shape and the positional information . Each mb(t) may have several Feret's regions, so let pet ;i) be the i th Feret's region of mb(t) .
+We use the information of pet ;i) as an image mask to estimate moving object regions in the subtracted image frame get). To extracted regions with this image mask, we apply the texture analysis to estimated regions and obtain information to examine the existence of smoke in the image sequence in the method proposed in Sec. III.
+An example of the pre-processing result is shown in Fig. 2 . In this example, moving object is only smoke at the center of the image, and obtained Feret's regions are represented as rectangles and superimposed on the original image frame J(t) . Even smoke does not have clear shapes as its characteristic, this example shows that Feret's regions used as the image mask can captured the regions of smoke.
+
+mb(t)
+
+Fig. I. Outline of Pre-processing described in Sec. II.
+
+A. Image subtraction and accumulation
+We use the image subtraction technique to extract regions of moving objects A subtracted image frame is written as get) =
+J(t) - J(t - 1). As the growth speed is not so fast, smoke in subtracted image not so clear. So we use the image frame h(t)
+which accumulate two subtracted image, i.e. h(t) = Ig(t ) +
+get - 1)1 , in the following processing .
+
+B. Image binarization and morphological opening operation
+To remove very small regions in h(t) considered as noises, we operate binarization and opening, an morphological operation which removes the noise-like regions in binary images. We process h(t) to be binary images bet) with the binarization operation.
+We also use a morphological operation, opening[6], to remove small noisy regions in bet). Opening operation is
+
+Fig. 2. An example image of the pro-processing result. Extracted Feret's regions is superimposed on the original image f (t ) as the image mask.
+III. SMOKE DET ECTION METHOD After the pre-processing in Sec. II, we detect an existence of smoke in the image sequence with smoke-detectormeasure(SDM) with texture features as defined in the following. First, we define ideal smoke distribution, which needs to
+
+1905
+
+calculate SDM. After that, we define SDM of both one frame and the image sequence. Smoke detection is proceeded on the basis of SDM of the image sequence.
+A. Ideal smoke distribution
+Here we define ideal smoke distribution P to compare the similarity of the candidate regions and smoke. Ideal smoke are manually and ideally selected smoke regions from prepared
+image sequences including smoke to obtain P, consists of a
+hundred images, and processed in the same manner described
+in Sec . II. Let P(T) be the probability distribution of a
+vector T = (t1 , ia , t3), which consists of three components
+of texture features[7], Contrast ts, Inverse difference moment tz and Difference entropy t3, calculated from ideal smoke. From P(T) , we obtain the mean vector J.1p and the covariance matrix ~p needed to define a detector function of smoke in the images.
+B. Smoke-detector-measure(SDM)
+First, we define smoke-detector-measure (SDM) per-frame 8(t), the measure of the existence of smoke of one frame . Later, using 8(t) , we define SDM of one image sequence V(t), the measure of the existence of smoke of the image sequence.
+Let 8(t;i) be SDM of the Feret's region F(t ;i) of g(t) as
+an inverse of Mahalanobis distance[8] of the feature vector
+u(t ;i) = (h(t ;i) ,tz(t;i) ,t3(t;i))t of F(t ;i) and the distri-
+bution P . 8(t;i) is described as a mathematical expression in
+Eq . (1).
+8(t;i) = ( V(u(t ;i) - J.1p)t~J,1(u(t;i) - J.1p)) - 1 (I)
+
+As using the inverse of the Mahalanobis distance, 8(t;i)
+
+becomes larger when the feature vector u(t ; i) is similar to
+
+smoke's one .
+
+As mentioned above, we consider that each frame may
+
+contain several Feret's regions of smoke candidates. So let 8(t)
+
+be SDM of the g(t) described as a mathematical expression
+
+in Eq. (2) .
+
+L 8(t) = 8(t;i)
+
+(2)
+
+IV. EXPERIMENTS
+In following experiments, we used movies which are grayscale nOx480 pixel-size obtained from the same camera set in a open area (in this case, a port facility) and at different day time . Important properties of image sequences used in experiments are shown in Table I. We note that each image sequence in experiments has different time lengths and contains humans or cars as moving objects, However, the size of both are relatively very small due to the position and settings of the camera, so their effects on results were none or very small.
+TABLE I
+S UMMARY OF IMA G E SEQ UEN CES USE D IN EX PE RIMENTS IN S EC. IV.
+
+Image sequences
+Video I Video 2 Video 3
+
+Wind-speed condit ion
+High None Middle
+
+Smoke
+Yes Yes No
+
+Other moving objects
+No No Yes (gantry crane, plastic sheet)
+
+A. Experiment J: Detection using the movie including smoke
+In Experiment I, we used two image sequences, Video I and Video 2, summarized in Table I. Both image sequences obtained the camera whose settings and its position were same. In both examples, smoke is gen erated at near the center. The most important difference of the environmental effect is a wind speed. In Video 1, the wind blows from the right side to the left side of the image and its speed is high . On the other hand, in Video 2, there is very little wind .
+Fig . 3 and Fig . 4 are example frames of Video 1 and Video 2 respectively.
+
+Because smoke is transmissive, background objects behind smoke affect visibility of it. We consider that using SDM of only one frame may be heavily affected by rapid changes of moving objects or environmental structures of the background.
+So we accumulate some 8(t) about time to reduce these effects.
+Here we define the final form of SDM for a given image
+sequence V(t), described as a mathematical expression in Eq .
+(3).
+
+Lt
+
+V(t) =
+
+8(7)
+
+(3)
+
+T =t-M
+
+In this pap er, the accumulated number of time is fixed, M =
+4. Using this V(t), smoke detection is proceeded. When V(t)
+
+keeps high value, the existence of smoke must be determined.
+
+So if the adequate threshold level is set, we can apply the
+
+proposed method to, for example, the smoke alerting system.
+
+Fig. 3. An example frame of Video I. It includes smoke at near the center.
+Results of experiments using two image sequences Video 1 (dot line) and Video 2 (real line) is shown in Fig . 5. Horizontal line represents time and vertical one represents the calculated
+SDM V(t) .
+
+1906
+
+Fig. 4. An example frame of Video 2. It includes smoke at near the center.
+
+B. Experiment 2: Detection using the movie including no smoke
+In Experiment 2, we used a image sequence, Video 3, summarized in Table 1. This example does not include smoke but there exist some moving objects . Most obstructive moving objects are a gantry crane and a unfixed plastic sheet, which affect the result of smoke detection . The gantry crane keeps moving from the start frame of the image sequence to the end of it, across the field of view from the left side to the right side, at the same speed and the same direction . Plastic sheet is not fixed enough, so it moves by the effect of the wind. The camera settings and its position were same as Experiment 1.
+Fig. 6 is an example frame of Video 3. This includes the gantry crane at near the center and the plastic sheet at the right side of the image.
+
+IOr-- - ,--- -----,- - ----,- - ---,- -----r- - ----,- - ---,
+
+.'
+
+: "'.
+
+......
+
+-,,'
+
+',;
+
+o ' - -..I..-- '------ ----"- - ----"- - -----'-- -----'-- - ----'--- - ---.J
+
+o
+
+10
+
+30
+
+40
+
+50
+
+60
+
+70
+
+time(second)
+
+Fig. 5. Results of Experiment I. Dot-line represents D( t) of Video I, and real-line represents D( t) of Video 2 . Details are described in the body text.
+
+As described in Table I, both image sequences include smoke which starts its growth at time t = 0 and continues growing until the end. From the result shown in Fig. 5 , we
+find that increasing rates of V( t) are different because of the
+wind speed.
+As for Video I, the area of smoke increases as its growth as well as the its diffusion by the wind. The V(t) of Video 1 increases rapidly and reaches its maximal value around t =
+30. However, V(t) monotonically increases until t = 19. We consider that smoke is saturated and t = 19 is changing point,
+at which V(t) changes its property. So the result is that smoke
+is detected at time t = 19 in Video I.
+As for Video 2, as well as Video 1, the V(t) nearly always increases monotonically until t = 16. However, the absolute value of V(t) is smaller than Video 1'soBecause only growth of smoke is the reason for increasing its area and the diffusion of smoke by the wind does not affect. This is the most important difference affected from environmental conditions between Video 1 and Video 2.
+From Experiment 1, although environmental conditions such as the wind are different, we can conclude that SDM V(t) can captured the change by the emergence of smoke approximately in 20 seconds in both cases .
+
+Fig. 6. An example frame of Video 3. It includes a gantry crane and a plastic sheet as moving object which are obstructive to detect smoke.
+
+4 ,--- -,---- ---,-- ----,- - ,---- ---,--- ----,- -----,,------ -,--- ---,
+
+3.5
+
+~
+,,::., 2.5
+Cl ~2
+S3 1.5
+0.5
+
+/\
+c-: ,-,, ,:
+
+10
+
+20
+
+30
+
+40
+
+50
+
+60
+
+70
+
+80
+
+90
+
+time (second)
+
+Fig. 7. Results of Experiment 2. Dot-line represents D (t ) of Video 3, and real-line represents the restricted D (t ) of the regions of the gantry crane. Details are described in the body text.
+
+The results of the experiment using image sequences Video 3 is shown in Fig. 7. Horizontal and vertical line are same as Fig. 5.
+As for Video 3, V(t) rapidly increases or decreases its value. This is because there exists smoke-like object, plastic sheets on the right side of the image whole time. It moves randomly
+
+1907
+
+and accordingly has very similar characteristic properties to smoke. So we consider that the movement of plastic sheets mainly affect this result.
+However, Video 3 contains a large structure, a gantry crane, which moves across the image from the left side to the right side. To examine the effect of the gantry crane, we manually
+select the region of it and obtain V( t) shown in Fig. 7. The
+value of this restricted region's V(t) is almost 0 and it is shown that the gantry crane, relatively very large area in the image, does not affect SDM. These results show two things, one is the limitation of the proposed method and the other is the effectiveness of the texture analysis and the accumulation of both the spatial and the time. Using the proposed method, the effects of moving objects, even if they are relatively small or large, are remove. On the other hand, moving objects affected
+V( t) heavily if they have similar characteristics to smoke This
+leads us the failure detection
+V. CONCLUSION AND FURTHER WORK
+We propose the novel method for detecting smoke in image sequences. In the proposed method, we employ some image processing techniques such as image subtraction, binarization, and morphological operation, to estimate moving object regions in images. We define the detector function based on the texture features of the the smoke region, and also accumulate the values of this function about time to remove no-smoke region. Using this detector, we proceed the detection of smoke in image sequences. Even if there exist small or large moving objects in the image sequences, the detector does not affected except the moving objects have very similar characteristic properties to smoke's.
+To evaluate the proposed method, we examine the smoke detection with examples of image sequences. Experimental results show the effectiveness of the proposed method.
+There remain some problems for further works. We need a more accurate estimation of the smoke region as the result of Experiment 2 shows the limitation of the detection. To solve this problem, it will be useful using not only gray-scale but also color information of images. Another problem is to detect the accurate positional information of smoke regions. If smoke is detected, information of Feret's regions is useful to estimate positional and areal information of smoke.
+Additionally, it is needed to evaluate using more data obtained in different conditions such as day-and-night time, complex backgrounds, and moving objects of varied categories and sizes.
+One possible direction for future work is to implement the proposed method to a real-time smoke detection system. For this purpose, it is needed a change-point detection method for the time series data to evaluate the smoke detector's value. It is also useful to integrate sensors of environmental data, such as the wind, into this method.
+
+for the Promotion of Science) and the Ministry of Education, Science, Sports and Culture.
+REFERENCES
+[1] C. B. Liu and N. Ahuja, "Vision based fire detection", Proc. of the 17th International Conference on Pattern Recognition, Vol. 4, p134-p137, 2004
+[2] W. Phillips III, M. Shah, N. V. Lobo, "Flame recognition in video", Pattern Recognition Lett. 23, p319-p327, 2002
+[3] B. U. Toreyin et al. , "Computer vision based method for real-time fire and flame detection", Pattern Recognition Lett. 27, p49-p58, 2006
+[4] B. U. Toreyin, Y. Dedeoglu and A. E. Enis, "Wavelet based real-time smoke detection in video", 13th European Signal Processing Conference (EUSIPCO), 2005
+[5] B. U. Toreyin, Y. Dedeoglu and A. E. Enis, "Contour based smoke detection in video using wavelet", 14th European Signal Processing Conference (EUSIPCO), 2006
+[6] R. C. Gonzalez, R. E. Woods, Digital Image Processing, 3rd ed., Prentice Hall, 2007
+[7] S. Theodoridis, K. Koutroumbas, Pattern Recognition, 2nd ed., Academic Press, 2003
+[8] C. M. Bishop, Pattern recognition and machine learning, Springer-Verlag, 2006
+
+ACKNOWLEDGMENT
+This work is supported in part by the Grant-in-Aid for Scientific Research (No. 18310117) of JSPS (Japan Society
+
+1908
+

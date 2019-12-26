@@ -1,0 +1,172 @@
+An Overview of FlamMap Fire Modeling Capabilities
+Mark A. Finney1
+
+Introduction
+Computerized and manual systems for modeling wildland ﬁre behavior have long been available (Rothermel 1983, Andrews 1986). These systems focus on one-dimensional behaviors and assume the ﬁre geometry is a spreading line-ﬁre (in contrast with point or area-source ﬁres). Models included in these systems were developed to calculate ﬁre spread rate (Rothermel 1972, Albini 1976), ﬁre shape (Anderson 1983, Alexander 1985), spot ﬁre distance (Albini 1979, 1983) and crown ﬁre spread rate (Van Wagner 1977, Rothermel 1991). The FlamMap program was developed for extending the utility of these models to a landscape-level where the necessary inputs have been mapped using geographic information systems (GIS). This paper documents the capabilities in FlamMap 3.0 and discusses some of the uses for such capabilities.
+
+Features of FlamMap 3.0
+
+General Features
+All ﬁre behavior calculations assume that fuel moisture, wind speed, and wind direction are constant in time. FlamMap is designed, however, to examine spatial variability in ﬁre behavior, so it utilizes the same set of spatial inputs as the FARSITE ﬁre simulation system (Finney 1998). The ﬁre behavior calculations are performed independently for each cell on the gridded landscape.
+These spatial inputs include eight GIS raster themes that describe fuels and topography (Figure 1) combined into a Landscape (LCP) File. Any raster resolution (the X- and Y-dimensions of the raster cells) can be used, but all layers must be identical in resolution, extent, and co-registered. The user is required to input initial fuel moisture conditions for each surface fuel model and the fuel model parameters for any custom surface fuel models present. There are two options for using fuel moistures in the calculations,
+1. Using a ﬁxed set of fuel moistures (by surface fuel model) is the default and allows direct comparison of ﬁre behavior across the landscape because fuel moisture can be set identically for all surface fuel models.
+2. Fuel moistures conditioned by a wind and weather stream is used to calculate localized moisture contents of dead surface fuel size-classes (1hr, 10hr) that are inﬂuenced by the elevation, slope, aspect, and canopy cover (Nelson 2000).
+
+In: Andrews, Patricia L.; Butler, Bret W., comps. 2006. Fuels Management—How to Measure Success: Conference Proceedings. 28-30 March 2006; Portland, OR. Proceedings RMRS-P-41. Fort Collins, CO: U.S. Department of Agriculture, Forest Service, Rocky Mountain Research Station.
+1 USDA Forest Service, Missoula Fire Sciences Laboratory, Missoula, Montana, mﬁnney@fs.fed.us
+
+USDA Forest Service Proceedings RMRS-P-41. 2006.
+
+213
+
+Finney
+
+An Overview of FlamMap Fire Modeling Capabilities
+
+Figure 1—Input data themes required for running FlamMap are the same as those for FARSITE and are contained in a “Landscape” ﬁle constructed from ASCII Grid ﬁles that are of identical resolution, co-registered, and of equal extent.
+
+Winds are entered as a ﬁxed speed and direction or as spatial wind ﬁeld grids (separate grids for wind speed and direction) that are generated outside of FlamMap but are useful for examining ﬁre spread in complex terrain where winds are modiﬁed by topography.
+Ancillary grid and vector themes (besides those in the LCP ﬁle or outputs) can also be displayed. All grid and vector themes can be viewed in 2- or 3-dimensions. Outputs can be saved in ASCII Grid or Shapeﬁle format for import and analysis in a GIS.
+There are three calculation modes in FlamMap, basic ﬁre behavior, minimum travel time ﬁre growth, and treatment optimization.
+Basic Fire Behavior
+The simplest use of FlamMap is for use in characterizing ﬁre behavior under a constant set of environmental conditions for an entire landscape. Fire behavior can be generated for all cells on the landscape in a number of ways:
+1. For winds blowing uphill, this generates the fastest spread rate because wind will be moving in the same direction as slope.
+2. Using a single wind speed and direction combined with the slope to produce the resultant vector for ﬁre spread.
+3. Relative to the maximum direction of spread is the default that results in
+
+214
+
+USDA Forest Service Proceedings RMRS-P-41. 2006.
+
+An Overview of FlamMap Fire Modeling Capabilities
+
+Finney
+
+the heading ﬁre characteristics. A value of 90 calculates ﬁre behavior in the ﬂanking direction and 180 calculates ﬁre behavior in the backing direction. 4. For a direction relative to north (degrees azimuth) allows characterization of the ﬁre behavior in a particular direction and may be useful for looking at ﬁre progress when a speciﬁed wind direction is concerned (e.g. winds from west and specifying ﬁre spread rate to the east).
+Basic ﬁre behavior outputs are generated in raster format for surface and crown ﬁre calculations (Table 1). These can be displayed and saved to a variety image formats (Figure 2a, b). In addition, a combined output can be requested to display spread vectors that show the spread rate and maximum spread direction of the ﬁre.
+
+Minimum Travel Time
+The minimum travel time (MTT) algorithm (Finney 2002) is used in FlamMap for computing ﬁre growth between the cell corners at an arbitrary resolution. Fire growth is computed under the same assumptions as the basic ﬁre behavior – holding all environmental conditions constant in time. Thus, the MTT calculations can generate ﬁre growth in the absence of time-varying winds or moisture content which enables analysis only of the effects of spatial patterns of fuels and topography.
+To run the MTT algorithm, ignitions (points, lines, polygons), the desired resolution of the calculations (distance between nodes of a square lattice), and the maximum simulation time are required inputs. Alternatively, ignition points can be generated randomly for a speciﬁc number of ﬁres. As the name implies, MTT calculates ﬁre growth (Figure 2c) by ﬁnding the paths with the minimum ﬁre travel time among the nodes of the grid. The resolution can be selected independently of the input data resolution. This search produces both the arrival time grid which can be contoured at any time-interval to depict ﬁre progression, but also the minimum time paths (Figure 2d). These paths can be sorted by their ﬂow characteristics or prominence in affecting the landscape as measured by the magnitude of the number of nodes that burn as a result of burning through that node (i.e. logarithm of the number).
+
+Table 1—Outputs from FlamMap.
+
+Fire Behavior Value
+Fireline Intensity Flame Length Rate of Spread Heat per unit Area Horizontal Movement Rate Midﬂame Windspeed Spread Vectors Crown Fire Activity
+
+Output Type
+Raster Raster Raster Raster Raster Raster Vector Raster
+
+Solar Radiation 1-hr Dead Fuel Moisture 10-hr Dead Fuel Moisture
+
+Raster Raster Raster
+
+Units
+kW m–1 or BTU ft–1 sec–1 meters or feet M min–1 or ft min–1 or ch hr–1 kW m–2 or BTU ft–2 sec–1 M min–1 or ft min–1 or ch hr–1 mph or kph m min–1 Index, 0 1 2 or 3
+W m–2 Fraction (0.0-1.0) Fraction (0.0-1.0)
+
+USDA Forest Service Proceedings RMRS-P-41. 2006.
+
+215
+
+Finney
+
+An Overview of FlamMap Fire Modeling Capabilities
+
+Figure 2—Example outputs from FlamMap for (a) ﬁre spread rate, (b) crown ﬁre activity (0 =none, 1=surface ﬁre, 2=torching trees or passive crown ﬁre, and 3 =active crown ﬁre), (c) ﬁre progression (white perimeters) simulated using the Minimum Travel Time (MTT) method, and (d) the ﬁre travel paths produced by MTT (bold yellow lines distinguish major paths from all paths in light blue).
+
+A different suite of outputs is generated from the MTT calculations than for the basic FlamMap products (Table 2). These outputs are produced only for the area within the spreading ﬁre and are affected by the direction of ﬁre movement, revealing heading, ﬂanking, and backing spread. They will, therefore, be different from the values that are generated for outputs listed in Table 1. All ﬁre growth calculations across the landscape are performed assuming independence of ﬁre behavior among neighboring cells (e.g. the travel time across a cell does not depend on the behavior in adjacent cells). If random ignitions are selected, then the only output will be a burn probability map (0.0-1.0). These probabilities are properly interpreted as conditional probabilities, since they are conditional upon large ﬁres occurring.
+
+216
+
+USDA Forest Service Proceedings RMRS-P-41. 2006.
+
+An Overview of FlamMap Fire Modeling Capabilities
+
+Table 2—Fire behavior outputs from the Minimum Travel Time feature of FlamMap.
+
+Fire Behavior Value
+Rate of Spread Inﬂuence Grid Arrival Time Grid Fireline Intensity Grid Flow Paths Major Paths Arrival Time Contour Burn Probabilities
+
+Output Type
+Raster Raster Raster Raster Vector Vector Vector Raster
+
+Units m min–1 or ft min–1 or ch hr–1 Index (logarithm of nodes burned after this node) minutes kW m–1 or BTU ft–1 sec–1
+Interval 1/10th range 0.0-1.0
+
+Finney
+
+Fuel Treatment Optimization
+Fuel treatment optimization is accomplished using an algorithm that attempts to block the major MTT pathways with fuel treatments that are designed to slow large ﬁres (Finney 2004). Several major assumptions must be met before this process can be attempted:
+1. The speciﬁc objective of the optimization is to ﬁnd fuel treatment locations that retard the growth rate of large ﬁres. There are many objectives for fuel treatment, some of which are to provide local beneﬁts only to the area treated. However, the major assumption here is that reduction in large ﬁre growth is obtainable through the collective effect of many units occurring on the landscape (Finney 2001).
+2. Wildﬁres are larger than the fuel treatment units – this allows the analysis to focus on the directions ﬁres move rather than their start locations.
+3. Treatments are targeted to perform under a speciﬁc set of weather conditions – target conditions must be speciﬁed to contrast ﬁre behavior between the current landscape and the ideal landscape. These are often taken from the extreme weather and fuel moisture conditions associated with historic large ﬁre events for which ﬁre suppression is ineffective.
+The treatment optimization model (TOM) process requires the user to provide several sets of input data besides the target weather conditions:
+1. Ignition location – this is generally a line ﬁre or large ignition source at the upwind edge of the landscape. This ignition conﬁguration allows ﬁre movement to be calculated through the entire landscape for identifying major travel routes.
+2. An ideal landscape is required that identiﬁes the fuel conditions everywhere on the landscape where fuel treatments are possible. The changes to the ﬁve fuel layers of the LCP ﬁle (Figure 1) can vary across the landscape depending on the appropriateness of the treatment prescription. Areas where treatments are not possible remain the same as the current landscape.
+3. The resolution of the calculations has the same effect on treatment optimization as on the execution of the minimum travel time algorithm. Finer resolutions require more computations but permit greater detail in identifying treatment unit locations.
+
+USDA Forest Service Proceedings RMRS-P-41. 2006.
+
+217
+
+Finney
+
+An Overview of FlamMap Fire Modeling Capabilities
+
+4. The maximum treatment dimension is the maximum length dimension that the treatment can be, although multiple treatments may be located adjacent to one-another and form a combined area with a longer dimension than this constraint. Practically, this value should be set no ﬁner than 5 or 6 times the resolution of the calculations (i.e. #3 above) in order to allow the treatment unit to be delineated with several cell widths.
+5. The maximum fraction of the landscape that can be treated.
+The process begins by dividing the landscape into parallel strips beginning with the upwind edge. Fire growth is calculated using MTT to identify the major ﬁre movement routes and then identiﬁes intersections with areas of the landscape where the treatments change ﬁre behavior favorable to slowing the ﬁre. If such intersections are found, an iterative procedure identiﬁes the collection of grid cells that efﬁciently blocks each ﬁre travel route (Finney 2004) subject to the constraint on treatment size and total area treated.
+The outputs from TOM are similar to those from MTT (Table 2) with the addition of the treatment opportunities grid, which shows the areas where treatments spread faster, slower, or the same as the untreated landscape (values of -1, 0, or 1, respectively), and the ﬁnal treatment grid which indicates the cells which were selected for treatment (ﬂagged as 0 for untreated and 1 for treated).
+
+Discussion
+The basic ﬁre behavior calculations in FlamMap are intended for characterizing fuel hazard in ﬁre management planning. Data on ﬁre spread rate, crown ﬁre activity, and ﬂame length can be quickly calculated and displayed to spatially compare ﬁre behaviors under given weather conditions. FlamMap was used near Flagstaff, Arizona (http://forestera.nau.edu/tools_ﬁremodeling.htm) and in the Sierra Nevada Mountains of California (http://ssgic. cr.usgs.gov/Pages/mapping_nj.htm) for this purpose.
+Fire behavior calculations are at the heart of risk assessment as well because risk assessment requires an assessment of probability of ﬁre behavior occurring. Approaches to quantitative risk assessment have incorporated ﬁre behavior from FlamMap for ranges of weather conditions. Examples of such uses include the Florida Risk Assessment (http://www.ﬂ-dof.com/wildﬁre/ wf_fras.html), and the CR AFT risk assessment process (http://www.fs.fed. us/psw/topics/ﬁre_science/craft/craft/introduction.htm).
+FlamMap is also useful in the veriﬁcation process of spatial data. The ﬁre behavior calculations can easily be compared with expected behaviors for the particular ﬁre environment at each cell (i.e. fuels, weather, topography). Display of the landscape, and wind vectors, and various outputs in two- and three-dimensions is often helpful for evaluating reasonableness of the ﬁre behavior calculations.
+For fuel treatment analysis the MTT and TOM calculations allow effects of treatment on ﬁre movement to be analyzed. These capabilities are relatively new, however, and have only recently been applied beyond the research phase. However, the basic calculations in FlamMap for comparing effects of fuel treatments on ﬁre behavior have been used to illustrate the stand-level ﬁre behavior changes resulting from treatment (Stratton 2004).
+
+218
+
+USDA Forest Service Proceedings RMRS-P-41. 2006.
+
+An Overview of FlamMap Fire Modeling Capabilities
+Summary
+
+Finney
+
+Version 3.0 of FlamMap has capabilities of 1) calculating surface and crown ﬁre behaviors and moisture of ﬁne dead fuels over an entire landscape, 2) simulating ﬁre growth for constant conditions using a minimum travel time (MTT) algorithm, and 3) fuel treatment optimization modeling (TOM) for delaying the growth of large ﬁres. The basic features are useful for characterizing fuel hazard or potential behavior under speciﬁed environmental conditions. New features of MTT and TOM have potential for analyzing ﬁre movement and fuel treatment interactions.
+
+Acknowledgments
+Development of FlamMap (available at http://ﬁre.org) has been funded by grants from Joint Fire Sciences and from the Bureau of Land Management. Programming of the graphic interface of FlamMap was accomplished by Stuart Brittain of Systems for Environmental Management. The help system was developed by Rob Seli (U.S. Forest Service). Rick Stratton provided Invaluable testing and feedback on FlamMap features during development.
+
+Literature Cited
+Albini, F.A. 1976. Estimating wildﬁre behavior and effects. USDA For. Serv. Gen. Tech. Rep. INT-30.
+Albini, F.A. 1979. Spot ﬁre distance from burning trees- a predictive model. USDA For. Serv. Gen. Tech. Rep. INT-56.
+Albini, F.A. 1983. Potential spotting distance from wind-driven surface ﬁres. USDA For. Serv. Res. Pap. INT-309.
+Alexander, M.E. 1985. Estimating the length-to-breadth ratio of elliptical forest ﬁre patterns. pp. 287-304 Proc. 8th Conf. Fire and Forest Meteorology.
+Anderson, H.E. 1983. Predicting wind-driven wildland ﬁre size and shape. USDA For. Serv. Res. Pap. INT-305.
+Andrews, P.L. 1986. BEHAVE: ﬁre behavior prediction and fuel modeling systemBURN subsystem, Part 1. USDA For. Serv. Gen. Tech. Rep. INT-194.
+Finney, M.A. 1998. FARSITE: Fire Area Simulator – model development and evaluation. USDA For. Serv. Res. Pap. RMRS-RP-4. 47p.
+Finney, M.A. 2001. Design of regular landscape fuel treatment patterns for modifying ﬁre growth and behavior. For. Sci. 47(2):219-228.
+Finney, M.A. 2002. Fire growth using minimum travel time methods. Can. J. For. Res. 32(8):1420-1424.
+Finney, M.A. 2004. Chapter 9, Landscape ﬁre simulation and fuel treatment optimization. In: J.L. Hayes, A.A. Ager, J.R. Barbour, (tech. eds). Methods for integrated modeling of landscape change: Interior Northwest Landscape Analysis System. PNW-GTR-610. p 117-131.
+Nelson, R.M. 2000. Prediction of diurnal change in 10-h fuel stick moisture content. Can J. For Res. 30:1071-1087.
+Rothermel, R.C. 1972. A mathematical model for predicting ﬁre spread in wildland fuels. USDA For. Serv. Res. Pap. INT-115.
+
+USDA Forest Service Proceedings RMRS-P-41. 2006.
+
+219
+
+Finney
+
+An Overview of FlamMap Fire Modeling Capabilities
+
+Rothermel, R.C. 1983. How to predict the spread and intensity of forest and range ﬁres. USDA For. Serv. Gen. Tech. Rep. INT-143.
+Rothermel, R.C. 1991. Predicting behavior and size of crown ﬁres in the northern Rocky Mountains. USDA For. Serv. Res. Pap. INT-438.
+Stratton, R.D. 2004. Assessing the effectiveness of landscape fuel treatments on ﬁre growth and behavior. J. For. October 2004: 32-40.
+Van Wagner, C.E. 1977. Conditions for the start and spread of crownﬁre. Can. J. For. Res. 7:23-24.
+
+220
+
+USDA Forest Service Proceedings RMRS-P-41. 2006.
+

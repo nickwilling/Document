@@ -1,0 +1,77 @@
+
+Donate to arXiv
+
+Please join the Simons Foundation and our generous member organizations in supporting arXiv during our giving campaign September 23-27. 100% of your contribution will fund improvements and new initiatives to benefit arXiv's global scientific community.
+DONATE
+
+[secure site, no need to create account]
+Skip to main content
+Cornell University
+We gratefully acknowledge support from
+the Simons Foundation and member institutions.
+arXiv.org > cs > arXiv:1708.08750
+
+Help | Advanced Search
+Search
+Full-text links:
+Download:
+
+    PDF only
+
+( license )
+Current browse context:
+cs.CY
+< prev  |  next >
+new  | recent  | 1708
+Change to browse by:
+cs
+cs.LG
+References & Citations
+
+    NASA ADS
+
+DBLP - CS Bibliography
+listing | bibtex
+Allan Melvin Andrew
+Ammar Zakaria
+Shaharil Mad Saad
+Ali Yeon Md Shakaff
+Export citation
+Google Scholar
+Bookmark
+BibSonomy logo Mendeley logo Reddit logo ScienceWISE logo
+Computer Science > Computers and Society
+Title: Multi-Stage Feature Selection Based Intelligent Classifier for Classification of Incipient Stage Fire in Building
+Authors: Allan Melvin Andrew , Ammar Zakaria , Shaharil Mad Saad , Ali Yeon Md Shakaff
+(Submitted on 12 Aug 2017)
+
+    Abstract: In this study, an early fire detection algorithm has been proposed based on low cost array sensing system, utilizing gas sensors, dust particles and ambient sensors such as temperature and humidity sensor. The odor or smell-print emanated from various fire sources and building construction materials at early stage are measured. For this purpose, odor profile data from five common fire sources and three common building construction materials were used to develop the classification model. Normalized feature extractions of the smell print data were performed before subjected to prediction classifier. These features represent the odor signals in the time domain. The obtained features undergo the proposed multi-stage feature selection technique and lastly, further reduced by Principal Component Analysis (PCA), a dimension reduction technique. The hybrid PCA-PNN based approach has been applied on different datasets from in-house developed system and the portable electronic nose unit. Experimental classification results show that the dimension reduction process performed by PCA has improved the classification accuracy and provided high reliability, regardless of ambient temperature and humidity variation, baseline sensor drift, the different gas concentration level and exposure towards different heating temperature range. 
+
+Comments: 	electronic nose; gas sensors; fire detection; feature selection; feature fusion; Artificial intelligence, machine learning, neural networks, remote sensing, decision support
+Subjects: 	Computers and Society (cs.CY) ; Machine Learning (cs.LG)
+Journal reference: 	Sensors 2016, 16, 31
+DOI : 	10.3390/s16010031
+Cite as: 	arXiv:1708.08750 [cs.CY]
+  	(or arXiv:1708.08750v1 [cs.CY] for this version)
+Bibliographic data
+[ Enable Bibex ( What is Bibex? )]
+Submission history
+From: Allan Melvin Andrew [ view email ]
+[v1] Sat, 12 Aug 2017 09:54:45 UTC (890 KB)
+Which authors of this paper are endorsers? | Disable MathJax ( What is MathJax? ) Browse v0.2.1 released 2019-04-18    Feedback?
+
+    About arXiv
+    Leadership Team
+
+    Contact Us
+    Follow us on Twitter
+
+    Help
+    Privacy Policy
+
+    Blog
+    Subscribe
+
+arXiv® is a registered trademark of Cornell University.
+
+If you have a disability and are having trouble accessing information on this website or need materials in an alternate format, contact web-accessibility@cornell.edu for assistance.
